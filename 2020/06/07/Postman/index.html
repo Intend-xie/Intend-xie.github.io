@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Description-->
+    
+        <meta name="description" content="此文仅是本人学习笔记。
+1、什么是接口用于处理各个系统各个模块之间的数据。
+2、接口的组成
+
+
+组成
+描述
+
+
+
+URL
+接口地址
+
+
+Method
+接口类型
+
+
+Code
+状态码
+
+
+Headers
+请求头
+
+
+Response
+返回数据
+
+
+Data
+接口发送数据
+
+
+3、Postman基础用法">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="xiexy">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Postman接口测试"/>
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Intend blog"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content=""/>
+    
+
+    <!-- Title -->
+    
+    <title>Postman接口测试 - Intend blog</title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/sass/main.css">
+
+
+    <!--[if lt IE 8]>
+        
+<script src="/js/ie/html5shiv.js"></script>
+
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        
+<link rel="stylesheet" href="/sass/ie8.css">
+
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        
+<link rel="stylesheet" href="/sass/ie9.css">
+
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <!-- Header -->
+<header id="header">
+    <div class="inner">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="symbol"><img src="/images/logo.svg" alt="" /></span><span class="title">Intend blog</span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+    <h2>Menu</h2>
+    <ul>
+        
+            <li>
+                <a href="/">Home</a>
+            </li>
+        
+            <li>
+                <a href="/archives">Archives</a>
+            </li>
+        
+            <li>
+                <a href="/about.html">About</a>
+            </li>
+        
+    </ul>
+</nav>
+
+
+        <div id="main">
+            <div class="inner">
+
+                <!-- Main Content -->
+                
+
+    <h1>Postman接口测试</h1>
+
+
+
+<!-- Gallery -->
+
+
+<!-- Content -->
+<p>此文仅是本人学习笔记。</p>
+<h2 id="1、什么是接口"><a href="#1、什么是接口" class="headerlink" title="1、什么是接口"></a>1、什么是接口</h2><p>用于处理各个系统各个模块之间的数据。</p>
+<h2 id="2、接口的组成"><a href="#2、接口的组成" class="headerlink" title="2、接口的组成"></a>2、接口的组成</h2><table>
+<thead>
+<tr>
+<th>组成</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>URL</td>
+<td>接口地址</td>
+</tr>
+<tr>
+<td>Method</td>
+<td>接口类型</td>
+</tr>
+<tr>
+<td>Code</td>
+<td>状态码</td>
+</tr>
+<tr>
+<td>Headers</td>
+<td>请求头</td>
+</tr>
+<tr>
+<td>Response</td>
+<td>返回数据</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>接口发送数据</td>
+</tr>
+</tbody></table>
+<h2 id="3、Postman基础用法介绍"><a href="#3、Postman基础用法介绍" class="headerlink" title="3、Postman基础用法介绍"></a>3、Postman基础用法介绍</h2><h3 id="1-用法"><a href="#1-用法" class="headerlink" title="(1)用法"></a>(1)用法</h3><p>选择接口类型，填写接口地址、请求头，点击send可获取返回数据。</p>
+<h3 id="2-发送数据的接口"><a href="#2-发送数据的接口" class="headerlink" title="(2)发送数据的接口"></a>(2)发送数据的接口</h3><p>①Get的发送数据<br>发送的数据之间写在URL，通过“？”间隔数据和地址<br>参数和参数之间用“&amp;”间隔（也可通过params直接输入）</p>
+<p>②Post的发送数据<br>数据填写到body里面，按照接口文档的内容选择的发送—-请求头有写明<br>方式：form-data、x-www-form-urlencoded、raw、binary（具体可自行百度）<br>其中row又分为text、js、josn、html、xml</p>
+<p>③注意：get和post类型接口的区别和特点<br>Get：数据直接在URL显示出来<br>     区别：输入参数长度有限制，所有数据直接显示在URL中可见，不安全。<br>     特点：一般使用get型的接口，是从数据库中去读取数据、查询比较多。<br>Post：post和get相反，数据输入于body中<br>     区别：输入的数据内容、大小没有限制，数据不能直接看到，更安全。<br>     特点：一般是对数据库写入、修改比较多。</p>
+<p>④    Josn的格式：<br>{“key1”:“value”， “key2”:“value”， “key3”:{ “key”:“value”} }<br>▪前后用{}包裹起来<br>▪由key和value组成—-key为参数，value为值，中间用“：”隔开<br>▪所有符号为英文标点符号<br>▪两个参数用“，”隔开，最后一个不用<br>▪JOSN格式里可以套用JOSN格式</p>
+<h3 id="3-状态码的含义"><a href="#3-状态码的含义" class="headerlink" title="(3)状态码的含义"></a>(3)状态码的含义</h3><p>①常见状态码：<br>200：代表这个借口运行正常<br>400：接口发送的参数不正确<br>404：接口地址输入不正确<br>405：接口类型不正确<br>500：代表接口的代码有问题，内部服务器错误<br>②其他状态码：401,402,303,406,408…（可自行百度）</p>
+<h2 id="4、postman传递token参数，实现接口测试"><a href="#4、postman传递token参数，实现接口测试" class="headerlink" title="4、postman传递token参数，实现接口测试"></a>4、postman传递token参数，实现接口测试</h2><p>⑴这里先设置环境变量，系统入口url在每个接口中都一样，设置成环境变量，便于维护。环境变量集名：rds。两个变量：url , token （token是为了下一步准准备）。<br>⑵新建登录接口请求，设置params(登录接口的账户&amp;密码)。发请求到登录后，获取token。<br>⑶在Tests里面编写脚本，将获取到的token设置到环境变量token中。 同时Tests里面也可以加断言，判断该接口测试的结果。<br>⑷登录接口测试完后，查看环境变量，token值已被保存。</p>
+<h2 id="5、变量"><a href="#5、变量" class="headerlink" title="5、变量"></a>5、变量</h2><p>分类：可分为全局变量和局部变量<br>区别：局部变量要选择变量才能生效<br>      全局变量不选择也会生效<br>步骤：<br>第一步：点击眼睛按钮进入局部变量<br>第二步：点击Add添加局部变量<br>第三步：点击输入参数（VARIABLE和CURRENT VALUE）<br>第四步：点击Add保存参数<br>第五步：点击切换参数<br>第六步：将要参数改为变量:替换为｛｛参数名｝｝后，点击send运行，得出结果</p>
+<h2 id="6、自定义脚本：JavaScript"><a href="#6、自定义脚本：JavaScript" class="headerlink" title="6、自定义脚本：JavaScript"></a>6、自定义脚本：JavaScript</h2><h3 id="1-脚本的区别："><a href="#1-脚本的区别：" class="headerlink" title="(1)脚本的区别："></a>(1)脚本的区别：</h3><p>Pre-request Script：控制发送的数据<br>Tests：控制返回的结果</p>
+<h3 id="2-常用代码："><a href="#2-常用代码：" class="headerlink" title="(2)常用代码："></a>(2)常用代码：</h3><p>官方说明文档：<a href="https://learning.postman.com/docs/postman/scripts/postman-sandbox-api-reference/" target="_blank" rel="noopener">https://learning.postman.com/docs/postman/scripts/postman-sandbox-api-reference/</a></p>
+<p>常用代码片段：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取response返回内容</span></span><br><span class="line"><span class="keyword">var</span> rsb = responseBody; <span class="comment">// 是字符串格式</span></span><br><span class="line"><span class="keyword">var</span> res = JOSN.parse(responseBody);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 获取环境变量</span></span><br><span class="line"><span class="keyword">var</span> v = pm.environment.get(<span class="string">"变量名称"</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 设置环境变量 只能存储字符串，如果是对象的话则无法在下次运行时获取到内容</span></span><br><span class="line"><span class="comment">// 如需要存储JSON数据，可以用JSON.stringify(..)存储，再用JSON.parse(..)转化为对象使用</span></span><br><span class="line">pm.environment.set(<span class="string">"变量名称"</span>, 变量内容);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 清除某个环境变量</span></span><br><span class="line">pm.environment.unset(<span class="string">"环境变量名"</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 获取全局变量和普通变量</span></span><br><span class="line"><span class="keyword">var</span> gb = pm.globals.get(<span class="string">"全局变量名"</span>);</span><br><span class="line"><span class="keyword">var</span> nm = pm.variables.get(<span class="string">"普通变量名"</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// Javascript 获取变量类型</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="keyword">typeof</span> pm.enviroment );</span><br></pre></td></tr></table></figure>
+<h2 id="7、断言：自动判断是否成功"><a href="#7、断言：自动判断是否成功" class="headerlink" title="7、断言：自动判断是否成功"></a>7、断言：自动判断是否成功</h2><p>官方说明文档：<a href="https://learning.getpostman.com/docs/postman/scripts/test_examples/" target="_blank" rel="noopener">https://learning.getpostman.com/docs/postman/scripts/test_examples/</a><br>断言语句参考：<a href="https://www.cnblogs.com/liruxian/p/10001539.html" target="_blank" rel="noopener">https://www.cnblogs.com/liruxian/p/10001539.html</a></p>
+<p>举例说明：解析响应正文，并判断statusCode的值是200，message的值是”Success”<br>操作：我们需要解析JSON串了，所以，在SNIPPETS中找到”Response body:JSON value check”并点击，在其左边，断言代码自动添加，对代码进行修改：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pm.expect(jsonData.value).to.eql(<span class="number">200</span>);    <span class="comment">//判断statusCode的值是200</span></span><br><span class="line">pm.expect(jsonData.value).to.eql(<span class="string">'Success'</span>);    <span class="comment">//判断message的值是”Success”</span></span><br></pre></td></tr></table></figure>
+<p>点击Send，发送请求，PASS表示断言通过，FAIL表示断言失败。</p>
+
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    <a href="/tags/测试/" class="button small">测试</a>
+</div>
+
+
+
+<!-- Comments -->
+<div>
+    
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+</div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <!-- <section>
+            <h2>About</h2>
+            <div>
+                
+            </div>
+        </section> -->
+        <section>
+            <h2>Follow</h2>
+            <ul class="icons">
+                
+                    <li><a href="\#" class="icon style2 fa-twitter" target="_blank" ><span class="label">Twitter</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-facebook" target="_blank" ><span class="label">Facebook</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-instagram" target="_blank" ><span class="label">Instagram</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-dribbble" target="_blank" ><span class="label">Dribbble</span></a></li>
+                
+                
+                    <li><a href="https://github.com/Intend-xie" class="icon style2 fa-github" target="_blank" ><span class="label">GitHub</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-google-plus" target="_blank" ><span class="label">Google+</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-behance" target="_blank" ><span class="label">Behance</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-500px" target="_blank" ><span class="label">500px</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-envelope-o" target="_blank" ><span class="label">Email</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-rss" target="_blank" ><span class="label">RSS</span></a></li>
+                
+            </ul>
+        </section>
+        <!-- <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved</li>
+            <li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+            <li>Hexo: <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></li>
+        </ul> -->
+    </div>
+</footer>
+    </div>
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- skel -->
+
+<script src="/js/skel.min.js"></script>
+
+
+<!-- Custom Code -->
+
+<script src="/js/util.js"></script>
+
+
+<!--[if lte IE 8]>
+
+<script src="/js/ie/respond.min.js"></script>
+
+<![endif]-->
+
+<!-- Custom Code -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'klugjo';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+</body>
+
+</html>

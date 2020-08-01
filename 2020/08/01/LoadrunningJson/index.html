@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Description-->
+    
+        <meta name="description" content="此文仅是本人学习笔记。
+问题：loadrunning怎么请求json参数：request payload{“pageNo”:1,”perPageSize”:10,”type”:”c”,”companyId”:”CF9111CB233F46C290F662E0FAFA3F25”,”year”:2020">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="xiexy">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Loadrunning的web_custom_request函数"/>
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Intend blog"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content=""/>
+    
+
+    <!-- Title -->
+    
+    <title>Loadrunning的web_custom_request函数 - Intend blog</title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/sass/main.css">
+
+
+    <!--[if lt IE 8]>
+        
+<script src="/js/ie/html5shiv.js"></script>
+
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        
+<link rel="stylesheet" href="/sass/ie8.css">
+
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        
+<link rel="stylesheet" href="/sass/ie9.css">
+
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <!-- Header -->
+<header id="header">
+    <div class="inner">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="symbol"><img src="/images/logo.svg" alt="" /></span><span class="title">Intend blog</span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+    <h2>Menu</h2>
+    <ul>
+        
+            <li>
+                <a href="/">Home</a>
+            </li>
+        
+            <li>
+                <a href="/archives">Archives</a>
+            </li>
+        
+            <li>
+                <a href="/about.html">About</a>
+            </li>
+        
+    </ul>
+</nav>
+
+
+        <div id="main">
+            <div class="inner">
+
+                <!-- Main Content -->
+                
+
+    <h1>Loadrunning的web_custom_request函数</h1>
+
+
+
+<!-- Gallery -->
+
+
+<!-- Content -->
+<p>此文仅是本人学习笔记。</p>
+<h2 id="问题：loadrunning怎么请求json参数："><a href="#问题：loadrunning怎么请求json参数：" class="headerlink" title="问题：loadrunning怎么请求json参数："></a>问题：loadrunning怎么请求json参数：</h2><p>request payload<br>{“pageNo”:1,”perPageSize”:10,”type”:”c”,”companyId”:”CF9111CB233F46C290F662E0FAFA3F25”,”year”:2020}<br>应该怎么请求？<br>用web_submit_data()函数，在回放脚本时，发现返回的数据总数返回上一接口的返回数据。<br><img src="/images/LoadrunningJson1.png" alt="问题"></p>
+<h2 id="如何解决："><a href="#如何解决：" class="headerlink" title="如何解决："></a>如何解决：</h2><h3 id="1、什么是request-payload"><a href="#1、什么是request-payload" class="headerlink" title="1、什么是request payload"></a>1、什么是request payload</h3><p>Request Payload更准确的说是http request的payload body。一般用在数据通过POST请求或者PUT请求。它是HTTP请求中空行的后面那部分。（PS:这里涉及一个http常被问到的问题，http请求由哪几部分组成，一般是请求行，请求头，空行，请求体。payload body应该是对应请求体。）<br>这种请求 Content-Type 为 application/json，浏览器会认为这是复杂请求，先执行一次 OPTIONS 请求判断是否合法，如果服务器没有给出正确的回应，浏览器会在控制台报错：跨域请求。<br>具体可进入链接了解：<a href="https://segmentfault.com/a/1190000018774494" target="_blank" rel="noopener">https://segmentfault.com/a/1190000018774494</a></p>
+<h3 id="2、web-custom-request函数介绍"><a href="#2、web-custom-request函数介绍" class="headerlink" title="2、web_custom_request函数介绍"></a>2、web_custom_request函数介绍</h3><p>LoadRunner提供的web_custom_request函数可以用于实现参数的动态生成。在LoadRunner中，web_reg_save_param和custom_request都常于处理参数的动态生成。<br>web_reg_save_param函数是大家都已经熟悉的了，它的主要作用是从一个response中获得后续的request需要使用的数据，然后将其作为一个参数保存下来，供后续步骤使用。该方法在LoadRunner中被称为Correlation（关联）。<br>而web_custom_request函数则可以用于完全自定义向服务端发送的request。<br>web_custom_request方法的原型是：<br>int web_custom_request (const char *RequestName, <List of Attributes>,[EXTRARES, <List of Resource Attributes>,] LAST );<br>其中List of Attributes的主要项目是Method，URL和BODY等。</p>
+<h3 id="3、LoadRunner中web-custom-request-和-web-submit-data的差别"><a href="#3、LoadRunner中web-custom-request-和-web-submit-data的差别" class="headerlink" title="3、LoadRunner中web_custom_request 和 web_submit_data的差别"></a>3、LoadRunner中web_custom_request 和 web_submit_data的差别</h3><p>(1)实现的功能不同<br>web_submit_data只能发送POST类型的请求。<br>web_custom_request方法可以发送POST和GET类型的请求。<br>(2)请求数据提交方式不同<br>web_submit_data以”Name=属性名称,”,”Value=属性值” 方式提交数据。<br>web_custom_request以”Body=属性名称=属性值&amp;属性名称=属性值”方式提交数据。<br>(3)上下文依赖不同<br>web_submit_data不依赖上下文，不管是否打开模块的链接页面，就直接向服务器发送post请求。<br>web_custom_request：会依赖上下文，即如果前面的页面打开失败或没有打开，则该操作就会失败，如：登陆一个论坛成功后，点击某个板块，然后发帖(写入帖子题目和内容，提交，相当于向服务器发送了一个post请求)，如果点击某个模块后打开链接页面失败，则web_custom_request就会失败，即依赖于板块的链接页面是否成功打开，如果没有打开，就不能进行后面的发帖了。</p>
+<h3 id="4、为什么选择web-custom-request函数自定义请求"><a href="#4、为什么选择web-custom-request函数自定义请求" class="headerlink" title="4、为什么选择web_custom_request函数自定义请求"></a>4、为什么选择web_custom_request函数自定义请求</h3><p>web_custom_request函数自定义请求，所有web_submit_data方法发送的请求都可以使用web_custom_request来实现，web_custom_request可以实现web_submit_data无法实现的请求。<br>如：<br>“Name=pageNo”, “Value=1”, ENDITEM,<br>“Name=pdVersionId”, “Value=&quot;2001&quot;“, ENDITEM,<br>“Name=perPageSize”, “Value=30”, ENDITEM,<br>“Name=projectType”, “Value=&quot;3&quot;“, ENDITEM,<br>“Name=year”, “Value=&quot;2020&quot;“, ENDITEM,<br>如果我们想提交的某个属性包含包含多个值，它就无法处理了，只能通过多个web_submit_data来处理。</p>
+<h3 id="5、了解web-custom-request的参数"><a href="#5、了解web-custom-request的参数" class="headerlink" title="5、了解web_custom_request的参数"></a>5、了解web_custom_request的参数</h3><p>URL -  统一资源定位器，通常为请求链接地址<br>Method -  请求方法：POST、GET<br>TargetFrame -  包含当前链接或资源的frame的名称<br>EncType -  提交请求使用的编码类型(type of encoding)。EncType指定“Content-Type”请求头的值，比如“text/html”。web_custom_request不处理未编码的请求体。Body参数指定的请求体会使用指定的编码。<br>RecContentType -  指定了Content–Type  响应头的类型，比如text/html,application/x-javascript。当没有设置Resource属性时，用它来确定目标URL是否是可录制的资源。<br>Refer -  指定引用的页面<br>Body -  请求体<br>Mode - 录制级别：HTML、HTTP<br>可通过下方链接了解，这里就不具体描述，只描述我用到的。<br><a href="https://blog.csdn.net/huilan_same/article/details/51603855?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param" target="_blank" rel="noopener">https://blog.csdn.net/huilan_same/article/details/51603855?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param</a></p>
+<h3 id="6、解决代码"><a href="#6、解决代码" class="headerlink" title="6、解决代码"></a>6、解决代码</h3><p>代码如下：<br>web_custom_request(“getProjectList”,<br>“URL=<a href="http://19.111.49.70/cacz/project/businessexpenditure/specialproject/specialprojectlist/getProjectList&quot;" target="_blank" rel="noopener">http://19.111.49.70/cacz/project/businessexpenditure/specialproject/specialprojectlist/getProjectList&quot;</a>,<br>“Method=POST”,<br>“RecContentType=application/json”,<br>“EncType=application/json”,<br>“Mode=HTML”,<br>“Body={&quot;pageNo&quot;:1,&quot;perPageSize&quot;:10,&quot;type&quot;:&quot;c&quot;,&quot;companyId&quot;:&quot;CF9111CB233F46C290F662E0FAFA3F25&quot;,&quot;year&quot;:2020},<br>LAST);</p>
+
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    
+</div>
+
+
+
+<!-- Comments -->
+<div>
+    
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+</div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <!-- <section>
+            <h2>About</h2>
+            <div>
+                
+            </div>
+        </section> -->
+        <section>
+            <h2>Follow</h2>
+            <ul class="icons">
+                
+                    <li><a href="\#" class="icon style2 fa-twitter" target="_blank" ><span class="label">Twitter</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-facebook" target="_blank" ><span class="label">Facebook</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-instagram" target="_blank" ><span class="label">Instagram</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-dribbble" target="_blank" ><span class="label">Dribbble</span></a></li>
+                
+                
+                    <li><a href="https://github.com/Intend-xie" class="icon style2 fa-github" target="_blank" ><span class="label">GitHub</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-google-plus" target="_blank" ><span class="label">Google+</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-behance" target="_blank" ><span class="label">Behance</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-500px" target="_blank" ><span class="label">500px</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-envelope-o" target="_blank" ><span class="label">Email</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-rss" target="_blank" ><span class="label">RSS</span></a></li>
+                
+            </ul>
+        </section>
+        <!-- <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved</li>
+            <li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+            <li>Hexo: <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></li>
+        </ul> -->
+    </div>
+</footer>
+    </div>
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- skel -->
+
+<script src="/js/skel.min.js"></script>
+
+
+<!-- Custom Code -->
+
+<script src="/js/util.js"></script>
+
+
+<!--[if lte IE 8]>
+
+<script src="/js/ie/respond.min.js"></script>
+
+<![endif]-->
+
+<!-- Custom Code -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'klugjo';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+</body>
+
+</html>

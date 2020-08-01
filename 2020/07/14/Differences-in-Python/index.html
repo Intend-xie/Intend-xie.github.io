@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Description-->
+    
+        <meta name="description" content="此文仅是本人学习笔记。文章来源：https://www.cnblogs.com/sqm724/p/13294061.html?utm_source=tuicool
+区别一:print语法使用
+Python2.7  print语法使用  &amp;gt;&amp;gt;&amp;gt; print “Hello Python">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="xiexy">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Python2.7和3.7区别"/>
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Intend blog"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content=""/>
+    
+
+    <!-- Title -->
+    
+    <title>Python2.7和3.7区别 - Intend blog</title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/sass/main.css">
+
+
+    <!--[if lt IE 8]>
+        
+<script src="/js/ie/html5shiv.js"></script>
+
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        
+<link rel="stylesheet" href="/sass/ie8.css">
+
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        
+<link rel="stylesheet" href="/sass/ie9.css">
+
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <!-- Header -->
+<header id="header">
+    <div class="inner">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="symbol"><img src="/images/logo.svg" alt="" /></span><span class="title">Intend blog</span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+    <h2>Menu</h2>
+    <ul>
+        
+            <li>
+                <a href="/">Home</a>
+            </li>
+        
+            <li>
+                <a href="/archives">Archives</a>
+            </li>
+        
+            <li>
+                <a href="/about.html">About</a>
+            </li>
+        
+    </ul>
+</nav>
+
+
+        <div id="main">
+            <div class="inner">
+
+                <!-- Main Content -->
+                
+
+    <h1>Python2.7和3.7区别</h1>
+
+
+
+<!-- Gallery -->
+
+
+<!-- Content -->
+<p>此文仅是本人学习笔记。<br>文章来源：<a href="https://www.cnblogs.com/sqm724/p/13294061.html?utm_source=tuicool" target="_blank" rel="noopener">https://www.cnblogs.com/sqm724/p/13294061.html?utm_source=tuicool</a></p>
+<p><strong>区别一:print语法使用</strong></p>
+<p>Python2.7  print语法使用  &gt;&gt;&gt; print “Hello Python”<br>Python3.7  print语法使用  &gt;&gt;&gt; print(“Hello Python”)</p>
+<p>例子:在Python 3.7.0使用双引号触发SyntaxError异常机制 提示Did you mean </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print <span class="string">"Hello Python3.7"</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"Hello Python3.7"</span>)</span><br></pre></td></tr></table></figure>
+<p>print 换行和不换行区别<br>python 2.7 print 不换行使用”,”即可<br>python 3.7 print 不换行使用end=””</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="string">"a"</span></span><br><span class="line">y = <span class="string">"b"</span></span><br><span class="line"></span><br><span class="line">print(x)</span><br><span class="line">print(y,end=<span class="string">""</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>区别二: raw_input()和input()</strong></p>
+<p>Python 2.7  raw_input()  input() 都存在 可使用    raw_input()接收字符串string  input()接收数字int /flot.<br>Python 3.7  raw_input()不存在  仅存在input()   两者合并  接收任意格式 返回string</p>
+<p><strong>区别三: 函数cmp()</strong></p>
+<p>python 2.7   cmp(x,y)函数用于比较2个对象，如果 x &lt; y 返回 -1, 如果 x == y 返回 0, 如果 x &gt; y 返回 1<br>python3.7    cmp()已经不存在了,如果你需要实现比较功能，需要引入 operator 模块，适合任何对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> operator</span><br><span class="line">operator.eq(<span class="string">'hello'</span>, <span class="string">'name'</span>);   <span class="comment">//False</span></span><br><span class="line">operator.eq(<span class="string">'hello'</span>, <span class="string">'hello'</span>);   <span class="comment">//True</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>区别四:string 字母 大小写字符串</strong></p>
+<p>string.letters:包含所有字母（大写或小写）的字符串<br>Python 3.0中，string.ascii_letters.</p>
+
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    <a href="/tags/Python/" class="button small">Python</a>
+</div>
+
+
+
+<!-- Comments -->
+<div>
+    
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+</div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <!-- <section>
+            <h2>About</h2>
+            <div>
+                
+            </div>
+        </section> -->
+        <section>
+            <h2>Follow</h2>
+            <ul class="icons">
+                
+                    <li><a href="\#" class="icon style2 fa-twitter" target="_blank" ><span class="label">Twitter</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-facebook" target="_blank" ><span class="label">Facebook</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-instagram" target="_blank" ><span class="label">Instagram</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-dribbble" target="_blank" ><span class="label">Dribbble</span></a></li>
+                
+                
+                    <li><a href="https://github.com/Intend-xie" class="icon style2 fa-github" target="_blank" ><span class="label">GitHub</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-google-plus" target="_blank" ><span class="label">Google+</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-behance" target="_blank" ><span class="label">Behance</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-500px" target="_blank" ><span class="label">500px</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-envelope-o" target="_blank" ><span class="label">Email</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-rss" target="_blank" ><span class="label">RSS</span></a></li>
+                
+            </ul>
+        </section>
+        <!-- <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved</li>
+            <li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+            <li>Hexo: <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></li>
+        </ul> -->
+    </div>
+</footer>
+    </div>
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- skel -->
+
+<script src="/js/skel.min.js"></script>
+
+
+<!-- Custom Code -->
+
+<script src="/js/util.js"></script>
+
+
+<!--[if lte IE 8]>
+
+<script src="/js/ie/respond.min.js"></script>
+
+<![endif]-->
+
+<!-- Custom Code -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'klugjo';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+</body>
+
+</html>

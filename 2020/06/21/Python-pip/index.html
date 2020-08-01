@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Description-->
+    
+        <meta name="description" content="此文仅是本人学习笔记。
+问题：python安装后pip用不了，但是cmd命令窗口提示：Did not provide a command首先，使用where pip找到pip的安装目录，我的目录为第三个，D:\Python\Python38\Scripts\pip.exe其次，配置环境变量打开环境变">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="xiexy">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="CMD命令模式使用pip提示Did not provide a command"/>
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Intend blog"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content=""/>
+    
+
+    <!-- Title -->
+    
+    <title>CMD命令模式使用pip提示Did not provide a command - Intend blog</title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/sass/main.css">
+
+
+    <!--[if lt IE 8]>
+        
+<script src="/js/ie/html5shiv.js"></script>
+
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        
+<link rel="stylesheet" href="/sass/ie8.css">
+
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        
+<link rel="stylesheet" href="/sass/ie9.css">
+
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <!-- Header -->
+<header id="header">
+    <div class="inner">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="symbol"><img src="/images/logo.svg" alt="" /></span><span class="title">Intend blog</span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+    <h2>Menu</h2>
+    <ul>
+        
+            <li>
+                <a href="/">Home</a>
+            </li>
+        
+            <li>
+                <a href="/archives">Archives</a>
+            </li>
+        
+            <li>
+                <a href="/about.html">About</a>
+            </li>
+        
+    </ul>
+</nav>
+
+
+        <div id="main">
+            <div class="inner">
+
+                <!-- Main Content -->
+                
+
+    <h1>CMD命令模式使用pip提示Did not provide a command</h1>
+
+
+
+<!-- Gallery -->
+
+
+<!-- Content -->
+<p>此文仅是本人学习笔记。</p>
+<p>问题：python安装后pip用不了，但是cmd命令窗口提示：Did not provide a command<br><img src="/images/Python-pip1.png" alt="问题"><br>首先，使用where pip找到pip的安装目录，我的目录为第三个，D:\Python\Python38\Scripts\pip.exe<br><img src="/images/Python-pip2.png" alt="pip目录"><br>其次，配置环境变量<br>打开环境变量配置窗口：此电脑–》属性–》左上侧的高级系统设置–》高级–》环境变量<br>在之前的环境变量Path最后添加，如果最后已经有英文的“;”分号，则不需要添加分号了，直接添加你的目录。如果没有则在后面添加英文分号“;”和你的pip目录，我的为“D:\Python\Python38\Scripts\”，添加完成之后，最好是在内容的最后面直接添加一个英文的“;”，习惯问题，方便下次配置其他环境变量时忘记添加而造成不能使用。<br><img src="/images/Python-pip3.png" alt="修改环境变量"><br>因此每次使用pip命令安装东西的时候都需要先进入到pip所在目录去执行pip install。—-这样的操作比较麻烦。<br>因此我在使用pip命令的时候做了区分，我直接使用pip3(因为我的版本是3.0的)，发现环境变量配置的确实没有问题，原来使用pip3来执行装就可以了<br><img src="/images/Python-pip4.png" alt="区分pip"><br>所以在安装的时候使用pip3 install 来进行安装就可以了。<br>注意：如果您的版本是pip2，那么就用pip2 install来安装就可以了。</p>
+
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    <a href="/tags/Python/" class="button small">Python</a>
+</div>
+
+
+
+<!-- Comments -->
+<div>
+    
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+</div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <!-- <section>
+            <h2>About</h2>
+            <div>
+                
+            </div>
+        </section> -->
+        <section>
+            <h2>Follow</h2>
+            <ul class="icons">
+                
+                    <li><a href="\#" class="icon style2 fa-twitter" target="_blank" ><span class="label">Twitter</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-facebook" target="_blank" ><span class="label">Facebook</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-instagram" target="_blank" ><span class="label">Instagram</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-dribbble" target="_blank" ><span class="label">Dribbble</span></a></li>
+                
+                
+                    <li><a href="https://github.com/Intend-xie" class="icon style2 fa-github" target="_blank" ><span class="label">GitHub</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-google-plus" target="_blank" ><span class="label">Google+</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-behance" target="_blank" ><span class="label">Behance</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-500px" target="_blank" ><span class="label">500px</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-envelope-o" target="_blank" ><span class="label">Email</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-rss" target="_blank" ><span class="label">RSS</span></a></li>
+                
+            </ul>
+        </section>
+        <!-- <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved</li>
+            <li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+            <li>Hexo: <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></li>
+        </ul> -->
+    </div>
+</footer>
+    </div>
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- skel -->
+
+<script src="/js/skel.min.js"></script>
+
+
+<!-- Custom Code -->
+
+<script src="/js/util.js"></script>
+
+
+<!--[if lte IE 8]>
+
+<script src="/js/ie/respond.min.js"></script>
+
+<![endif]-->
+
+<!-- Custom Code -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'klugjo';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+</body>
+
+</html>

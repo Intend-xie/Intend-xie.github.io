@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Description-->
+    
+        <meta name="description" content="此文仅是本人学习笔记。
+1、为什么要手写脚本（1）浏览器兼容性不好，IE9或者以上不支持（2）录制的脚本过长（3）可能开发只提供接口，没有页面可以录制
+2、常用函数get的页面请求用web_url表单提交web_submit_formpost数据请求用web_submit_data
+3、抓包工具浏览">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="xiexy">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="手写loadrunning脚本"/>
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Intend blog"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content=""/>
+    
+
+    <!-- Title -->
+    
+    <title>手写loadrunning脚本 - Intend blog</title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/sass/main.css">
+
+
+    <!--[if lt IE 8]>
+        
+<script src="/js/ie/html5shiv.js"></script>
+
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        
+<link rel="stylesheet" href="/sass/ie8.css">
+
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        
+<link rel="stylesheet" href="/sass/ie9.css">
+
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <!-- Header -->
+<header id="header">
+    <div class="inner">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="symbol"><img src="/images/logo.svg" alt="" /></span><span class="title">Intend blog</span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+    <h2>Menu</h2>
+    <ul>
+        
+            <li>
+                <a href="/">Home</a>
+            </li>
+        
+            <li>
+                <a href="/archives">Archives</a>
+            </li>
+        
+            <li>
+                <a href="/about.html">About</a>
+            </li>
+        
+    </ul>
+</nav>
+
+
+        <div id="main">
+            <div class="inner">
+
+                <!-- Main Content -->
+                
+
+    <h1>手写loadrunning脚本</h1>
+
+
+
+<!-- Gallery -->
+
+
+<!-- Content -->
+<p>此文仅是本人学习笔记。</p>
+<h2 id="1、为什么要手写脚本"><a href="#1、为什么要手写脚本" class="headerlink" title="1、为什么要手写脚本"></a>1、为什么要手写脚本</h2><p>（1）浏览器兼容性不好，IE9或者以上不支持<br>（2）录制的脚本过长<br>（3）可能开发只提供接口，没有页面可以录制</p>
+<h2 id="2、常用函数"><a href="#2、常用函数" class="headerlink" title="2、常用函数"></a>2、常用函数</h2><p>get的页面请求用web_url<br>表单提交web_submit_form<br>post数据请求用web_submit_data</p>
+<h2 id="3、抓包工具"><a href="#3、抓包工具" class="headerlink" title="3、抓包工具"></a>3、抓包工具</h2><p>浏览器自带工具：使用Chrome或者其他浏览，F12的network列表查看请求（刷新页面可以重新查看）<br>其他专业抓包工具：HttpWatch、Fiddler、BurpSuite…</p>
+<h2 id="4、loadrunner脚本创建"><a href="#4、loadrunner脚本创建" class="headerlink" title="4、loadrunner脚本创建"></a>4、loadrunner脚本创建</h2><p>（1）点击鼠标–选择Insert–选择New step–选择类型–填写信息，填入相应参数<br><img src="/images/LoadrunningScript1.png" alt="选择New step"><br><img src="/images/LoadrunningScript2.png" alt="选择类型"><br><img src="/images/LoadrunningScript3.png" alt="填写信息"><br>（2）生成脚本，并修改如下（<br>Ⅰ参数中的引号”前需要加斜杠\转译<br>如：json 对象<br>错误：”Value={“cate”:[{“fieldName”:”BACCNAME”,”text”:”功能分类名称 “}],”series”:[{“fieldName”:”SUMMONEY”,”text”:”支出金额”}],”desc”:[{“sqlField”:false,”fieldName”:”金额(万元)”}]}”,<br>正确：”Value={&quot;cate&quot;:[{&quot;fieldName&quot;:&quot;BACCNAME&quot;,&quot;text&quot;:&quot;功能分类名称 &quot;}],&quot;series&quot;:[{&quot;fieldName&quot;:&quot;SUMMONEY&quot;,&quot;text&quot;:&quot;支出金额&quot;}],&quot;desc&quot;:[{&quot;sqlField&quot;:false,&quot;fieldName&quot;:&quot;金额(万元)&quot;}]}”,<br>Ⅱ手写脚本”Snapshot=”为空<br>Ⅲ扩展中是请求后的静态资源js、css、woff<br>Ⅳ脚本写好后可通过回放，验证脚本的正确性<br>可参考：<a href="https://jingyan.baidu.com/article/9158e000138687a2541228b4.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/9158e000138687a2541228b4.html</a></p>
+<h2 id="5、设置测试点"><a href="#5、设置测试点" class="headerlink" title="5、设置测试点"></a>5、设置测试点</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>lr_start_sub_transaction</td>
+<td>标记子事务的开始</td>
+</tr>
+<tr>
+<td>lr_start_transaction</td>
+<td>标记事务的开始</td>
+</tr>
+<tr>
+<td>lr_end_sub_transaction</td>
+<td>标记子事务的结束以便进行性能分析</td>
+</tr>
+<tr>
+<td>lr_end_transaction</td>
+<td>标记 LoadRunner 事务的结束</td>
+</tr>
+</tbody></table>
+<p>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">lr_rendezvous(<span class="string">"集合点"</span>);</span><br><span class="line">    lr_start_transaction(<span class="string">"登陆时间"</span>);</span><br><span class="line">    web_submit_form(<span class="string">"login.pl"</span>, </span><br><span class="line">        <span class="string">"Snapshot="</span>, </span><br><span class="line">        ITEMDATA, </span><br><span class="line">        <span class="string">"Name=username"</span>, <span class="string">"Value=test1"</span>, ENDITEM, </span><br><span class="line">        <span class="string">"Name=password"</span>, <span class="string">"Value=123456"</span>, ENDITEM, </span><br><span class="line">        LAST);</span><br><span class="line">lr_end_sub_transaction(<span class="string">"登陆时间"</span>,LR_ABORT);</span><br></pre></td></tr></table></figure>
+
+<h2 id="6、设置变量参数"><a href="#6、设置变量参数" class="headerlink" title="6、设置变量参数"></a>6、设置变量参数</h2><p>（1）在loadrunner的进行编写脚本，或者一个网页登录界面进行录制脚本，录制完成之后，在脚本找登录的用户名，选中用户右键》》replace with a pararmeter。<br><img src="/images/LoadrunningScript4.png" alt="replace with a pararmeter"><br>（2）弹出了一个为select or create parameter的框，可以对parameter name名称重名，也可不命名。—这样在代码脚本中的用户名就变为了一种颜色，变为参数名。<br>（3）需要对参数名进行参数化，可以点击菜单中的open parameter list的按钮，点击进入。可以看到的是newparam默认的一个参数了为xinling，需要在行中在添加数据，可点击add row添加行，输入数据双击value就可进行输入，输入网页中其它的用户名。<br><img src="/images/LoadrunningScript5.png" alt="设置参数"><br>（4）参数化数据准备好之后，就进行执行了，在执行前，需要到run-time settings设置的界面中，run logic的选项界面中，把循环的次数改为2次，因准备数据只有两条了。<br><img src="/images/LoadrunningScript6.png" alt="run-time settings"><br><img src="/images/LoadrunningScript7.png" alt="设置循环测试"><br>（5）设置完成之后，可以点击loadrunner的界面中菜单运行按钮，等待脚本完成之后，可以在执行log看到执行的结果数据，是成功执行成功的。<br><img src="/images/LoadrunningScript8.png" alt="执行结果"></p>
+<h2 id="7、字符串参数化例子"><a href="#7、字符串参数化例子" class="headerlink" title="7、字符串参数化例子"></a>7、字符串参数化例子</h2><h3 id="1）对登录账号参数化"><a href="#1）对登录账号参数化" class="headerlink" title="1）对登录账号参数化"></a>1）对登录账号参数化</h3><p>（1）确定参数<br><img src="/images/LoadrunningScript9.png" alt="确定参数"><br>（2）新建参数，选中字符串点击鼠标右键，选择“replace with a parameter”菜单<br><img src="/images/LoadrunningScript10.png" alt="新增参数"><br>（3）在弹框中填写参数名称，点击“OK”完成参数化<br><img src="/images/LoadrunningScript11.png" alt="填写参数名称"><br>（4）参数化后，字符串被参数名替换<br><img src="/images/LoadrunningScript12.png" alt="参数名替换"><br>（5）快捷键“ctrl+L”查看参数列表<br><img src="/images/LoadrunningScript13.png" alt="查看参数列表"></p>
+<h3 id="2）密码参数化，与账号关联，使用户名和密码对应，便可登录成功"><a href="#2）密码参数化，与账号关联，使用户名和密码对应，便可登录成功" class="headerlink" title="2）密码参数化，与账号关联，使用户名和密码对应，便可登录成功"></a>2）密码参数化，与账号关联，使用户名和密码对应，便可登录成功</h3><p>（1）选中字符串点击鼠标右键，选择“replace with a parameter”菜单<br><img src="/images/LoadrunningScript14.png" alt="选择“replace with a parameter”"><br>（2）在弹框上填写名称，点击“properties…”打开配置窗口<br><img src="/images/LoadrunningScript15.png" alt="打开配置窗口"><br>（3）参数配置窗口，file选择用户名参数的文件<br><img src="/images/LoadrunningScript16.png" alt="选择用户名参数的文件"><br>（4）添加一列用于存放密码，点击“add column…”按钮，点击“OK”确认添加<br><img src="/images/LoadrunningScript17.png" alt="add column..."><br><img src="/images/LoadrunningScript18.png" alt="添加字段"><br>（5）配置select next row选项为“same line as username”，即下一行数据选择与用户名同一行，点击“close”<br><img src="/images/LoadrunningScript19.png" alt="select next row"><br>（6）点击“OK”完成密码参数化<br><img src="/images/LoadrunningScript20.png" alt="完成密码参数化"><br>（7）密码字符串被参数替换<br><img src="/images/LoadrunningScript21.png" alt="密码字符串被参数替换"><br>（8）查看参数列表（ctrl+L）<br><img src="/images/LoadrunningScript22.png" alt="查看含密码的参数列表"></p>
+<h2 id="8、关联函数"><a href="#8、关联函数" class="headerlink" title="8、关联函数"></a>8、关联函数</h2><h3 id="一、什么是关联"><a href="#一、什么是关联" class="headerlink" title="一、什么是关联"></a>一、什么是关联</h3><p>关联（correlation）：脚本回放过程中，客户端发出请求，通过关联函数所定义的左右边界值（也就是关联规则），在服务器所响应的内容中查找，得到相应的值，已变量的形式替换录制时的静态值，从而向服务器发出正确的请求，这种动态获得服务器响应内容的方法被称作关联。也是把脚本中某些写死的数据，转变成动态的数据。<br>什么内容需要关联：当脚本中的数据每次回放都发生变化时，并且这个动态数据在后面的请求中需要发送给服务器，那么这个内容需要通过关联来询问服务器，获得该数据的变化结果。<br>例如：<br>1.登录字符串。带有会话 ID 或时间戳等动态数据的登录字符串。<br>2.日期/时间戳。使用日期或时间戳或者其他用户凭据的任意字符串。<br>3.常见前缀。后跟字符串的常见前缀，如 SessionID 或 CustomerID。</p>
+<h3 id="二、web-reg-save-param函数说明"><a href="#二、web-reg-save-param函数说明" class="headerlink" title="二、web_reg_save_param函数说明"></a>二、web_reg_save_param函数说明</h3><p>语法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int web_reg_save_param(<span class="keyword">const</span> char *ParamName, &lt;list <span class="keyword">of</span> Attributes&gt;, LAST);</span><br></pre></td></tr></table></figure>
+<p>参数说明:<br>· ParamName: 存放得到的动态内容的参数名称。<br>· list of Attributes: 其它属性，包括：Notfound, LB, RB, RelFrameID, Search, ORD, SaveOffset, Convert, SaveLen。属性值不分大小写。<br>o Notfound: 当在返回信息中找不到要找的内容时应该怎么处理。<br>o Notfound=error: 当在返回信息中找不到要找的内容时，发出一个错误讯息。这是缺省值。<br>o Notfound=warning: 当在返回信息中找不到要找的内容时，只发出警告，脚本也会继续执行下去不会中断。<br>o LB( Left Boundary ) : 返回信息的左边界字串。该属性必须有，并且区分大小写。<br>o RB( Right Boundary ): 返回信息的右边界字串。该属性必须有，并且区分大小写。<br>o RelFrameID: 相对于URL而言，欲查找的网页的Frame。此属性质可以是All或是数字，该属性可有可无。<br>o Search : 返回信息的查找范围。可以是Headers，Body，Noresource，All(缺省)。该属性质可有可无。<br>o ORD : 说明第几次出现的左边界子串的匹配项才是需要的内容。该属性可有可无，缺省值是1。如为All，则将所有找到的内容储存起来。<br>o SaveOffset : 当找到匹配项后，从第几个字元开始存储到参数中。该属性不能为负数，缺省值为0。<br>o SaveLen ：当找到匹配项后，偏移量之后的几个字元存储到参数中。缺省值是-1，表示一直到结尾的整个字串都存入参数。</p>
+<h3 id="三、实例分析"><a href="#三、实例分析" class="headerlink" title="三、实例分析"></a>三、实例分析</h3><p>1）查看页面源码 (PC端登录页面，获取用户id)<br>（1）在浏览器上登录到首页，查看源码<br><img src="/images/LoadrunningScript23.png" alt="查看源码"><br>（2）查到需获取的字符串（在页面上搜索）<br><img src="/images/LoadrunningScript24.png" alt="获取的字符串"><br>（3）确定左边界、右边界 及 字符串的数量（LB/RB/ORD）<br>左边界LB=userid=<br>右边界RB=’;<br>数量为1，ord缺省</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">web_reg_save_param(</span><br><span class="line">       <span class="string">"userid"</span>,</span><br><span class="line">       <span class="string">"LB=userid="</span>,</span><br><span class="line">       <span class="string">"RB=';"</span>,</span><br><span class="line">       LAST)</span><br></pre></td></tr></table></figure>
+<p>2）调试脚本<br>（1）添加消息打印，打印参数值，设置断点（F9）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lr_output_message(<span class="string">"userid=%s"</span>,lr_eval_string(<span class="string">"&#123;userid&#125;"</span>));</span><br></pre></td></tr></table></figure>
+<p><img src="/images/LoadrunningScript25.png" alt="调试脚本"><br>（2）F5回放脚本，查看replay log中消息打印结果<br><img src="/images/LoadrunningScript26.png" alt="F5回放脚本"><br>（3）修改用户密码（即{username}和{password}的值），重新回放脚本，查看replay log消息打印结果（验证接口请求正确）<br><img src="/images/LoadrunningScript27.png" alt="查看replay log消息打印结果"><br>调试结果通过的判定条件：<br>1、web_submit_data执行成功，<br>2、打印出来的参数值与页面源码中的值一致<br>3）关联参数有多个参数时，注意一下操作</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">web_reg_save_param(<span class="string">"TypeId"</span>,<span class="string">"LB=\"type\":\""</span>,<span class="string">"RB=\",LAST);</span></span><br><span class="line"><span class="string">web_submit_data()；</span></span><br><span class="line"><span class="string">lr_output_message("</span>TypeId=%s<span class="string">",lr_eval_string("</span>&#123;TypeId&#125;<span class="string">"));</span></span><br></pre></td></tr></table></figure>
+<p>直接关联没有加”ORD=all”获取到的是第一个参数，不会获取其他参数；加上”ORD=all”，获取所有参数，以数组形成保存，可通过数组下标进行获取如{TypeId_1}。具体如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">web_reg_save_param(<span class="string">"TypeId"</span>,<span class="string">"LB=\"type\":\""</span>,<span class="string">"RB=\","</span>ORD=all<span class="string">",LAST);</span></span><br><span class="line"><span class="string">web_submit_data()；</span></span><br><span class="line"><span class="string">lr_output_message("</span>TypeId=%s<span class="string">",lr_eval_string("</span>&#123;TypeId_1&#125;<span class="string">"));</span></span><br></pre></td></tr></table></figure>
+<p>4）如何取值LB、RB<br>1、不取变量值<br>2、不取中文<br>3、字段长度10个字符左右<br>5）转换说明符<br>| 转换说明符 | 说明                                    |<br>| ———- | ————————————— |<br>| %a(%A)     | 浮点数、十六进制数字和p-(P-)记数法(C99) |<br>| %c         | 字符                                    |<br>| %d         | 有符号十进制整数                        |<br>| %f         | 浮点数(包括float和doulbe)               |<br>| %e(%E)     | 浮点数指数输出[e-(E-)记数法]            |<br>| %g(%G)     | 请求头浮点数不显无意义的零”0”           |<br>| %i         | 有符号十进制整数(与%d相同)              |<br>| %u         | 无符号十进制整数                        |<br>| %o         | 八进制整数    e.g.     0123             |<br>| %x(%X)     | 十六进制整数0f(0F)   e.g.   0x1234      |<br>| %p         | 指针                                    |<br>| %s         | 字符串                                  |<br>| %%         | “%”                                     |<br>其中常用的主要是%d和%s，其他进行了解。</p>
+<h2 id="9、验证回放数据"><a href="#9、验证回放数据" class="headerlink" title="9、验证回放数据"></a>9、验证回放数据</h2><p>1）    查看请求是否成功<br>查看replay log消息，查看接口是否请求成功<br><img src="/images/LoadrunningScript28.png" alt="查看replay log消息"><br>回放https的问题：<a href="https://jingyan.baidu.com/article/9158e000138687a2541228b4.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/9158e000138687a2541228b4.html</a><br>如遇到其他问题可自行百度处理<br>2）查看数据是否正确<br>（1）打开回放的显示窗口<br>步骤：点击tools—点击general options—选择display—勾选show run-time viewer during re]和auto arrange windo—打开回放的显示窗口<br><img src="/images/LoadrunningScript29.png" alt="点击general options"><br><img src="/images/LoadrunningScript30.png" alt="选择display"><br>（2）查看回放返回的数据与页面接口请求返回中的值是否一致</p>
+
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    <a href="/tags/Loadrunning/" class="button small">Loadrunning</a>
+</div>
+
+
+
+<!-- Comments -->
+<div>
+    
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+</div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <!-- <section>
+            <h2>About</h2>
+            <div>
+                
+            </div>
+        </section> -->
+        <section>
+            <h2>Follow</h2>
+            <ul class="icons">
+                
+                    <li><a href="\#" class="icon style2 fa-twitter" target="_blank" ><span class="label">Twitter</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-facebook" target="_blank" ><span class="label">Facebook</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-instagram" target="_blank" ><span class="label">Instagram</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-dribbble" target="_blank" ><span class="label">Dribbble</span></a></li>
+                
+                
+                    <li><a href="https://github.com/Intend-xie" class="icon style2 fa-github" target="_blank" ><span class="label">GitHub</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-google-plus" target="_blank" ><span class="label">Google+</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-behance" target="_blank" ><span class="label">Behance</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-500px" target="_blank" ><span class="label">500px</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-envelope-o" target="_blank" ><span class="label">Email</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-rss" target="_blank" ><span class="label">RSS</span></a></li>
+                
+            </ul>
+        </section>
+        <!-- <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved</li>
+            <li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+            <li>Hexo: <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></li>
+        </ul> -->
+    </div>
+</footer>
+    </div>
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- skel -->
+
+<script src="/js/skel.min.js"></script>
+
+
+<!-- Custom Code -->
+
+<script src="/js/util.js"></script>
+
+
+<!--[if lte IE 8]>
+
+<script src="/js/ie/respond.min.js"></script>
+
+<![endif]-->
+
+<!-- Custom Code -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'klugjo';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+</body>
+
+</html>
