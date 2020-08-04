@@ -10,6 +10,9 @@
 
     <!--Description-->
     
+        <meta name="description" content="此文仅是本人学习笔记。
+问题：我的博客（https://intend-xie.github.io/）被拒绝访问您的连接不是私密连接攻击者可能会试图从 intend-xie.github.io 窃取您的信息（例如：密码、通讯内容或信用卡信息）。了解详情NET::ERR_CERT_AUTHORITY_I">
+    
 
     <!--Author-->
     
@@ -17,6 +20,8 @@
     
 
     <!--Open Graph Title-->
+    
+        <meta property="og:title" content="博客地址拒绝我的访问"/>
     
 
     <!--Open Graph Site Name-->
@@ -29,7 +34,7 @@
 
     <!-- Title -->
     
-    <title>git - Intend blog</title>
+    <title>博客地址拒绝我的访问 - Intend blog</title>
 
     <!-- Custom CSS -->
     
@@ -114,20 +119,41 @@
                 <!-- Main Content -->
                 
 
-<section class="archives">
-    
-        <div class="archive-title">git</div>
-    
-    <ul class="archive-list">
-        
-            <li>
-    <a href="/2020/06/21/git-github-hexo/">git+github+hexo学习</a>
-</li>
+    <h1>博客地址拒绝我的访问</h1>
 
-        
-    </ul>
-</section><!-- end main -->
 
+
+<!-- Gallery -->
+
+
+<!-- Content -->
+<p>此文仅是本人学习笔记。</p>
+<h2 id="问题：我的博客（https-intend-xie-github-io-）被拒绝访问"><a href="#问题：我的博客（https-intend-xie-github-io-）被拒绝访问" class="headerlink" title="问题：我的博客（https://intend-xie.github.io/）被拒绝访问"></a>问题：我的博客（<a href="https://intend-xie.github.io/）被拒绝访问" target="_blank" rel="noopener">https://intend-xie.github.io/）被拒绝访问</a></h2><p>您的连接不是私密连接<br>攻击者可能会试图从 <strong>intend-xie.github.io</strong> 窃取您的信息（例如：密码、通讯内容或信用卡信息）。了解详情<br>NET::ERR_CERT_AUTHORITY_INVALID<br><img src="/images/GitHub-rejects-connection-request1.png" alt="问题"></p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>1、在cmd中，ping intend-xie.github.io,得到IP<br><img src="/images/GitHub-rejects-connection-request2.png" alt="步骤1"><br>2、将其ip和域名添加到hosts文件（目录：C:\Windows\System32\drivers\etc）中<br><img src="/images/GitHub-rejects-connection-request3.png" alt="步骤2-1"><br><img src="/images/GitHub-rejects-connection-request4.png" alt="步骤2-2"><br>3、    如果还不行，可通过打开Dns检测|Dns查询 - 站长工具：<a href="http://tool.chinaz.com/dns" target="_blank" rel="noopener">http://tool.chinaz.com/dns</a><br>4、在检测输入栏中输入博客地址（intend-xie.github.io）<br><img src="/images/GitHub-rejects-connection-request5.png" alt="步骤3、4"><br>5、把检测列表里某个IP（对应TTL值最小和最大的IP我尝试了都可以，其他有兴趣可以试试）输入到hosts里，并对应写上博客地址<br><img src="/images/GitHub-rejects-connection-request6.png" alt="步骤5"><br>6、问题的思路<br>通过下面两个链接进行了解解决，具体可进行查看：<br><a href="https://www.jianshu.com/p/5b72495f4548" target="_blank" rel="noopener">https://www.jianshu.com/p/5b72495f4548</a><br><a href="https://segmentfault.com/q/1010000010264567" target="_blank" rel="noopener">https://segmentfault.com/q/1010000010264567</a></p>
+
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    <a href="/tags/hexo/" class="button small">hexo</a>
+</div>
+
+
+
+<!-- Comments -->
+<div>
+    
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+</div>
 
 
 
@@ -227,7 +253,7 @@
         var dsq = document.createElement('script');
         dsq.type = 'text/javascript';
         dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>
