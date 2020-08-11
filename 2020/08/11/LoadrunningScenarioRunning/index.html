@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Description-->
+    
+        <meta name="description" content="此文仅是本人学习笔记。
+一、启动场景控制台1、启动控制台添加脚本，选择脚本名称，点击“Add==》”按钮，再点击“OK”按钮
+二、配置1、设置generatorsName填写为localhost，点击“OK”后，关闭Load Generators窗口2、配置场景1）选择模式，run mode有两种a">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="xiexy">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Loadrunning脚本运行"/>
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Intend blog"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content=""/>
+    
+
+    <!-- Title -->
+    
+    <title>Loadrunning脚本运行 - Intend blog</title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/sass/main.css">
+
+
+    <!--[if lt IE 8]>
+        
+<script src="/js/ie/html5shiv.js"></script>
+
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        
+<link rel="stylesheet" href="/sass/ie8.css">
+
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        
+<link rel="stylesheet" href="/sass/ie9.css">
+
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <!-- Header -->
+<header id="header">
+    <div class="inner">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="symbol"><img src="/images/logo.svg" alt="" /></span><span class="title">Intend blog</span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+    <h2>Menu</h2>
+    <ul>
+        
+            <li>
+                <a href="/">Home</a>
+            </li>
+        
+            <li>
+                <a href="/archives">Archives</a>
+            </li>
+        
+            <li>
+                <a href="/about.html">About</a>
+            </li>
+        
+    </ul>
+</nav>
+
+
+        <div id="main">
+            <div class="inner">
+
+                <!-- Main Content -->
+                
+
+    <h1>Loadrunning脚本运行</h1>
+
+
+
+<!-- Gallery -->
+
+
+<!-- Content -->
+<p>此文仅是本人学习笔记。</p>
+<h2 id="一、启动场景控制台"><a href="#一、启动场景控制台" class="headerlink" title="一、启动场景控制台"></a>一、启动场景控制台</h2><p>1、启动控制台<br><img src="/images/LoadrunningScenarioRunning1.png" alt="img"><br><img src="/images/LoadrunningScenarioRunning2.png" alt="img"><br>添加脚本，选择脚本名称，点击“Add==》”按钮，再点击“OK”按钮<br><img src="/images/LoadrunningScenarioRunning3.png" alt="img"><br><img src="/images/LoadrunningScenarioRunning4.png" alt="img"></p>
+<h2 id="二、配置"><a href="#二、配置" class="headerlink" title="二、配置"></a>二、配置</h2><p>1、设置generators<br><img src="/images/LoadrunningScenarioRunning5.png" alt="img"><br>Name填写为localhost，点击“OK”后，关闭Load Generators窗口<br><img src="/images/LoadrunningScenarioRunning6.png" alt="img"><br><img src="/images/LoadrunningScenarioRunning7.png" alt="img"><br>2、配置场景<br><img src="/images/LoadrunningScenarioRunning8.png" alt="img"><br>1）选择模式，run mode有两种a、Real-world schedule，b、Basic schedule<br>a、Real-world schedule<br><img src="/images/LoadrunningScenarioRunning9.png" alt="img"><br>初始化、启动阶段、运行阶段、停止阶段<br>（1）初始化按默认：a、全部初始化，b、设置单位时间逐步初始化，c、运行前初始化，默认c<br>（2）开始阶段：配置最大用户数，选择方式：同时和增压，默认增压：单位时间增压用户数、单位时间长度<br>（3）运行阶段：选择方式：到运行完成为止 和 持续运行，默认持续运行：配置运行时长<br>（4）停止阶段：选择方式：同时和减压，默认减压：配置单位时间减压用户数、单位时间长度<br>b、Basic schedule<br><img src="/images/LoadrunningScenarioRunning10.png" alt="img"><br>初始化、启动阶段、运行阶段、【停止阶段】<br>用户总数：填写/修改“total：[  ]Vusers”的[  ]中数量<br>（1）初始化按默认：a、全部初始化，b、设置单位时间逐步初始化，c、运行前初始化，默认c<br>（2）开始阶段：选择方式：同时和增压，默认同时<br>（3）运行阶段：选择方式：“到运行完成为止”、“持续运行”和“一直运行不停”，默认“到运行完成为止”，选择持续运行则出现停止阶段<br>（4）停止阶段：选择方式：同时和减压<br>3、修改超时时间<br><img src="/images/LoadrunningScenarioRunning11.png" alt="img"><br>打开“脚本运行时配置”框，选中“Internet protocol-preferences”，点击“options…”按钮进行配置<br><img src="/images/LoadrunningScenarioRunning12.png" alt="img"><br>配置超时时间，http下的“请求连接超时”、“请求接收超时”、“请求存活超时”的时长，及general下的“下载超时”的时长<br><img src="/images/LoadrunningScenarioRunning13.png" alt="img"><br><img src="/images/LoadrunningScenarioRunning14.png" alt="img"><br>时长配置好后，点击“OK”再点击“OK”保存配置<br><img src="/images/LoadrunningScenarioRunning15.png" alt="img"></p>
+<h2 id="三、视图配置及启动"><a href="#三、视图配置及启动" class="headerlink" title="三、视图配置及启动"></a>三、视图配置及启动</h2><p>1、配置运行监控视图<br>切换运行监控界面<br><img src="/images/LoadrunningScenarioRunning16.png" alt="img"><br><img src="/images/LoadrunningScenarioRunning17.png" alt="img"><br>配置图表个数，在图表区域点击鼠标右键，选择显示8张图表<br><img src="/images/LoadrunningScenarioRunning18.png" alt="img"><br>8张图表<br><img src="/images/LoadrunningScenarioRunning19.png" alt="img"><br>修改图表展示所需的图表，选中要修改的图表，双击左侧列表中需要的图表<br>running vusers，tran response time，tran/sec(passed)，total tran/sec(passed)，hits per second，throughput，connections per second，error statistics<br><img src="/images/LoadrunningScenarioRunning20.png" alt="img"><br>2、运行场景<br>点击“start scenario”按钮<br><img src="/images/LoadrunningScenarioRunning21.png" alt="img"><br>results directory already exists提示框上选择“是”，覆盖目录<br><img src="/images/LoadrunningScenarioRunning22.png" alt="img"><br>场景运行中<br><img src="/images/LoadrunningScenarioRunning23.png" alt="img"><br>3、运行结果<br>（1）运行时如tran response time，tran/sec(passed)，total tran/sec(passed)， error statistics没有图效果时需检查log看看问题<br>操作，点击右键，选择show vuser log<br><img src="/images/LoadrunningScenarioRunning24.png" alt="img"><br>（2）设置run-time setting中log的配置<br><img src="/images/LoadrunningScenarioRunning25.png" alt="img"><br>（3）重新运行脚本，可查看show vuser log<br><img src="/images/LoadrunningScenarioRunning26.png" alt="img"><br>（4）如果还是没有图，检查一下事务点</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在脚本最开始的加上</span></span><br><span class="line">lr_start_transaction();</span><br><span class="line"><span class="comment"># 在末尾加上</span></span><br><span class="line">lr_end_transaction()</span><br></pre></td></tr></table></figure>
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    <a href="/tags/Loadrunning/" class="button small">Loadrunning</a>
+</div>
+
+
+
+<!-- Comments -->
+<div>
+    
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+</div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <!-- <section>
+            <h2>About</h2>
+            <div>
+                
+            </div>
+        </section> -->
+        <section>
+            <h2>Follow</h2>
+            <ul class="icons">
+                
+                    <li><a href="\#" class="icon style2 fa-twitter" target="_blank" ><span class="label">Twitter</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-facebook" target="_blank" ><span class="label">Facebook</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-instagram" target="_blank" ><span class="label">Instagram</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-dribbble" target="_blank" ><span class="label">Dribbble</span></a></li>
+                
+                
+                    <li><a href="https://github.com/Intend-xie" class="icon style2 fa-github" target="_blank" ><span class="label">GitHub</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-google-plus" target="_blank" ><span class="label">Google+</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-behance" target="_blank" ><span class="label">Behance</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-500px" target="_blank" ><span class="label">500px</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-envelope-o" target="_blank" ><span class="label">Email</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-rss" target="_blank" ><span class="label">RSS</span></a></li>
+                
+            </ul>
+        </section>
+        <!-- <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved</li>
+            <li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+            <li>Hexo: <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></li>
+        </ul> -->
+    </div>
+</footer>
+    </div>
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- skel -->
+
+<script src="/js/skel.min.js"></script>
+
+
+<!-- Custom Code -->
+
+<script src="/js/util.js"></script>
+
+
+<!--[if lte IE 8]>
+
+<script src="/js/ie/respond.min.js"></script>
+
+<![endif]-->
+
+<!-- Custom Code -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'klugjo';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+</body>
+
+</html>
