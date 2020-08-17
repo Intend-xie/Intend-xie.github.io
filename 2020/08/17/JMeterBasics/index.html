@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Description-->
+    
+        <meta name="description" content="此文仅是本人学习笔记。
+一、jmeter介绍1、 什么是jmeterApache JMeter是Apache组织开发的基于Java的压力测试工具。2、 Jmeter可以做什么(1) 接口测试—-基础(2) 性能测试(3) 压力测试(4) 数据库测试(5) Java程序测试3、 Jmeter优缺点优点">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="xiexy">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="JMeter入门基础"/>
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Intend blog"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content=""/>
+    
+
+    <!-- Title -->
+    
+    <title>JMeter入门基础 - Intend blog</title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/sass/main.css">
+
+
+    <!--[if lt IE 8]>
+        
+<script src="/js/ie/html5shiv.js"></script>
+
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        
+<link rel="stylesheet" href="/sass/ie8.css">
+
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        
+<link rel="stylesheet" href="/sass/ie9.css">
+
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <!-- Header -->
+<header id="header">
+    <div class="inner">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="symbol"><img src="/images/logo.svg" alt="" /></span><span class="title">Intend blog</span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+    <h2>Menu</h2>
+    <ul>
+        
+            <li>
+                <a href="/">Home</a>
+            </li>
+        
+            <li>
+                <a href="/archives">Archives</a>
+            </li>
+        
+            <li>
+                <a href="/about.html">About</a>
+            </li>
+        
+    </ul>
+</nav>
+
+
+        <div id="main">
+            <div class="inner">
+
+                <!-- Main Content -->
+                
+
+    <h1>JMeter入门基础</h1>
+
+
+
+<!-- Gallery -->
+
+
+<!-- Content -->
+<p>此文仅是本人学习笔记。</p>
+<h2 id="一、jmeter介绍"><a href="#一、jmeter介绍" class="headerlink" title="一、jmeter介绍"></a>一、jmeter介绍</h2><p>1、 什么是jmeter<br>Apache JMeter是Apache组织开发的基于Java的压力测试工具。<br>2、 Jmeter可以做什么<br>(1) 接口测试—-基础<br>(2) 性能测试<br>(3) 压力测试<br>(4) 数据库测试<br>(5) Java程序测试<br>3、 Jmeter优缺点<br>优点：<br>(1) 开源免费<br>(2) 支持多协议<br>(3) 轻量级<br>(4) 功能强大<br>缺点：<br>使用jmeter无法验证js程序，也无法验证页面UI，所以要需要和selenium配合来完成web2.0应用测试</p>
+<h2 id="二、jmeter安装"><a href="#二、jmeter安装" class="headerlink" title="二、jmeter安装"></a>二、jmeter安装</h2><p>1、JMeter的下载与配置<br>下载地址：<a href="http://jmeter.apache.org/" target="_blank" rel="noopener">http://jmeter.apache.org/</a><br>按照下图进行下载<br><img src="/images/JMeterBasics1.png" alt="img"><br><img src="/images/JMeterBasics2.png" alt="img"><br>下载完成后，解压，目录结构如下<br><img src="/images/JMeterBasics3.png" alt="img"><br>修改中文：进入bin目录，找到JMeter.bat文件，右键编辑文件，并修改如信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> JMETER_LANGUAGE=-Duser.language=<span class="string">"**zh**"</span> -Duser.region=<span class="string">"**CN**"</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/JMeterBasics4.png" alt="img"><br>到这保存退出就可以通过JMeter.bat运行JMeter了，但因为后续的测试可能会使用到一些拓展的插件，所以还需要导入jmeter-plugins-manager。<br>2、plugins-manager下载与安装<br>jmeter-plugins-manager下载地址：<a href="https://jmeter-plugins.org/install/Install/" target="_blank" rel="noopener">https://jmeter-plugins.org/install/Install/</a><br><img src="/images/JMeterBasics5.png" alt="img"><br>下载完成后将jar包放入lib/ext<br><img src="/images/JMeterBasics6.png" alt="img"><br>完成后即可启动jmeter<br>3、Jmeter启动与插件安装<br>执行jmeter.bat文件，弹出的控制台不可关闭。启动后如下：<br>注意：在linux系统需执行jmeter.sh文件<br><img src="/images/JMeterBasics7.png" alt="img"><br>点击选项-&gt;plugins manager<br><img src="/images/JMeterBasics8.png" alt="img"><br>Installed Plugins 为已安装的插件，Available Plugins 为可安装的插件 ，Upgrades为可更新的插件<br>勾选插件后，点击右下角的Apply Changes and Restart JMeter，安装后会自动重启JMeter，这里推荐安装3 Basic Graphs 和 jpgc - Standard Set<br><img src="/images/JMeterBasics9.png" alt="img"><br>4、Badboy的下载<br>下载地址：<a href="http://www.badboy.com.au/" target="_blank" rel="noopener">http://www.badboy.com.au/</a><br>点击Download<br><img src="/images/JMeterBasics10.png" alt="img"><br>选择最新版本下载<br><img src="/images/JMeterBasics11.png" alt="img"><br>下载，安装<br>5、BadBoy的启动<br>进入安装文件夹，运行badboy.exe即可启动。</p>
+<h2 id="三、目录了解"><a href="#三、目录了解" class="headerlink" title="三、目录了解"></a>三、目录了解</h2><p>1、bin目录<br>examples（例子）：该目录下存放Jmeter官方给的请求模板<br>report-template（报告模板）：该目录下存放Jmeter的报告模板（Jmeter是有自己的报告的）<br>templates（模板）：该目录下存放Jmeter的各类配置模板，例如：JDBC、Beanshell、ThinkTime等<br>jmeter.bat：Windows 的启动命令。<br>jmeter.log：日志文件。<br>jmeter.sh：Linux 系统下的启动文件。<br>jmeter.properties：系统配置文件，如配置编码格式。<br>jmeter-server.bat：Windows 分布测试要用到的服务器配置。<br>jmeter-server：Linux 分布式测试要用到的服务器配置。<br>2、docs目录<br>api：前面谈到Jmeter是开源的，此处便是它的API文档。<br>css：xxxx。<br>3、mage目录<br>部分图片资源<br>4、Extras目录<br>存放Build等配置，用于第三方集成构建<br>5、Lib目录<br>存放各类jar包，组件类函数类等<br>6、licenses目录<br>许可证书目录<br>7、printable_docs目录<br>用户手册<br><img src="/images/JMeterBasics12.png" alt="img"></p>
+<h2 id="四、jmeter入门脚本"><a href="#四、jmeter入门脚本" class="headerlink" title="四、jmeter入门脚本"></a>四、jmeter入门脚本</h2><p>1、添加测试计划—当打开jmeter默认有一个测试计划.<br><img src="/images/JMeterBasics13.png" alt="img"><br>2、添加线程组<br>鼠标在测试计划上—右键—添加—线程(用户)—线程组<br><img src="/images/JMeterBasics14.png" alt="img"><br>3、添加HTTP请求<br>鼠标在线程组上—右键—添加—取样器—HTTP请求<br><img src="/images/JMeterBasics15.png" alt="img"><br>4、配置HTTP请求<br>修改名称:发送百度请求<br>基本信息：<br>（1）填写协议:http<br>（2）填写服务器或IP:<a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a><br><img src="/images/JMeterBasics16.png" alt="img"><br>5、添加查看结果树<br>鼠标在线程组上—右键—添加—监听器—查看结果树<br><img src="/images/JMeterBasics17.png" alt="img"><br>6、运行<br>注意：要保存后才能运行<br><img src="/images/JMeterBasics18.png" alt="img"><br><img src="/images/JMeterBasics19.png" alt="img"><br>7、查看结果<br>可点击text下拉选择请求结果的样式<br><img src="/images/JMeterBasics20.png" alt="img"><br>知识点： </p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>用例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>测试计划</td>
+<td>项目名称</td>
+</tr>
+<tr>
+<td>线程组</td>
+<td>业务流程</td>
+</tr>
+<tr>
+<td>HTTP请求</td>
+<td>接口请求</td>
+</tr>
+</tbody></table>
+<h2 id="五、线程用户"><a href="#五、线程用户" class="headerlink" title="五、线程用户"></a>五、线程用户</h2><p>线程数:表示请求的虚拟用户数量<br>ramp-up:启动所有线程数所需要的时间(秒)<br>循环次数:线程数循环<br><img src="/images/JMeterBasics21.png" alt="img"><br>注意：如果选择循环次数为永远，需要手动停止，会导致最后一个接口请求报错</p>
+<h2 id="六、取样器"><a href="#六、取样器" class="headerlink" title="六、取样器"></a>六、取样器</h2><p>作用:向服务器发送请求并且记录响应时间和响应内容</p>
+<h2 id="七、jmeter运行原理"><a href="#七、jmeter运行原理" class="headerlink" title="七、jmeter运行原理"></a>七、jmeter运行原理</h2><p>1、jmeter是按照线程的方式来运行的<br>2、jmeterGUl模式运行测试脚本对电脑本身的资源消耗较大，无法实现大的并发和压力测试<br>3、使用命令行模式实现高并发和压力测试<br>4、使用GUl模式主要目的是编写和调面jmeter测试脚本</p>
+<h2 id="八、jmeter测试计划要素"><a href="#八、jmeter测试计划要素" class="headerlink" title="八、jmeter测试计划要素"></a>八、jmeter测试计划要素</h2><p>使用jmeter编写测试脚本–要素<br>1、 测试计划<br>2、 在测试计划中至少有一个线程组<br>3、 在线程组中至少有一个取样器<br>4、 在测试计划中必须有监听器</p>
+<h2 id="九、jmeter录制脚本"><a href="#九、jmeter录制脚本" class="headerlink" title="九、jmeter录制脚本"></a>九、jmeter录制脚本</h2><p>1、使用badboy录制<br>（1）打开babboy在 地址栏中输入被测网址回车<br>（2）打开badboy时默认记录状态，输入网址直接操作即可<br><img src="/images/JMeterBasics22.png" alt="img"><br>（3）操作完成–点击停止记录<br><img src="/images/JMeterBasics23.png" alt="img"><br>（4）导出脚本：file–export to jmeter保存<br>2、在jmeter中打开已有文件<br>（1）jmeter脚本文件的后缀名.jmx<br>（2）在jmeter点击打开文件.选择文件路径,找到需要的文件进行打开<br><img src="/images/JMeterBasics24.png" alt="img"><br>（3）添加查看结果树（不然看不到运行结果）<br><img src="/images/JMeterBasics25.png" alt="img"></p>
+<h2 id="十、使用jmeter自身代理录制移动端（了解）"><a href="#十、使用jmeter自身代理录制移动端（了解）" class="headerlink" title="十、使用jmeter自身代理录制移动端（了解）"></a>十、使用jmeter自身代理录制移动端（了解）</h2><p>配置jmeter<br>1.打开jmeter创建新的测试计划<br>2.在测试计划下添加一个线程组<br>3.添加HTTP代理服务器<br>在测试计划下—右键–非测试元—HTTP代理服务<br>4.配置HTTP代理服务器<br>4.1端口号默认<br>4.2 https domains中填写电脑本地IP或localhost<br>查询电脑IP：打开cmd—执行ipconfig<br>4.3目标控制器选择测试计划&gt;线程组<br>4.4点击启动按钮 —点击OK<br>配置手机—打开手机端的 wifi设置<br>设置好了之后启动Jmeter代理服务器的 启动按钮（注意是里面的按钮）<br>然后就可以在手机端去操作业务了，可以正常的录制对应的app应用、微信公众号等业务，在线程组就会抓到对应的的请求<br>录制完成后，停止Jemter上的“HTTP代理服务器”，然后进行脚本调试<br>原理跟web端的脚本录制一样。脚本调试完成之后可以进行后续的压测了</p>
+
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    <a href="/tags/JMeter/" class="button small">JMeter</a>
+</div>
+
+
+
+<!-- Comments -->
+<div>
+    
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+</div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <!-- <section>
+            <h2>About</h2>
+            <div>
+                
+            </div>
+        </section> -->
+        <section>
+            <h2>Follow</h2>
+            <ul class="icons">
+                
+                    <li><a href="\#" class="icon style2 fa-twitter" target="_blank" ><span class="label">Twitter</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-facebook" target="_blank" ><span class="label">Facebook</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-instagram" target="_blank" ><span class="label">Instagram</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-dribbble" target="_blank" ><span class="label">Dribbble</span></a></li>
+                
+                
+                    <li><a href="https://github.com/Intend-xie" class="icon style2 fa-github" target="_blank" ><span class="label">GitHub</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-google-plus" target="_blank" ><span class="label">Google+</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-behance" target="_blank" ><span class="label">Behance</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-500px" target="_blank" ><span class="label">500px</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-envelope-o" target="_blank" ><span class="label">Email</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-rss" target="_blank" ><span class="label">RSS</span></a></li>
+                
+            </ul>
+        </section>
+        <!-- <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved</li>
+            <li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+            <li>Hexo: <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></li>
+        </ul> -->
+    </div>
+</footer>
+    </div>
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- skel -->
+
+<script src="/js/skel.min.js"></script>
+
+
+<!-- Custom Code -->
+
+<script src="/js/util.js"></script>
+
+
+<!--[if lte IE 8]>
+
+<script src="/js/ie/respond.min.js"></script>
+
+<![endif]-->
+
+<!-- Custom Code -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'klugjo';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+</body>
+
+</html>
