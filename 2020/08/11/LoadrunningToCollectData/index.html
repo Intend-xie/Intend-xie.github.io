@@ -170,18 +170,6 @@
 <h3 id="（四）遇到的问题"><a href="#（四）遇到的问题" class="headerlink" title="（四）遇到的问题"></a>（四）遇到的问题</h3><p>1.执行监控命令<br>[root@localhost /]# dstat -tcdnm 200805jzdl.csv<br>-bash: dstat: 未找到命令<br><img src= "/img/loading.gif" data-src="/images/LoadrunningToCollectData20.png" alt="img"><br>2.安装dstat<br>yum install -y dstat<br><img src= "/img/loading.gif" data-src="/images/LoadrunningToCollectData21.png" alt="img"><br>3.上传文件到linux服务器<br>securecrt 按下ALT+P就开启新的会话 进行ftp操作。<br>输入put C:/Users/Administrator/Desktop/dstat-0.7.2-12.el7.noarch.rpm上传<br>上传成功，在查看所在位置：pwd<br><img src= "/img/loading.gif" data-src="/images/LoadrunningToCollectData22.png" alt="img"><br>4.安装<br>输入rpm -ivh dstat-0.7.2-12.el7.noarch.rpm进行安装<br><img src= "/img/loading.gif" data-src="/images/LoadrunningToCollectData23.png" alt="img"><br>5.监控<br>dstat -tcdnm -output xxxx.csv<br>dstat -tcdnm xxxx.csv<br>执行后都报错<br><img src= "/img/loading.gif" data-src="/images/LoadrunningToCollectData24.png" alt="img"><br>执行dstat、dstat -tcdnm都成功<br><img src= "/img/loading.gif" data-src="/images/LoadrunningToCollectData25.png" alt="img"><br><img src= "/img/loading.gif" data-src="/images/LoadrunningToCollectData26.png" alt="img"><br>发现output需要—output才能执行<br>执行dstat -tcdnm –output xxxx.csv成功<br><img src= "/img/loading.gif" data-src="/images/LoadrunningToCollectData27.png" alt="img"><br>5.从linux服务器下载文件<br>securecrt 按下ALT+P就开启新的会话 进行ftp操作。<br>输入get 200805jzdl.csv下载<br><img src= "/img/loading.gif" data-src="/images/LoadrunningToCollectData28.png" alt="img"><br>其他应用了解地址：<a href="https://wenwen.sogou.com/z/q799956086.htm" target="_blank" rel="noopener">https://wenwen.sogou.com/z/q799956086.htm</a></p>
 </div>
         
-          <div class="post-copyright">
-                  <div class="copyright-item">
-                      <span> Author: xiexy</span>
-                  </div>
-                  <div class="copyright-item">
-                      <span> Link: <a href="http://yoursite.com/2020/08/11/LoadrunningToCollectData/">http://yoursite.com/2020/08/11/LoadrunningToCollectData/</a></span>
-                  </div>
-                  <div class="copyright-item">
-                      <span> License: </span>
-                  </div>
-          </div>
-        
   </div>
 
   <div class="share-reward">

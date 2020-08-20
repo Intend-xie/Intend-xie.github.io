@@ -168,18 +168,6 @@
 <h2 id="二、性能测试常见用语解析"><a href="#二、性能测试常见用语解析" class="headerlink" title="二、性能测试常见用语解析"></a>二、性能测试常见用语解析</h2><p>1.并发用户数量<br>常见的错误理解：<br>•    使用系统的全部用户数量<br>•    使用系统的全部在线用户数量<br>正确理解：<br>•    与服务器进行交互的在线用户数量<br>并发用户数：可以分两种：<br>1）同一时间点，执行同一（业务）操作的用户数<br>2）同一时间点，执行不同（业务）操作的用户数<br>在线用户：当前时间访问系统的用户数<br>2.请求响应时间<br>•    从client端发生请求到得到响应的整个时间<br>•    一般包括网络响应时间+server的响应时间<br> 响应时间（RT）：响应时间是指系统对请求作出响应的时间，一般取平均响应时间<br>3.事务请求响应时间<br>•    完成这个事务所用的时间<br>这是性能测试中重点关注的指标<br>4.吞吐率<br>•    单位时间在网络上传输的数据量<br>这个是衡量网络性能的主要指标<br>吞吐率指的是从server端返回client端的数据量，不是从client发送到server的数据量<br>5.吞吐量<br>•    网络上传输的数据总量<br> 吞吐量是指系统在单位时间内处理请求的数量。<br>6.TPS<br>•    每秒钟系统能够处理事务的数量<br>7.点击率<br>•    每秒发送的HTTP请求的数量<br>•    点击率越大对server的压力也就越大<br>注：按一个button并不总是发送一个请求，有时会发送两个以上HTTP请求<br>PV（Page View）：页面访问量，即页面浏览量或点击量，用户每次刷新即被计算一次。可以统计服务一天的访问日志得到。<br>8.资源利用率<br>•    对不同资源的使用程度，比如服务器的CPU，内存等<br>  系统吞吐量几个重要参数：QPS（TPS）、并发数、响应时间<br>       QPS（TPS）：每秒钟request/事务数量<br>       并发数： 系统同时处理的request/事务数<br>       响应时间：一般取平均响应时间<br>    理解了上面三个要素的意义之后，就能推算出它们之间的关系：<br>    QPS（TPS）= 并发数/平均响应时间</p>
 </div>
         
-          <div class="post-copyright">
-                  <div class="copyright-item">
-                      <span> Author: xiexy</span>
-                  </div>
-                  <div class="copyright-item">
-                      <span> Link: <a href="http://yoursite.com/2020/08/11/LoadrunningTerms/">http://yoursite.com/2020/08/11/LoadrunningTerms/</a></span>
-                  </div>
-                  <div class="copyright-item">
-                      <span> License: </span>
-                  </div>
-          </div>
-        
   </div>
 
   <div class="share-reward">
