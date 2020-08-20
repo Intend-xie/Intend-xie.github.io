@@ -21,7 +21,7 @@
 
   
 
-  <title>Page not found | Intend blog</title>
+  <title>启用 Valine 留言系统 | Intend blog</title>
 
   
 
@@ -135,35 +135,74 @@
     </div>
 </div>
 
-      
+    
+<article id="post">
+  <div class="post-title">启用 Valine 留言系统</div>
+  
+<div class="post-meta">
+    
+    
+      <div class="post-meta-item date">
+        <span title="Created 2020.08.20"><i class="far fa-calendar-alt"></i> 2020.08.20</span>
+      </div>
+      <div class="post-meta-item updated">
+        <span title="Updated 2020.08.20"><i class="far fa-calendar-check"></i> 2020.08.20</span>
+      </div>
+     
+     
+    
+     <div class="post-meta-item wordcount">
+        
+          <i class="fas fa-pencil-alt"></i> <span class="post-count">345 words</span>
+           
+        
+          <i class="far fa-clock"></i> <span class="post-count">1 min</span>
+                               
+      </div>
+     
+</div>
 
 
-<div class="container">
-    <h2>Oops! Page not found.</h2>
-    <h1>404</h1>
+  
+    <div id="toc" class="toc">
+          <h1>Toc</h1>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题"><span class="toc-number">1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方法"><span class="toc-number">2.</span> <span class="toc-text">解决方法</span></a></li></ol>
+      </div>
+    
+  <div class="content">
+        <div><p>此文仅是本人学习笔记。</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>博客应用blank主题，主题含有Valine 留言系统，功能提示：Code 401: 未经授权的操作，请检查你的AppId和AppKey.<br><img src= "/img/loading.gif" data-src="/images/MessageBoard1.png" alt="img"></p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p><strong>创建 LeanCloud 应用</strong><br>Valine 基于 LeanCloud 提供的数据服务，参考 Valine 的 <a href="https://valine.js.org/quickstart.html" target="_blank" rel="noopener">官方教程</a>，首先前往 <a href="https://leancloud.cn/" target="_blank" rel="noopener">leancloud.cn</a> 注册账号。<br>我选择的是华东节点，提交注册信息后LeanCloud提示国区账号必需实名制，否则无法创建应用。<br>创建了一个应用，命名为 <code>Valine</code>，方案选择开发版，即可以在一定的用量限制下免费运行。<br><img src= "/img/loading.gif" data-src="/images/MessageBoard2.png" alt="img"><br>进入创建好的应用，就能获取到 <code>App ID</code> 和 <code>App Key</code>。<br>步骤：<br>(1)进入刚刚创建的应用，选择左下角的<code>设置</code>&gt;<code>应用``Key</code>，然后就能看到你的<code>APP ID</code>和<code>APP Key</code>了。<br><img src= "/img/loading.gif" data-src="/images/MessageBoard3.png" alt="img"><br>(2)然后，进入 <code>设置</code> &gt; <code>安全中心</code> &gt; <code>Web ``安全域名</code>，填写站点的域名并保存：<br><img src= "/img/loading.gif" data-src="/images/MessageBoard4.png" alt="img"><br><strong>配置博客</strong><br>编辑 <code>source/_data/blank.yml</code>，找到对应的模块，修改配置如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">valine:</span><br><span class="line">    enable: <span class="literal">true</span> </span><br><span class="line">    appid: <span class="xml"><span class="tag">&lt;<span class="name">App</span> <span class="attr">ID</span>&gt;</span></span></span><br><span class="line">    appkey: &lt;App Key&gt;</span><br><span class="line">    notify: false </span><br><span class="line">    verify: false </span><br><span class="line">    placeholder: &lt;留言编辑框里的默认文本&gt;</span><br><span class="line">    avatar: mm </span><br><span class="line">    guest_info: nick,mail,link </span><br><span class="line">    pageSize: 10 </span><br><span class="line">    recordIP: false </span><br><span class="line">    serverURLs:</span><br><span class="line">    emojiCDN: </span><br><span class="line">    enableQQ: true</span><br></pre></td></tr></table></figure>
+<p>再次部署 Hexo 后就能看到留言系统已经启用，可以进行留言了。<br><img src= "/img/loading.gif" data-src="/images/MessageBoard5.png" alt="img"></p>
+<p>参考博客：<a href="https://laytonsun.com/learning/2019-08/enable-comments.html" target="_blank" rel="noopener">https://laytonsun.com/learning/2019-08/enable-comments.html</a></p>
+</div>
+        
   </div>
 
-<style>
-.container{
-  width: 100%;
-  top: 50%;
-  max-width: 700px;
-  margin: 0 auto;
-  transform: translateY(-50%);
-  text-align: center;
-  color: #343434
-}
-.container h1{
-  font-size: 160px;
-  margin: 0;
-  font-weight: 900;
-  letter-spacing: 20px;
-}
-.container h2{
-    padding: 2em;
-}
-</style>
+    <div class="post_tags">
+      
+        <i class="fas fa-tag"></i> <a href="/tags/hexo/" class="tag">hexo</a>
+      
+    </div>
+    <div class="post-nav">
+      
+        <div class="post-nav-prev post-nav-item">
+            <a href="/2020/08/20/npm-erp/" >hexo s后,访问页面显示Cannot GET /<i class="fa fa-chevron-left"></i></a>
+        </div>
+      
+      
+        <div class="post-nav-next post-nav-item">
+            <a href="/2020/08/17/JMeterBasics/" >JMeter入门基础<i class="fa fa-chevron-right"></i></a>
+        </div>
+      
+    </div>
 
+
+    <div class="comments">
+      
+    </div>
+</article>
 
     
 <a id="gotop" href="javascript:" title="返回顶部"><i class="fa fa-arrow-up"></i></a>

@@ -21,7 +21,7 @@
 
   
 
-  <title>Page not found | Intend blog</title>
+  <title>留言 | Intend blog</title>
 
   
 
@@ -135,34 +135,53 @@
     </div>
 </div>
 
-      
+    <div class="pagetitle">
+    <h1>留言</h1>
+</div>
+<div class="indexpage">
+    <article class="post-wrap page">
+        
+        <section class="content">
+            
+                    <p><strong>欢迎来到Intend的留言区！</strong><br><strong>可以开始留言咯！</strong></p>
+
+            
+        </section>
+    </article>
+    
+    <div class="comments">
+        <script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script>
+        <div id="comment" class="vcomment" ></div>
+        <script>
+            var notify = 'false' == true ? true : false;
+            var verify = 'false' == true ? true : false;
+            var GUEST_INFO = ['nick','mail','link'];
+            var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+                return GUEST_INFO.indexOf(item) > -1
+            });
+            guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+            window.valine = new Valine({
+                el: '.vcomment',
+                notify: notify,
+                verify: verify,
+                appId: "94bz458xf824vjieupxrVzGW-9Nh9j0Va",
+                appKey: "to5iLffjCqpAx7ob5XKJP4Ny",
+                avatar: "mm",
+                placeholder: "留言内容",
+                guest_info: guest_info,
+                pageSize:'10',
+                recordIP: 'false',
+                serverURLs: "",
+                emojiCDN: "",
+                enableQQ: "true",
+            });
+        </script>
+    </div>
+
+</div>
 
 
-<div class="container">
-    <h2>Oops! Page not found.</h2>
-    <h1>404</h1>
-  </div>
 
-<style>
-.container{
-  width: 100%;
-  top: 50%;
-  max-width: 700px;
-  margin: 0 auto;
-  transform: translateY(-50%);
-  text-align: center;
-  color: #343434
-}
-.container h1{
-  font-size: 160px;
-  margin: 0;
-  font-weight: 900;
-  letter-spacing: 20px;
-}
-.container h2{
-    padding: 2em;
-}
-</style>
 
 
     

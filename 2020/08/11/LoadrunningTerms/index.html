@@ -21,7 +21,7 @@
 
   
 
-  <title>Page not found | Intend blog</title>
+  <title>Loadrunning用法 | Intend blog</title>
 
   
 
@@ -135,35 +135,71 @@
     </div>
 </div>
 
-      
+    
+<article id="post">
+  <div class="post-title">Loadrunning用法</div>
+  
+<div class="post-meta">
+    
+    
+      <div class="post-meta-item date">
+        <span title="Created 2020.08.11"><i class="far fa-calendar-alt"></i> 2020.08.11</span>
+      </div>
+      <div class="post-meta-item updated">
+        <span title="Updated 2020.08.19"><i class="far fa-calendar-check"></i> 2020.08.19</span>
+      </div>
+     
+     
+    
+     <div class="post-meta-item wordcount">
+        
+          <i class="fas fa-pencil-alt"></i> <span class="post-count">1.2k words</span>
+           
+        
+          <i class="far fa-clock"></i> <span class="post-count">4 min</span>
+                               
+      </div>
+     
+</div>
 
 
-<div class="container">
-    <h2>Oops! Page not found.</h2>
-    <h1>404</h1>
+  
+    <div id="toc" class="toc">
+          <h1>Toc</h1>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、loadrunner常用术语"><span class="toc-number">1.</span> <span class="toc-text">一、loadrunner常用术语</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、性能测试常见用语解析"><span class="toc-number">2.</span> <span class="toc-text">二、性能测试常见用语解析</span></a></li></ol>
+      </div>
+    
+  <div class="content">
+        <div><p>此文仅是本人学习笔记。</p>
+<h2 id="一、loadrunner常用术语"><a href="#一、loadrunner常用术语" class="headerlink" title="一、loadrunner常用术语"></a>一、loadrunner常用术语</h2><p>1.场景<br>•    在loadrunner中主要表现为controller中设计与执行测试用例中的用户场景。主要工作有，在controller中选择虚拟用户脚本、设置虚拟用户数量、配置虚拟用户运行时的行为、选择负载发生器、设置执行时间等。<br>2.负载发生器<br>•    用来产生压力的真实机器，受controller控制，可以使用户脚本在不同的主机上执行。在性能测试工作中，通常由一个controller控制多个load generator以对被测试系统进行压力。<br>在练习中是对本机中进行加压<br>3.虚拟用户<br>•    对应于现实中的真实用户，使用loadrunner模拟的用户称为虚拟用户。其本质是通过虚拟用户脚本来模拟真正用户的行为。<br>4.事务<br>•    loadrunner通过事务来衡量服务器的性能。在业务上事务通常是用户的一个或一系列操作，代表一定的功能，而在程序上则表现为一段代码区块。测试人员可以将一个或多个操作步骤定义为一个事务，以便衡量这部分的用户并发响应时间。<br>5.思考时间<br>•    为了在模拟时更加接近用户的真实行为而引进的概念。在实际中，用户进行一系列操作后往往会进行处理，例如浏览网页内容，而处理过程对服务器是没有压力的。因此在虚拟用户脚本中用函数lr_think_time(double time)来模拟用户处理过程，执行该函数时用户线程会按照相应的time值进行等待。<br>6.集合点<br>•    对应于真实用户中的并发点。loadrunner通过集合点实现了真正意义的并发。集合点在虚拟用户脚本中对应函数lr_rendezvous(constchar*rendezvous_name)，当执行到该函数时会按照场景的并发策略来执行。<br>7.事务响应时间<br>•    事务响应时间是一个统计量，是评价系统性能的重要参数。定义好事务后，在场景执行过程和测试结果分析中即可看到对应事务的响应时间。通过对关键或核心事务的执行情况进行分析，可以快速定位性能问题。</p>
+<h2 id="二、性能测试常见用语解析"><a href="#二、性能测试常见用语解析" class="headerlink" title="二、性能测试常见用语解析"></a>二、性能测试常见用语解析</h2><p>1.并发用户数量<br>常见的错误理解：<br>•    使用系统的全部用户数量<br>•    使用系统的全部在线用户数量<br>正确理解：<br>•    与服务器进行交互的在线用户数量<br>并发用户数：可以分两种：<br>1）同一时间点，执行同一（业务）操作的用户数<br>2）同一时间点，执行不同（业务）操作的用户数<br>在线用户：当前时间访问系统的用户数<br>2.请求响应时间<br>•    从client端发生请求到得到响应的整个时间<br>•    一般包括网络响应时间+server的响应时间<br> 响应时间（RT）：响应时间是指系统对请求作出响应的时间，一般取平均响应时间<br>3.事务请求响应时间<br>•    完成这个事务所用的时间<br>这是性能测试中重点关注的指标<br>4.吞吐率<br>•    单位时间在网络上传输的数据量<br>这个是衡量网络性能的主要指标<br>吞吐率指的是从server端返回client端的数据量，不是从client发送到server的数据量<br>5.吞吐量<br>•    网络上传输的数据总量<br> 吞吐量是指系统在单位时间内处理请求的数量。<br>6.TPS<br>•    每秒钟系统能够处理事务的数量<br>7.点击率<br>•    每秒发送的HTTP请求的数量<br>•    点击率越大对server的压力也就越大<br>注：按一个button并不总是发送一个请求，有时会发送两个以上HTTP请求<br>PV（Page View）：页面访问量，即页面浏览量或点击量，用户每次刷新即被计算一次。可以统计服务一天的访问日志得到。<br>8.资源利用率<br>•    对不同资源的使用程度，比如服务器的CPU，内存等<br>  系统吞吐量几个重要参数：QPS（TPS）、并发数、响应时间<br>       QPS（TPS）：每秒钟request/事务数量<br>       并发数： 系统同时处理的request/事务数<br>       响应时间：一般取平均响应时间<br>    理解了上面三个要素的意义之后，就能推算出它们之间的关系：<br>    QPS（TPS）= 并发数/平均响应时间</p>
+</div>
+        
   </div>
 
-<style>
-.container{
-  width: 100%;
-  top: 50%;
-  max-width: 700px;
-  margin: 0 auto;
-  transform: translateY(-50%);
-  text-align: center;
-  color: #343434
-}
-.container h1{
-  font-size: 160px;
-  margin: 0;
-  font-weight: 900;
-  letter-spacing: 20px;
-}
-.container h2{
-    padding: 2em;
-}
-</style>
+    <div class="post_tags">
+      
+        <i class="fas fa-tag"></i> <a href="/tags/Loadrunning/" class="tag">Loadrunning</a>
+      
+    </div>
+    <div class="post-nav">
+      
+        <div class="post-nav-prev post-nav-item">
+            <a href="/2020/08/11/LoadrunningScenarioRunning/" >Loadrunning脚本运行<i class="fa fa-chevron-left"></i></a>
+        </div>
+      
+      
+        <div class="post-nav-next post-nav-item">
+            <a href="/2020/08/04/GitHub-rejects-connection-request/" >博客地址拒绝我的访问<i class="fa fa-chevron-right"></i></a>
+        </div>
+      
+    </div>
 
+
+    <div class="comments">
+      
+    </div>
+</article>
 
     
 <a id="gotop" href="javascript:" title="返回顶部"><i class="fa fa-arrow-up"></i></a>

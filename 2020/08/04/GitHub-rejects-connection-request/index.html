@@ -21,7 +21,7 @@
 
   
 
-  <title>Page not found | Intend blog</title>
+  <title>博客地址拒绝我的访问 | Intend blog</title>
 
   
 
@@ -135,35 +135,71 @@
     </div>
 </div>
 
-      
+    
+<article id="post">
+  <div class="post-title">博客地址拒绝我的访问</div>
+  
+<div class="post-meta">
+    
+    
+      <div class="post-meta-item date">
+        <span title="Created 2020.08.04"><i class="far fa-calendar-alt"></i> 2020.08.04</span>
+      </div>
+      <div class="post-meta-item updated">
+        <span title="Updated 2020.08.19"><i class="far fa-calendar-check"></i> 2020.08.19</span>
+      </div>
+     
+     
+    
+     <div class="post-meta-item wordcount">
+        
+          <i class="fas fa-pencil-alt"></i> <span class="post-count">240 words</span>
+           
+        
+          <i class="far fa-clock"></i> <span class="post-count">1 min</span>
+                               
+      </div>
+     
+</div>
 
 
-<div class="container">
-    <h2>Oops! Page not found.</h2>
-    <h1>404</h1>
+  
+    <div id="toc" class="toc">
+          <h1>Toc</h1>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题：我的博客（https-intend-xie-github-io-）被拒绝访问"><span class="toc-number">1.</span> <span class="toc-text">问题：我的博客（https:&#x2F;&#x2F;intend-xie.github.io&#x2F;）被拒绝访问</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方法"><span class="toc-number">2.</span> <span class="toc-text">解决方法</span></a></li></ol>
+      </div>
+    
+  <div class="content">
+        <div><p>此文仅是本人学习笔记。</p>
+<h2 id="问题：我的博客（https-intend-xie-github-io-）被拒绝访问"><a href="#问题：我的博客（https-intend-xie-github-io-）被拒绝访问" class="headerlink" title="问题：我的博客（https://intend-xie.github.io/）被拒绝访问"></a>问题：我的博客（<a href="https://intend-xie.github.io/）被拒绝访问" target="_blank" rel="noopener">https://intend-xie.github.io/）被拒绝访问</a></h2><p>您的连接不是私密连接<br>攻击者可能会试图从 <strong>intend-xie.github.io</strong> 窃取您的信息（例如：密码、通讯内容或信用卡信息）。了解详情<br>NET::ERR_CERT_AUTHORITY_INVALID<br><img src= "/img/loading.gif" data-src="/images/GitHub-rejects-connection-request1.png" alt="问题"></p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>1、在cmd中，ping intend-xie.github.io,得到IP<br><img src= "/img/loading.gif" data-src="/images/GitHub-rejects-connection-request2.png" alt="步骤1"><br>2、将其ip和域名添加到hosts文件（目录：C:\Windows\System32\drivers\etc）中<br><img src= "/img/loading.gif" data-src="/images/GitHub-rejects-connection-request3.png" alt="步骤2-1"><br><img src= "/img/loading.gif" data-src="/images/GitHub-rejects-connection-request4.png" alt="步骤2-2"><br>3、    如果还不行，可通过打开Dns检测|Dns查询 - 站长工具：<a href="http://tool.chinaz.com/dns" target="_blank" rel="noopener">http://tool.chinaz.com/dns</a><br>4、在检测输入栏中输入博客地址（intend-xie.github.io）<br><img src= "/img/loading.gif" data-src="/images/GitHub-rejects-connection-request5.png" alt="步骤3、4"><br>5、把检测列表里某个IP（对应TTL值最小和最大的IP我尝试了都可以，其他有兴趣可以试试）输入到hosts里，并对应写上博客地址<br><img src= "/img/loading.gif" data-src="/images/GitHub-rejects-connection-request6.png" alt="步骤5"><br>6、问题的思路<br>通过下面两个链接进行了解解决，具体可进行查看：<br><a href="https://www.jianshu.com/p/5b72495f4548" target="_blank" rel="noopener">https://www.jianshu.com/p/5b72495f4548</a><br><a href="https://segmentfault.com/q/1010000010264567" target="_blank" rel="noopener">https://segmentfault.com/q/1010000010264567</a></p>
+</div>
+        
   </div>
 
-<style>
-.container{
-  width: 100%;
-  top: 50%;
-  max-width: 700px;
-  margin: 0 auto;
-  transform: translateY(-50%);
-  text-align: center;
-  color: #343434
-}
-.container h1{
-  font-size: 160px;
-  margin: 0;
-  font-weight: 900;
-  letter-spacing: 20px;
-}
-.container h2{
-    padding: 2em;
-}
-</style>
+    <div class="post_tags">
+      
+        <i class="fas fa-tag"></i> <a href="/tags/hexo/" class="tag">hexo</a>
+      
+    </div>
+    <div class="post-nav">
+      
+        <div class="post-nav-prev post-nav-item">
+            <a href="/2020/08/11/LoadrunningTerms/" >Loadrunning用法<i class="fa fa-chevron-left"></i></a>
+        </div>
+      
+      
+        <div class="post-nav-next post-nav-item">
+            <a href="/2020/08/01/LoadrunningJson/" >Loadrunning的web_custom_request函数<i class="fa fa-chevron-right"></i></a>
+        </div>
+      
+    </div>
 
+
+    <div class="comments">
+      
+    </div>
+</article>
 
     
 <a id="gotop" href="javascript:" title="返回顶部"><i class="fa fa-arrow-up"></i></a>

@@ -1,0 +1,665 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+    <link rel="icon" href="/img/yuelianga.svg">
+  
+  
+      <meta name="author" content="xiexy">
+  
+  
+  
+  
+  
+    <link rel="alternate" href="/atom.xml " title="Intend blog" type="application/atom+xml">
+  
+
+  
+
+  <title>Intend blog</title>
+
+  
+
+  
+
+  
+
+
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/style.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css">
+    
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.1.1/styles/github.css">
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+</html>
+    
+<header class="header">
+    <div class="title animated fadeInDown">
+        
+            <div class="logo">
+                
+                    <a href="/"><img data-src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2238661886,2476423153&amp;fm=26&amp;gp=0.jpg" onerror=this.onerror=null,this.src="/img/loading.gif"></a>
+                    
+            </div>
+         
+    </div>
+    <div class="navbar animated fadeInDown">
+     
+    
+            <div class="social">
+                
+            </div>
+     
+   </div>
+</header>
+
+
+
+    
+<div class="nav index" style="height: 60px;">
+    <div class="title animated fadeInDown">
+        <div class="layui-container">
+            
+                <div class="nav-title"><a href="/" title="Intend blog">Intend blog</a></div>
+               
+            <div class="nav-list">
+                <button> <span class=""></span><span style="display: block;"></span><span class=""></span> </button>
+                <ul class="layui-nav" lay-filter="">
+                    
+                    <li class="layui-nav-item">
+                        <a href="/">
+                            <i class="fab fa-fort-awesome"></i>
+                            <span class="layui-nav-item-name">首页</span>
+                        </a>
+                    </li>
+                    
+                    <li class="layui-nav-item">
+                        <a href="/archives/">
+                            <i class="fas fa-archive"></i>
+                            <span class="layui-nav-item-name">归档</span>
+                        </a>
+                    </li>
+                    
+                    <li class="layui-nav-item">
+                        <a href="/tags/">
+                            <i class="fas fa-hashtag"></i>
+                            <span class="layui-nav-item-name">标签</span>
+                        </a>
+                    </li>
+                    
+                    <li class="layui-nav-item">
+                        <a href="/about/">
+                            <i class="fab fa-grav"></i>
+                            <span class="layui-nav-item-name">关于</span>
+                        </a>
+                    </li>
+                    
+                    <li class="layui-nav-item">
+                        <a href="/guestbook/">
+                            <i class="fab fa-telegram"></i>
+                            <span class="layui-nav-item-name">留言</span>
+                        </a>
+                    </li>
+                    
+                    <li class="layui-nav-item">
+                        
+                        <div id="dark" onclick="switchDarkMode()"></div>
+                        <script>
+                            if (localStorage.getItem('dark') === '1') {
+                                document.body.classList.add('dark');
+                            }
+                            document.getElementById('dark').innerHTML = document.querySelector("body").classList.contains("dark") ? "🌙" : "🌞";
+                        </script>
+                        
+                    </li>
+                    <span class="layui-nav-bar" style="left: 342px; top: 78px; width: 0px; opacity: 0;"></span>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+  <div id="recent-posts">
+    
+      <div class="recent-post-item">
+          <div class="post-title ">
+            <a href="/2020/08/20/npm-erp/">hexo s后,访问页面显示Cannot GET /</a>
+          </div>
+          <div class="post-meta">
+            
+            
+              <div class="post-meta-item date">
+                <span title="Created 2020.08.20"><i class="far fa-calendar-alt"></i> 2020.08.20</span>
+              </div>
+              <div class="post-meta-item updated">
+                <span title="Updated 2020.08.20"><i class="far fa-calendar-check"></i> 2020.08.20</span>
+              </div>
+             
+             
+            
+             <div class="post-meta-item wordcount">
+                
+                  <i class="fas fa-pencil-alt"></i> <span class="post-count">256 words</span>
+                   
+                
+                  <i class="far fa-clock"></i> <span class="post-count">1 min</span>
+                                       
+              </div>
+             
+        </div>
+          <div class="content">
+            
+                  此文仅是本人学习笔记。
+问题hexo s后,访问页面显示Cannot GET /
+解决方法排查(1)判断public目录下xxx文件是否存在。（我的错误是 Cannot GET /，因此在...
+             
+          </div>
+      </div>
+      <div class="post-footer">
+        
+        <div class="readmore"><a href="/2020/08/20/npm-erp/">Read More »</a></div>   
+        
+    </div>
+    
+      <div class="recent-post-item">
+          <div class="post-title ">
+            <a href="/2020/08/20/MessageBoard/">启用 Valine 留言系统</a>
+          </div>
+          <div class="post-meta">
+            
+            
+              <div class="post-meta-item date">
+                <span title="Created 2020.08.20"><i class="far fa-calendar-alt"></i> 2020.08.20</span>
+              </div>
+              <div class="post-meta-item updated">
+                <span title="Updated 2020.08.20"><i class="far fa-calendar-check"></i> 2020.08.20</span>
+              </div>
+             
+             
+            
+             <div class="post-meta-item wordcount">
+                
+                  <i class="fas fa-pencil-alt"></i> <span class="post-count">345 words</span>
+                   
+                
+                  <i class="far fa-clock"></i> <span class="post-count">1 min</span>
+                                       
+              </div>
+             
+        </div>
+          <div class="content">
+            
+                  此文仅是本人学习笔记。
+问题博客应用blank主题，主题含有Valine 留言系统，功能提示：Code 401: 未经授权的操作，请检查你的AppId和AppKey.
+解决方法创建 LeanCloud 应用
+             
+          </div>
+      </div>
+      <div class="post-footer">
+        
+        <div class="readmore"><a href="/2020/08/20/MessageBoard/">Read More »</a></div>   
+        
+    </div>
+    
+      <div class="recent-post-item">
+          <div class="post-title ">
+            <a href="/2020/08/17/JMeterBasics/">JMeter入门基础</a>
+          </div>
+          <div class="post-meta">
+            
+            
+              <div class="post-meta-item date">
+                <span title="Created 2020.08.17"><i class="far fa-calendar-alt"></i> 2020.08.17</span>
+              </div>
+              <div class="post-meta-item updated">
+                <span title="Updated 2020.08.19"><i class="far fa-calendar-check"></i> 2020.08.19</span>
+              </div>
+             
+             
+            
+             <div class="post-meta-item wordcount">
+                
+                  <i class="fas fa-pencil-alt"></i> <span class="post-count">1.5k words</span>
+                   
+                
+                  <i class="far fa-clock"></i> <span class="post-count">5 min</span>
+                                       
+              </div>
+             
+        </div>
+          <div class="content">
+            
+                  此文仅是本人学习笔记。
+一、jmeter介绍1、 什么是jmeterApache JMeter是Apache组织开发的基于Java的压力测试工具。2、 Jmeter可以做什么(1) 接口测试—-基础(2) 性能测试(3) 压力测试(4) 数据库测试(5) Java程序测试3、 Jmeter优缺点优点：(1) 开源免费(2) 支持多协议(3) 轻量级(4) 功能强大缺点：使用...
+             
+          </div>
+      </div>
+      <div class="post-footer">
+        
+        <div class="readmore"><a href="/2020/08/17/JMeterBasics/">Read More »</a></div>   
+        
+    </div>
+    
+      <div class="recent-post-item">
+          <div class="post-title ">
+            <a href="/2020/08/11/LoadrunningToCollectData/">Loadrunning收集数据</a>
+          </div>
+          <div class="post-meta">
+            
+            
+              <div class="post-meta-item date">
+                <span title="Created 2020.08.11"><i class="far fa-calendar-alt"></i> 2020.08.11</span>
+              </div>
+              <div class="post-meta-item updated">
+                <span title="Updated 2020.08.19"><i class="far fa-calendar-check"></i> 2020.08.19</span>
+              </div>
+             
+             
+            
+             <div class="post-meta-item wordcount">
+                
+                  <i class="fas fa-pencil-alt"></i> <span class="post-count">664 words</span>
+                   
+                
+                  <i class="far fa-clock"></i> <span class="post-count">2 min</span>
+                                       
+              </div>
+             
+        </div>
+          <div class="content">
+            
+                  此文仅是本人学习笔记。
+服务器监控数据（一）准备监控工具1.打开crt，择新建连接 ；2.输入IP地址， IP地址为：192.168.1.210；
+             
+          </div>
+      </div>
+      <div class="post-footer">
+        
+        <div class="readmore"><a href="/2020/08/11/LoadrunningToCollectData/">Read More »</a></div>   
+        
+    </div>
+    
+      <div class="recent-post-item">
+          <div class="post-title ">
+            <a href="/2020/08/11/LoadrunningScenarioRunning/">Loadrunning脚本运行</a>
+          </div>
+          <div class="post-meta">
+            
+            
+              <div class="post-meta-item date">
+                <span title="Created 2020.08.11"><i class="far fa-calendar-alt"></i> 2020.08.11</span>
+              </div>
+              <div class="post-meta-item updated">
+                <span title="Updated 2020.08.19"><i class="far fa-calendar-check"></i> 2020.08.19</span>
+              </div>
+             
+             
+            
+             <div class="post-meta-item wordcount">
+                
+                  <i class="fas fa-pencil-alt"></i> <span class="post-count">719 words</span>
+                   
+                
+                  <i class="far fa-clock"></i> <span class="post-count">2 min</span>
+                                       
+              </div>
+             
+        </div>
+          <div class="content">
+            
+                  此文仅是本人学习笔记。
+一、启动场景控制台1、启动控制台添加脚本，选择脚本名称，点击“Add==》”按钮，再点击“OK...
+             
+          </div>
+      </div>
+      <div class="post-footer">
+        
+        <div class="readmore"><a href="/2020/08/11/LoadrunningScenarioRunning/">Read More »</a></div>   
+        
+    </div>
+    
+      <div class="recent-post-item">
+          <div class="post-title ">
+            <a href="/2020/08/11/LoadrunningTerms/">Loadrunning用法</a>
+          </div>
+          <div class="post-meta">
+            
+            
+              <div class="post-meta-item date">
+                <span title="Created 2020.08.11"><i class="far fa-calendar-alt"></i> 2020.08.11</span>
+              </div>
+              <div class="post-meta-item updated">
+                <span title="Updated 2020.08.19"><i class="far fa-calendar-check"></i> 2020.08.19</span>
+              </div>
+             
+             
+            
+             <div class="post-meta-item wordcount">
+                
+                  <i class="fas fa-pencil-alt"></i> <span class="post-count">1.2k words</span>
+                   
+                
+                  <i class="far fa-clock"></i> <span class="post-count">4 min</span>
+                                       
+              </div>
+             
+        </div>
+          <div class="content">
+            
+                  此文仅是本人学习笔记。
+一、loadrunner常用术语1.场景•    在loadrunner中主要表现为controller中设计与执行测试用例中的用户场景。主要工作有，在controller中选择虚拟用户脚本、设置虚拟用户数量、配置虚拟用户运行时的行为、选择负载发生器、设置执行时间等。2.负载发生器•    用来产生压力的真实机器，受controller控制，可以使用户脚本在不同的主机上执行。在性能测试工作中，通常由一个con...
+             
+          </div>
+      </div>
+      <div class="post-footer">
+        
+        <div class="readmore"><a href="/2020/08/11/LoadrunningTerms/">Read More »</a></div>   
+        
+    </div>
+    
+      <div class="recent-post-item">
+          <div class="post-title ">
+            <a href="/2020/08/04/GitHub-rejects-connection-request/">博客地址拒绝我的访问</a>
+          </div>
+          <div class="post-meta">
+            
+            
+              <div class="post-meta-item date">
+                <span title="Created 2020.08.04"><i class="far fa-calendar-alt"></i> 2020.08.04</span>
+              </div>
+              <div class="post-meta-item updated">
+                <span title="Updated 2020.08.19"><i class="far fa-calendar-check"></i> 2020.08.19</span>
+              </div>
+             
+             
+            
+             <div class="post-meta-item wordcount">
+                
+                  <i class="fas fa-pencil-alt"></i> <span class="post-count">240 words</span>
+                   
+                
+                  <i class="far fa-clock"></i> <span class="post-count">1 min</span>
+                                       
+              </div>
+             
+        </div>
+          <div class="content">
+            
+                  此文仅是本人学习笔记。
+问题：我的博客（https://intend-xie.github.io/）被拒绝访问您的连接不是私密连接攻击者...
+             
+          </div>
+      </div>
+      <div class="post-footer">
+        
+        <div class="readmore"><a href="/2020/08/04/GitHub-rejects-connection-request/">Read More »</a></div>   
+        
+    </div>
+    
+      <div class="recent-post-item">
+          <div class="post-title ">
+            <a href="/2020/08/01/LoadrunningJson/">Loadrunning的web_custom_request函数</a>
+          </div>
+          <div class="post-meta">
+            
+            
+              <div class="post-meta-item date">
+                <span title="Created 2020.08.01"><i class="far fa-calendar-alt"></i> 2020.08.01</span>
+              </div>
+              <div class="post-meta-item updated">
+                <span title="Updated 2020.08.19"><i class="far fa-calendar-check"></i> 2020.08.19</span>
+              </div>
+             
+             
+            
+             <div class="post-meta-item wordcount">
+                
+                  <i class="fas fa-pencil-alt"></i> <span class="post-count">1.1k words</span>
+                   
+                
+                  <i class="far fa-clock"></i> <span class="post-count">4 min</span>
+                                       
+              </div>
+             
+        </div>
+          <div class="content">
+            
+                  此文仅是本人学习笔记。
+问题：loadrunning怎么请求json参数：request payload{“pageNo”:1,”perPageSize”:10,”type”:”c”,”companyId”:”CF9111CB233F46C290F662E0FAFA3F25”,”year”:2020}应该怎么请求？用web_submit_data()函数，在回放脚本时，发现返回的...
+             
+          </div>
+      </div>
+      <div class="post-footer">
+        
+        <div class="readmore"><a href="/2020/08/01/LoadrunningJson/">Read More »</a></div>   
+        
+    </div>
+    
+      <div class="recent-post-item">
+          <div class="post-title ">
+            <a href="/2020/07/30/LoadrunningScript/">手写loadrunning脚本</a>
+          </div>
+          <div class="post-meta">
+            
+            
+              <div class="post-meta-item date">
+                <span title="Created 2020.07.30"><i class="far fa-calendar-alt"></i> 2020.07.30</span>
+              </div>
+              <div class="post-meta-item updated">
+                <span title="Updated 2020.08.19"><i class="far fa-calendar-check"></i> 2020.08.19</span>
+              </div>
+             
+             
+            
+             <div class="post-meta-item wordcount">
+                
+                  <i class="fas fa-pencil-alt"></i> <span class="post-count">2.3k words</span>
+                   
+                
+                  <i class="far fa-clock"></i> <span class="post-count">8 min</span>
+                                       
+              </div>
+             
+        </div>
+          <div class="content">
+            
+                  此文仅是本人学习笔记。
+1、为什么要手写脚本（1）浏览器兼容性不好，IE9或者以上不支持（2）录制的脚本过长（3）可能开发只提供接口，没有页面可以录制
+2、常用函数get的页面请求用web_url表单提交web_submit_formpost数据请求用web_submit_data
+
+             
+          </div>
+      </div>
+      <div class="post-footer">
+        
+        <div class="readmore"><a href="/2020/07/30/LoadrunningScript/">Read More »</a></div>   
+        
+    </div>
+    
+      <div class="recent-post-item">
+          <div class="post-title ">
+            <a href="/2020/07/19/hexo-deploy-problem/">hexo发生error：spawn failed错误的解决方法</a>
+          </div>
+          <div class="post-meta">
+            
+            
+              <div class="post-meta-item date">
+                <span title="Created 2020.07.19"><i class="far fa-calendar-alt"></i> 2020.07.19</span>
+              </div>
+              <div class="post-meta-item updated">
+                <span title="Updated 2020.08.19"><i class="far fa-calendar-check"></i> 2020.08.19</span>
+              </div>
+             
+             
+            
+             <div class="post-meta-item wordcount">
+                
+                  <i class="fas fa-pencil-alt"></i> <span class="post-count">104 words</span>
+                   
+                
+                  <i class="far fa-clock"></i> <span class="post-count">1 min</span>
+                                       
+              </div>
+             
+        </div>
+          <div class="content">
+            
+                  此文仅是本人学习笔记。
+问题描述：
+部署博客是出现出现错误：Error: Spawn failedat ChildProcess. (D:\Develop\VSCode-workspace\intendblog\node_modules_hexo-util@1.9.1@hexo-util\lib\spawn.js:51:21)at ChildProcess.emit (events.js:310:20)at ChildProcess.cp.emit (D:\Develop\VSCode-wor...
+             
+          </div>
+      </div>
+      <div class="post-footer">
+        
+        <div class="readmore"><a href="/2020/07/19/hexo-deploy-problem/">Read More »</a></div>   
+        
+    </div>
+    
+  </div>
+
+
+
+<nav class="paginator">
+      
+            
+            <a class="next" href="/page/2/">Next ></a>
+            
+</nav>
+
+    
+<a id="gotop" href="javascript:" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+<script>
+    window.onscroll = function() {scrollFunction()};
+    function scrollFunction() {console.log(121);
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("gotop").style.display = "block";
+        } else {
+            document.getElementById("gotop").style.display = "none";
+        }
+    }
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+    
+
+
+
+
+
+
+    
+<div id="bottom-outer">
+    <div id="bottom-inner">
+        © 2020 <i class="fa fa-heart" id="heart"></i> xiexy 
+        <br>
+        Powered by 
+        <a href="http://hexo.io" target="_blank" rel="noopener">hexo</a> | Theme is <a href="https://github.com/a2396837/hexo-theme-blank/" target="_blank" rel="noopener">blank</a>
+        
+    </div>  
+  </div>
+
+
+<script src="https://www.layuicdn.com/layui-v2.5.6/layui.js"></script>
+
+
+  
+    <script src="/js/script.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.3/build/highlight.min.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.7.0/dist/highlightjs-line-numbers.min.js"></script>
+  
+
+
+
+  <script>
+      window.lazyLoadOptions = {
+        elements_selector: 'img',
+        threshold: 0
+      }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script>
+
+
+
+  <script>
+    var images = $('img').not('.nav-logo img').not('.card img').not($('a>img')).not('.reward-content img')
+    images.each(function (i, o) {
+      var lazyloadSrc = $(o).attr('data-src') ? $(o).attr('data-src') : $(o).attr('src')
+      $(o).wrap(`<a href="${lazyloadSrc}" data-fancybox="group" data-caption="${$(o).attr('alt')}" class="fancybox"></a>`)
+    })
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script>
+  <script>
+        $().fancybox({
+      selector: '[data-fancybox]',
+      loop: true,
+      transitionEffect: 'slide',
+      protect: true,
+      buttons: ['slideShow', 'fullScreen', 'thumbs', 'close']
+    })
+  </script>
+  
+
+
+
+<script>
+  var btntop = $('#gotop');
+  btntop.on('click', function (e) {
+    e.preventDefault();
+    $('html, body').animate({ scrollTop: 0 }, '300');
+  });
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@8.6.3/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad:true});</script>
+  <script>
+    $(document).ready(function () {
+      $('code.hljs').each(function (i, block) {
+        if ($.inArray(block.className, ['mermaid']) < 0) {
+          hljs.lineNumbersBlock(block);
+        }
+      });
+    });
+    </script>
+  
+
+
+
+
+<script>
+  var $table = $('.content table').not($('figure.highlight > table'))
+  $table.each(function () {
+    $(this).wrap('<div class="table-wrap"></div>')
+  })
+</script>
+
+
+
+
+
+</html>

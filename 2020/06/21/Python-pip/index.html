@@ -21,7 +21,7 @@
 
   
 
-  <title>Page not found | Intend blog</title>
+  <title>CMD命令模式使用pip提示Did not provide a command | Intend blog</title>
 
   
 
@@ -135,35 +135,70 @@
     </div>
 </div>
 
-      
+    
+<article id="post">
+  <div class="post-title">CMD命令模式使用pip提示Did not provide a command</div>
+  
+<div class="post-meta">
+    
+    
+      <div class="post-meta-item date">
+        <span title="Created 2020.06.21"><i class="far fa-calendar-alt"></i> 2020.06.21</span>
+      </div>
+      <div class="post-meta-item updated">
+        <span title="Updated 2020.08.19"><i class="far fa-calendar-check"></i> 2020.08.19</span>
+      </div>
+     
+     
+    
+     <div class="post-meta-item wordcount">
+        
+          <i class="fas fa-pencil-alt"></i> <span class="post-count">364 words</span>
+           
+        
+          <i class="far fa-clock"></i> <span class="post-count">1 min</span>
+                               
+      </div>
+     
+</div>
 
 
-<div class="container">
-    <h2>Oops! Page not found.</h2>
-    <h1>404</h1>
+  
+    <div id="toc" class="toc">
+          <h1>Toc</h1>
+          
+      </div>
+    
+  <div class="content">
+        <div><p>此文仅是本人学习笔记。</p>
+<p>问题：python安装后pip用不了，但是cmd命令窗口提示：Did not provide a command<br><img src= "/img/loading.gif" data-src="/images/Python-pip1.png" alt="问题"><br>首先，使用where pip找到pip的安装目录，我的目录为第三个，D:\Python\Python38\Scripts\pip.exe<br><img src= "/img/loading.gif" data-src="/images/Python-pip2.png" alt="pip目录"><br>其次，配置环境变量<br>打开环境变量配置窗口：此电脑–》属性–》左上侧的高级系统设置–》高级–》环境变量<br>在之前的环境变量Path最后添加，如果最后已经有英文的“;”分号，则不需要添加分号了，直接添加你的目录。如果没有则在后面添加英文分号“;”和你的pip目录，我的为“D:\Python\Python38\Scripts\”，添加完成之后，最好是在内容的最后面直接添加一个英文的“;”，习惯问题，方便下次配置其他环境变量时忘记添加而造成不能使用。<br><img src= "/img/loading.gif" data-src="/images/Python-pip3.png" alt="修改环境变量"><br>因此每次使用pip命令安装东西的时候都需要先进入到pip所在目录去执行pip install。—-这样的操作比较麻烦。<br>因此我在使用pip命令的时候做了区分，我直接使用pip3(因为我的版本是3.0的)，发现环境变量配置的确实没有问题，原来使用pip3来执行装就可以了<br><img src= "/img/loading.gif" data-src="/images/Python-pip4.png" alt="区分pip"><br>所以在安装的时候使用pip3 install 来进行安装就可以了。<br>注意：如果您的版本是pip2，那么就用pip2 install来安装就可以了。</p>
+</div>
+        
   </div>
 
-<style>
-.container{
-  width: 100%;
-  top: 50%;
-  max-width: 700px;
-  margin: 0 auto;
-  transform: translateY(-50%);
-  text-align: center;
-  color: #343434
-}
-.container h1{
-  font-size: 160px;
-  margin: 0;
-  font-weight: 900;
-  letter-spacing: 20px;
-}
-.container h2{
-    padding: 2em;
-}
-</style>
+    <div class="post_tags">
+      
+        <i class="fas fa-tag"></i> <a href="/tags/Python/" class="tag">Python</a>
+      
+    </div>
+    <div class="post-nav">
+      
+        <div class="post-nav-prev post-nav-item">
+            <a href="/2020/07/14/Differences-in-Python/" >Python2.7和3.7区别<i class="fa fa-chevron-left"></i></a>
+        </div>
+      
+      
+        <div class="post-nav-next post-nav-item">
+            <a href="/2020/06/21/git-github-hexo/" >git+github+hexo学习<i class="fa fa-chevron-right"></i></a>
+        </div>
+      
+    </div>
 
+
+    <div class="comments">
+      
+    </div>
+</article>
 
     
 <a id="gotop" href="javascript:" title="返回顶部"><i class="fa fa-arrow-up"></i></a>

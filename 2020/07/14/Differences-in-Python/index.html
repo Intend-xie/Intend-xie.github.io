@@ -21,7 +21,7 @@
 
   
 
-  <title>Page not found | Intend blog</title>
+  <title>Python2.7和3.7区别 | Intend blog</title>
 
   
 
@@ -135,35 +135,84 @@
     </div>
 </div>
 
-      
+    
+<article id="post">
+  <div class="post-title">Python2.7和3.7区别</div>
+  
+<div class="post-meta">
+    
+    
+      <div class="post-meta-item date">
+        <span title="Created 2020.07.14"><i class="far fa-calendar-alt"></i> 2020.07.14</span>
+      </div>
+      <div class="post-meta-item updated">
+        <span title="Updated 2020.08.19"><i class="far fa-calendar-check"></i> 2020.08.19</span>
+      </div>
+     
+     
+    
+     <div class="post-meta-item wordcount">
+        
+          <i class="fas fa-pencil-alt"></i> <span class="post-count">305 words</span>
+           
+        
+          <i class="far fa-clock"></i> <span class="post-count">1 min</span>
+                               
+      </div>
+     
+</div>
 
 
-<div class="container">
-    <h2>Oops! Page not found.</h2>
-    <h1>404</h1>
+  
+    <div id="toc" class="toc">
+          <h1>Toc</h1>
+          
+      </div>
+    
+  <div class="content">
+        <div><p>此文仅是本人学习笔记。<br>文章来源：<a href="https://www.cnblogs.com/sqm724/p/13294061.html?utm_source=tuicool" target="_blank" rel="noopener">https://www.cnblogs.com/sqm724/p/13294061.html?utm_source=tuicool</a></p>
+<p><strong>区别一:print语法使用</strong></p>
+<p>Python2.7  print语法使用  &gt;&gt;&gt; print “Hello Python”<br>Python3.7  print语法使用  &gt;&gt;&gt; print(“Hello Python”)</p>
+<p>例子:在Python 3.7.0使用双引号触发SyntaxError异常机制 提示Did you mean </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print <span class="string">"Hello Python3.7"</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"Hello Python3.7"</span>)</span><br></pre></td></tr></table></figure>
+<p>print 换行和不换行区别<br>python 2.7 print 不换行使用”,”即可<br>python 3.7 print 不换行使用end=””</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="string">"a"</span></span><br><span class="line">y = <span class="string">"b"</span></span><br><span class="line"></span><br><span class="line">print(x)</span><br><span class="line">print(y,end=<span class="string">""</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>区别二: raw_input()和input()</strong></p>
+<p>Python 2.7  raw_input()  input() 都存在 可使用    raw_input()接收字符串string  input()接收数字int /flot.<br>Python 3.7  raw_input()不存在  仅存在input()   两者合并  接收任意格式 返回string</p>
+<p><strong>区别三: 函数cmp()</strong></p>
+<p>python 2.7   cmp(x,y)函数用于比较2个对象，如果 x &lt; y 返回 -1, 如果 x == y 返回 0, 如果 x &gt; y 返回 1<br>python3.7    cmp()已经不存在了,如果你需要实现比较功能，需要引入 operator 模块，适合任何对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> operator</span><br><span class="line">operator.eq(<span class="string">'hello'</span>, <span class="string">'name'</span>);   <span class="comment">//False</span></span><br><span class="line">operator.eq(<span class="string">'hello'</span>, <span class="string">'hello'</span>);   <span class="comment">//True</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>区别四:string 字母 大小写字符串</strong></p>
+<p>string.letters:包含所有字母（大写或小写）的字符串<br>Python 3.0中，string.ascii_letters.</p>
+</div>
+        
   </div>
 
-<style>
-.container{
-  width: 100%;
-  top: 50%;
-  max-width: 700px;
-  margin: 0 auto;
-  transform: translateY(-50%);
-  text-align: center;
-  color: #343434
-}
-.container h1{
-  font-size: 160px;
-  margin: 0;
-  font-weight: 900;
-  letter-spacing: 20px;
-}
-.container h2{
-    padding: 2em;
-}
-</style>
+    <div class="post_tags">
+      
+        <i class="fas fa-tag"></i> <a href="/tags/Python/" class="tag">Python</a>
+      
+    </div>
+    <div class="post-nav">
+      
+        <div class="post-nav-prev post-nav-item">
+            <a href="/2020/07/19/Ngrok/" >使用Ngrok进行内网穿透<i class="fa fa-chevron-left"></i></a>
+        </div>
+      
+      
+        <div class="post-nav-next post-nav-item">
+            <a href="/2020/06/21/Python-pip/" >CMD命令模式使用pip提示Did not provide a command<i class="fa fa-chevron-right"></i></a>
+        </div>
+      
+    </div>
 
+
+    <div class="comments">
+      
+    </div>
+</article>
 
     
 <a id="gotop" href="javascript:" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
