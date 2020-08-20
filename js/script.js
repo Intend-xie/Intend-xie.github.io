@@ -34,12 +34,12 @@ layui.use(['jquery', 'element', 'carousel'], function(){
 //夜晚模式
 function switchDarkMode() {
 	if ($('body').hasClass('dark')) {
-		$("#dark").html("🌞");
+		$("#dark").html("/img/rijianmoshi.svg");
 		document.body.classList.remove('dark');
 		localStorage.setItem('noDark', '1');
 		localStorage.setItem('dark', '0');
 	} else {
-		$("#dark").html("🌙"); 
+		$("#dark").html("/img/yejianmoshi.svg"); 
 		document.body.classList.add('dark');
 		localStorage.setItem('dark', '1');
 		localStorage.setItem('noDark', '0');
