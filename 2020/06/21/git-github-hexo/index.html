@@ -153,17 +153,17 @@
         <span title="Created 2020.06.21"><i class="far fa-calendar-alt"></i> 2020.06.21</span>
       </div>
       <div class="post-meta-item updated">
-        <span title="Updated 2020.08.19"><i class="far fa-calendar-check"></i> 2020.08.19</span>
+        <span title="Updated 2020.08.21"><i class="far fa-calendar-check"></i> 2020.08.21</span>
       </div>
      
      
     
      <div class="post-meta-item wordcount">
         
-          <i class="fas fa-pencil-alt"></i> <span class="post-count">2.4k words</span>
+          <i class="fas fa-pencil-alt"></i> <span class="post-count">2.5k words</span>
            
         
-          <i class="far fa-clock"></i> <span class="post-count">8 min</span>
+          <i class="far fa-clock"></i> <span class="post-count">9 min</span>
                                
       </div>
      
@@ -184,6 +184,9 @@
 <h2 id="3、设置用户名与邮箱（用户标识，必要）"><a href="#3、设置用户名与邮箱（用户标识，必要）" class="headerlink" title="3、设置用户名与邮箱（用户标识，必要）"></a>3、设置用户名与邮箱（用户标识，必要）</h2><p>当你安装Git后首先要做的事情是设置你的用户名称和e-mail地址。这是非常重要的，因为每次Git提交都会使用该信息。它被永远的嵌入到了你的提交中：<br>git config –global user.name “mingcheng”  #名称<br>git config –global user.email youxiang   #邮箱<br>只需要做一次这个设置，如果你传递了–global 选项，因为Git将总是会使用该信息来处理你在系统中所做的一切操作。如果你希望在一个特定的项目中使用不同的名称或e-mail地址，你可以在该项目中运行该命令而不要–global选项。总之–global为全局配置，不加为某个项目的特定配置。</p>
 <h2 id="4、创建SSH-Key"><a href="#4、创建SSH-Key" class="headerlink" title="4、创建SSH Key"></a>4、创建SSH Key</h2><p>第一步：在用户主目录（C:\Users\Administrator）下，看看有没有.ssh文件，如果有，再看文件下有没有id_rsa和id_rsa.pub这两个文件，如果已经有了，可直接到下一步。如果没有，打开Git Bash，输入命令，创建SSH Key<br>ssh-keygen -t rsa -C “邮箱” //注册GitHub的邮箱<br>第二步：创建成功，再去用户主目录里找到.ssh文件夹，里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露，id_rsa.pub是公钥，可以公开。<br>第三步：到GitHub上，打开“Account settings”–“SSH Keys”页面，然后点击“Add SSH Key”，填上Title，在Key文本框里粘贴 id_rsa.pub文件里的全部内容。点“Add Key”，你就应该看到已经添加的Key，可以添加多个Key<br>第四步：验证是否成功，在git bash里输入下面的命令ssh -T <a href="mailto:git@github.com">git@github.com</a>，如果初次设置的话，会出现如下界面，输入yes 同意即可。</p>
 <h2 id="5、上传自己的文件到GitHub远程仓库上"><a href="#5、上传自己的文件到GitHub远程仓库上" class="headerlink" title="5、上传自己的文件到GitHub远程仓库上"></a>5、上传自己的文件到GitHub远程仓库上</h2><p>第一步：cd进入你放项目文件的地址，我的地址在D:\MYFILE\graduation\study\项目程序<br>第二步：输入git init，当前项目的目录中生成本地的git管理（会发现在当前目录下多了一个.git文件夹）<br>第三步：输入git add . ，将项目上所有的文件添加到仓库中的意思<br>第四步：输入git commit -m “first commit”，表示你对这次提交的注释<br>第五步输入git remote add origin https://自己的仓库url地址（上面有说到） 将本地的仓库关联到github上，<br>如果想要修改先使用git remote rm origin 删除关联<br>最后一步，输入git push -u origin master，这是把代码上传到github仓库的意思。<br>Or git push origin master推送最新修改<br>执行完后，如果没有异常，会等待几秒，然后跳出一个让你输入Username和Password 的窗口，你只要输人github的登录账号和密码就行了。</p>
+<p>注意：遇到git remote地址不对时，进行以下操作。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1、查看当前配置有哪些远程仓库</span></span><br><span class="line">$ git remote </span><br><span class="line">origin</span><br><span class="line"><span class="comment">//2、执行时加上 -v 参数，你还可以看到每个别名的实际链接地址。</span></span><br><span class="line">$ git remote -v</span><br><span class="line">origin  ps:<span class="comment">//github.com/Intend-xie/Intend-xieblog (fetch)</span></span><br><span class="line">origin  ps:<span class="comment">//github.com/Intend-xie/Intend-xieblog (push)</span></span><br><span class="line"><span class="comment">//3、修改地址</span></span><br><span class="line">$ git remote <span class="keyword">set</span>-url origin https://github.com/Intend-xie/Intend-xieblog.git</span><br><span class="line">//4、再次查看</span><br><span class="line">$ git remote -v</span><br><span class="line">origin  https://github.com/Intend-xie/Intend-xieblog.git (fetch)</span><br><span class="line">origin  https://github.com/Intend-xie/Intend-xieblog.git (push)</span><br></pre></td></tr></table></figure>
+
 <h2 id="6、Git和hexo的连接"><a href="#6、Git和hexo的连接" class="headerlink" title="6、Git和hexo的连接"></a>6、Git和hexo的连接</h2><p>第一步：每个git账号都可以有一个用于展示个人博客的静态网站，且仓库名固定，如s <git_username>.github.io，创建一个远程仓库<br>第二步：仓库创建完成后，得到仓库地址URL，修改配置文件 /_config.yml 相关的配置。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">    repo: <span class="xml"><span class="tag">&lt;<span class="name">repository_url</span>&gt;</span>  # git远程仓库地址</span></span><br><span class="line">    branch: &lt;branch_name&gt;  # 分支名，一般是master</span><br></pre></td></tr></table></figure>
 <p>第三步：将工程推到git上，输入命令hexo clean清除缓存，hexo deploy进行部署，执行hexo的deploy部署命令推到git上时，目录结构跟本地工程的不同，也就是编译过。，<br>第四步：为了便于维护，可以再建一个git远程仓库，执行git命令把工程推上去，用来管理工程源代码。</p>
@@ -331,5 +334,10 @@
 
 
 
-    <script type="text/javascript" src="/love.js"></script>
+    <!-- 爆炸红心效果 -->
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+    <script type="text/javascript" src="/js/firework.js"></script>
+    
+    <!-- <script type="text/javascript" src="/love.js"></script> -->
     </html>
