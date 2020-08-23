@@ -28,6 +28,24 @@
   
 
   
+      
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+  
 
 
   
@@ -153,7 +171,7 @@
         <span title="Created 2020.07.30"><i class="far fa-calendar-alt"></i> 2020.07.30</span>
       </div>
       <div class="post-meta-item updated">
-        <span title="Updated 2020.08.19"><i class="far fa-calendar-check"></i> 2020.08.19</span>
+        <span title="Updated 2020.08.22"><i class="far fa-calendar-check"></i> 2020.08.22</span>
       </div>
      
      
@@ -181,7 +199,11 @@
 <h2 id="1、为什么要手写脚本"><a href="#1、为什么要手写脚本" class="headerlink" title="1、为什么要手写脚本"></a>1、为什么要手写脚本</h2><p>（1）浏览器兼容性不好，IE9或者以上不支持<br>（2）录制的脚本过长<br>（3）可能开发只提供接口，没有页面可以录制</p>
 <h2 id="2、常用函数"><a href="#2、常用函数" class="headerlink" title="2、常用函数"></a>2、常用函数</h2><p>get的页面请求用web_url<br>表单提交web_submit_form<br>post数据请求用web_submit_data</p>
 <h2 id="3、抓包工具"><a href="#3、抓包工具" class="headerlink" title="3、抓包工具"></a>3、抓包工具</h2><p>浏览器自带工具：使用Chrome或者其他浏览，F12的network列表查看请求（刷新页面可以重新查看）<br>其他专业抓包工具：HttpWatch、Fiddler、BurpSuite…</p>
-<h2 id="4、loadrunner脚本创建"><a href="#4、loadrunner脚本创建" class="headerlink" title="4、loadrunner脚本创建"></a>4、loadrunner脚本创建</h2><p>（1）点击鼠标–选择Insert–选择New step–选择类型–填写信息，填入相应参数<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScript1.png" alt="选择New step"><br><img src= "/img/loading.gif" data-src="/images/LoadrunningScript2.png" alt="选择类型"><br><img src= "/img/loading.gif" data-src="/images/LoadrunningScript3.png" alt="填写信息"><br>（2）生成脚本，并修改如下（<br>Ⅰ参数中的引号”前需要加斜杠\转译<br>如：json 对象<br>错误：”Value={“cate”:[{“fieldName”:”BACCNAME”,”text”:”功能分类名称 “}],”series”:[{“fieldName”:”SUMMONEY”,”text”:”支出金额”}],”desc”:[{“sqlField”:false,”fieldName”:”金额(万元)”}]}”,<br>正确：”Value={&quot;cate&quot;:[{&quot;fieldName&quot;:&quot;BACCNAME&quot;,&quot;text&quot;:&quot;功能分类名称 &quot;}],&quot;series&quot;:[{&quot;fieldName&quot;:&quot;SUMMONEY&quot;,&quot;text&quot;:&quot;支出金额&quot;}],&quot;desc&quot;:[{&quot;sqlField&quot;:false,&quot;fieldName&quot;:&quot;金额(万元)&quot;}]}”,<br>Ⅱ手写脚本”Snapshot=”为空<br>Ⅲ扩展中是请求后的静态资源js、css、woff<br>Ⅳ脚本写好后可通过回放，验证脚本的正确性<br>可参考：<a href="https://jingyan.baidu.com/article/9158e000138687a2541228b4.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/9158e000138687a2541228b4.html</a></p>
+<h2 id="4、loadrunner脚本创建"><a href="#4、loadrunner脚本创建" class="headerlink" title="4、loadrunner脚本创建"></a>4、loadrunner脚本创建</h2><p>（1）点击鼠标–选择Insert–选择New step–选择类型–填写信息，填入相应参数<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScript1.png" alt="选择New step"><br><img src= "/img/loading.gif" data-src="/images/LoadrunningScript2.png" alt="选择类型"><br><img src= "/img/loading.gif" data-src="/images/LoadrunningScript3.png" alt="填写信息"><br>（2）生成脚本，并修改如下（<br>Ⅰ参数中的引号”前需要加斜杠\转译<br>如：json 对象<br>错误：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"Value=&#123;"</span>cate<span class="string">":[&#123;"</span>fieldName<span class="string">":"</span>BACCNAME<span class="string">","</span>text<span class="string">":"</span>功能分类名称 <span class="string">"&#125;],"</span>series<span class="string">":[&#123;"</span>fieldName<span class="string">":"</span>SUMMONEY<span class="string">","</span>text<span class="string">":"</span>支出金额<span class="string">"&#125;],"</span>desc<span class="string">":[&#123;"</span>sqlField<span class="string">":false,"</span>fieldName<span class="string">":"</span>金额(万元)<span class="string">"&#125;]&#125;"</span>,</span><br></pre></td></tr></table></figure>
+<p>正确：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"Value=&#123;\"cate\":[&#123;\"fieldName\":\"BACCNAME\",\"text\":\"功能分类名称 \"&#125;],\"series\":[&#123;\"fieldName\":\"SUMMONEY\",\"text\":\"支出金额\"&#125;],\"desc\":[&#123;\"sqlField\":false,\"fieldName\":\"金额(万元)\"&#125;]&#125;"</span>,</span><br></pre></td></tr></table></figure>
+<p>Ⅱ手写脚本”Snapshot=”为空<br>Ⅲ扩展中是请求后的静态资源js、css、woff<br>Ⅳ脚本写好后可通过回放，验证脚本的正确性<br>可参考：<a href="https://jingyan.baidu.com/article/9158e000138687a2541228b4.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/9158e000138687a2541228b4.html</a></p>
 <h2 id="5、设置测试点"><a href="#5、设置测试点" class="headerlink" title="5、设置测试点"></a>5、设置测试点</h2><table>
 <thead>
 <tr>
