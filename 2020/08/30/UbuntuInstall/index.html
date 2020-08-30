@@ -21,7 +21,7 @@
 
   
 
-  <title>分类 | Intend blog</title>
+  <title>Ubuntu安装卸载dstat | Intend blog</title>
 
   
 
@@ -162,27 +162,80 @@
     </div>
 </div>
 
-    <div class="pagetitle">
-    <h1>分类</h1>
-</div>
-<div class="indexpage">
-    <article class="post-wrap page">
-        
-        <section class="content">
-            
-                <div class="category">
     
-  </div>
+<article id="post">
+  <div class="post-title">Ubuntu安装卸载dstat</div>
   
-            
-        </section>
-    </article>
+<div class="post-meta">
     
+    
+      <div class="post-meta-item date">
+        <span title="Created 2020.08.30"><i class="far fa-calendar-alt"></i> 2020.08.30</span>
+      </div>
+      <div class="post-meta-item updated">
+        <span title="Updated 2020.08.30"><i class="far fa-calendar-check"></i> 2020.08.30</span>
+      </div>
+     
+     
+    
+     <div class="post-meta-item wordcount">
+        
+          <i class="fas fa-pencil-alt"></i> <span class="post-count">241 words</span>
+           
+        
+          <i class="far fa-clock"></i> <span class="post-count">1 min</span>
+                               
+      </div>
+     
 </div>
 
 
+  
+    <div id="toc" class="toc">
+          <h1>Toc</h1>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#卸载"><span class="toc-number">2.</span> <span class="toc-text">卸载</span></a></li></ol>
+      </div>
+    
+  <div class="content">
+        <div><p>此文仅是本人学习笔记。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>1、进行监理</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hairui@hadoop:~$ dstat</span><br><span class="line">The program <span class="string">'dstat'</span> is currently not installed.you can install it by typing: apt install dstat</span><br></pre></td></tr></table></figure>
+<p>2、发现没有安装dstat，进行安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hairui@hadoop:~$ sudo apt install dstat</span><br></pre></td></tr></table></figure>
+<p><img src= "/img/loading.gif" data-src="/images/UbuntuInstall1.png" alt="img"></p>
+<h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><p>1、    查看安装的所有软件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hairui@hadoop:dpkg –list</span><br></pre></td></tr></table></figure>
+<p>2、    在终端中找到你需要卸载的软件的名称，列表是按照首字母排序的。<br><img src= "/img/loading.gif" data-src="/images/UbuntuInstall2.png" alt="img"><br>3、    在终端上输入命令sudo apt-get –purge remove 包名（–purge是可选项，写上这个属性是将软件及其配置文件一并删除，如不需要删除配置文件，可执行sudo apt-get remove 包名） ，此处我要删除的是dstat ，那么在终端执行下方语句</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hairui@hadoop:sudo apt-get --purge remove dstat</span><br></pre></td></tr></table></figure>
+<p>4、    执行过程中，会提示你是否真的要删除（继续执行删除命令），在终端输入y ，然后回车，删除程序继续执行。<br><img src= "/img/loading.gif" data-src="/images/UbuntuInstall3.png" alt="img"></p>
+<p>参考博客：<br><a href="https://blog.csdn.net/luckydog612/article/details/80877179" target="_blank" rel="noopener">https://blog.csdn.net/luckydog612/article/details/80877179</a></p>
+</div>
+        
+  </div>
+
+    <div class="post_tags">
+      
+        <i class="fas fa-tag"></i> <a href="/tags/linux/" class="tag">linux</a>
+      
+    </div>
+    <div class="post-nav">
+      
+        <div class="post-nav-prev post-nav-item">
+            <a href="/2020/08/30/CapacityTestingIssues/" >Loadrunning容量测试中遇到的问题<i class="fa fa-chevron-left"></i></a>
+        </div>
+      
+      
+        <div class="post-nav-next post-nav-item">
+            <a href="/2020/08/21/MouseClickEffect/" >hexo个人博客添加鼠标点击效果<i class="fa fa-chevron-right"></i></a>
+        </div>
+      
+    </div>
 
 
+    <div class="comments">
+      
+    </div>
+</article>
 
     
 <a id="gotop" href="javascript:" title="返回顶部"><i class="fa fa-arrow-up"></i></a>

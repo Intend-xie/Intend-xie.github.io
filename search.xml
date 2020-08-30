@@ -1,79 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Python2.7和3.7区别</title>
-    <url>/2020/07/14/Differences-in-Python/</url>
-    <content><![CDATA[<p>此文仅是本人学习笔记。<br>文章来源：<a href="https://www.cnblogs.com/sqm724/p/13294061.html?utm_source=tuicool" target="_blank" rel="noopener">https://www.cnblogs.com/sqm724/p/13294061.html?utm_source=tuicool</a></p>
-<p><strong>区别一:print语法使用</strong></p>
-<p>Python2.7  print语法使用  &gt;&gt;&gt; print “Hello Python”<br>Python3.7  print语法使用  &gt;&gt;&gt; print(“Hello Python”)</p>
-<p>例子:在Python 3.7.0使用双引号触发SyntaxError异常机制 提示Did you mean </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">print <span class="string">"Hello Python3.7"</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"Hello Python3.7"</span>)</span><br></pre></td></tr></table></figure>
-<p>print 换行和不换行区别<br>python 2.7 print 不换行使用”,”即可<br>python 3.7 print 不换行使用end=””</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">x = <span class="string">"a"</span></span><br><span class="line">y = <span class="string">"b"</span></span><br><span class="line"></span><br><span class="line">print(x)</span><br><span class="line">print(y,end=<span class="string">""</span>)</span><br></pre></td></tr></table></figure>
-
-<p><strong>区别二: raw_input()和input()</strong></p>
-<p>Python 2.7  raw_input()  input() 都存在 可使用    raw_input()接收字符串string  input()接收数字int /flot.<br>Python 3.7  raw_input()不存在  仅存在input()   两者合并  接收任意格式 返回string</p>
-<p><strong>区别三: 函数cmp()</strong></p>
-<p>python 2.7   cmp(x,y)函数用于比较2个对象，如果 x &lt; y 返回 -1, 如果 x == y 返回 0, 如果 x &gt; y 返回 1<br>python3.7    cmp()已经不存在了,如果你需要实现比较功能，需要引入 operator 模块，适合任何对象</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> operator</span><br><span class="line">operator.eq(<span class="string">'hello'</span>, <span class="string">'name'</span>);   <span class="comment">//False</span></span><br><span class="line">operator.eq(<span class="string">'hello'</span>, <span class="string">'hello'</span>);   <span class="comment">//True</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>区别四:string 字母 大小写字符串</strong></p>
-<p>string.letters:包含所有字母（大写或小写）的字符串<br>Python 3.0中，string.ascii_letters.</p>
+    <title>Loadrunning容量测试中遇到的问题</title>
+    <url>/2020/08/30/CapacityTestingIssues/</url>
+    <content><![CDATA[<p>此文仅是本人学习笔记。</p>
+<h2 id="录制完脚本，出错：Failed-to-load-temporary-action-file-C-Users-ADMINI-1-AppData-LocaNTemp-vuac-usr73-restoring-original-file-Check-that-the-TMP-directory-is-not-full-or-write-protected"><a href="#录制完脚本，出错：Failed-to-load-temporary-action-file-C-Users-ADMINI-1-AppData-LocaNTemp-vuac-usr73-restoring-original-file-Check-that-the-TMP-directory-is-not-full-or-write-protected" class="headerlink" title="录制完脚本，出错：Failed to load temporary action file(C\Users\ADMINI~1\AppData\LocaNTemp\vuac usr73),restoring original file.Check that the TMP directory is not full or write protected."></a>录制完脚本，出错：Failed to load temporary action file(C\Users\ADMINI~1\AppData\LocaNTemp\vuac usr73),restoring original file.Check that the TMP directory is not full or write protected.</h2><p>原因：<br>Action.c的文件丢失。<br>解决方法：<br>（1）创建一个新的脚本。<br>（2）在文件夹里找到其他的后缀为.c的文件用工具编辑文本，然后把东西拷出，拷到里新建的脚本里面，补上Action.c的文件的内容，然后重新运行。</p>
+<h2 id="大量并发会导致Error-26697-Missing-CR-LF-after-body-trailer-“Transfer-Encoding-chunked”"><a href="#大量并发会导致Error-26697-Missing-CR-LF-after-body-trailer-“Transfer-Encoding-chunked”" class="headerlink" title="大量并发会导致Error -26697: Missing CR/LF after body/trailer (“Transfer-Encoding: chunked”)"></a>大量并发会导致Error -26697: Missing CR/LF after body/trailer (“Transfer-Encoding: chunked”)</h2><p>原因：<br>不明。<br>解决方法：<br>未解决。</p>
+<h2 id="大量并发后报错Error-27796-Failed-to-connect-to-server-“dangjian-gdaee-com-cn-8088”-10060-Connection-timed-out"><a href="#大量并发后报错Error-27796-Failed-to-connect-to-server-“dangjian-gdaee-com-cn-8088”-10060-Connection-timed-out" class="headerlink" title="大量并发后报错Error -27796: Failed to connect to server “dangjian.gdaee.com.cn:8088”: [10060] Connection timed out"></a>大量并发后报错Error -27796: Failed to connect to server “dangjian.gdaee.com.cn:8088”: [10060] Connection timed out</h2><p>网上查找的解决方法：<br>方法一：<br>在注册表HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters里，有如下两个键值：<br>TcpTimedWaitDelay<br>MaxUserPort<br>1,这里的TcpTimedWaitDelay默认值应该中是30s，所以这里，把这个值调小为5s（按需要调整）。<br>2,也可以把MaxUserPort调大（如果这个值不是最大值的话）。<br>此法不通！</p>
+<p>方法二：<br>修改run time setting中的请求超时时间Preferences 中点击Options 其中有三项的参数可以一次都修改了，HTTP-request connect timeout，HTTP-request receieve timeout，<br>Step download timeout，分别建议修改为1000、1000、10000；run time setting设置完了后记住还需要在control组件的option的run time setting中设置相应的参数；<br>此法不通！</p>
+<p>原因：<br>迭加数值设置为3<br>解决方法：<br>（1）设置run time setting中的run logic中的迭加数值设置为1。<br><img src= "/img/loading.gif" data-src="/images/CapacityTestingIssues1.png" alt="img"></p>
+<h2 id="运行场景最后出现error-82034-Rendezvous-release-failed"><a href="#运行场景最后出现error-82034-Rendezvous-release-failed" class="headerlink" title="运行场景最后出现error -82034 Rendezvous release failed"></a>运行场景最后出现error -82034 Rendezvous release failed</h2><p>原因：<br>集合点释放失败，可能内存太低导致。<br>解决方法：<br>（1）重新设置STOP vuser。<br>（2）修改集合点的超时时间，如由1秒改为30秒。<br><img src= "/img/loading.gif" data-src="/images/CapacityTestingIssues2.png" alt="img"></p>
+<h2 id="TPS中有Action-Transaction-和-vuser-init-Transaction"><a href="#TPS中有Action-Transaction-和-vuser-init-Transaction" class="headerlink" title="TPS中有Action_Transaction 和 vuser_init_Transaction"></a>TPS中有Action_Transaction 和 vuser_init_Transaction</h2><p>原因：<br>不明。<br>解决方法：<br>（1）run time setting–Miscellaneous–Automatic Transactions在脚本和场景设置中同时勾上这两项，保存后，再去掉勾选这两项，再保存。<br><img src= "/img/loading.gif" data-src="/images/CapacityTestingIssues3.png" alt="img"></p>
 ]]></content>
       <tags>
-        <tag>Python</tag>
+        <tag>Loadrunning</tag>
       </tags>
   </entry>
   <entry>
-    <title>博客地址拒绝我的访问</title>
-    <url>/2020/08/04/GitHub-rejects-connection-request/</url>
+    <title>Loadrunning的web_custom_request函数</title>
+    <url>/2020/08/01/LoadrunningJson/</url>
     <content><![CDATA[<p>此文仅是本人学习笔记。</p>
-<h2 id="问题：我的博客（https-intend-xie-github-io-）被拒绝访问"><a href="#问题：我的博客（https-intend-xie-github-io-）被拒绝访问" class="headerlink" title="问题：我的博客（https://intend-xie.github.io/）被拒绝访问"></a>问题：我的博客（<a href="https://intend-xie.github.io/）被拒绝访问" target="_blank" rel="noopener">https://intend-xie.github.io/）被拒绝访问</a></h2><p>您的连接不是私密连接<br>攻击者可能会试图从 <strong>intend-xie.github.io</strong> 窃取您的信息（例如：密码、通讯内容或信用卡信息）。了解详情<br>NET::ERR_CERT_AUTHORITY_INVALID<br><img src= "/img/loading.gif" data-src="/images/GitHub-rejects-connection-request1.png" alt="问题"></p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>1、在cmd中，ping intend-xie.github.io,得到IP<br><img src= "/img/loading.gif" data-src="/images/GitHub-rejects-connection-request2.png" alt="步骤1"><br>2、将其ip和域名添加到hosts文件（目录：C:\Windows\System32\drivers\etc）中<br><img src= "/img/loading.gif" data-src="/images/GitHub-rejects-connection-request3.png" alt="步骤2-1"><br><img src= "/img/loading.gif" data-src="/images/GitHub-rejects-connection-request4.png" alt="步骤2-2"><br>3、    如果还不行，可通过打开Dns检测|Dns查询 - 站长工具：<a href="http://tool.chinaz.com/dns" target="_blank" rel="noopener">http://tool.chinaz.com/dns</a><br>4、在检测输入栏中输入博客地址（intend-xie.github.io）<br><img src= "/img/loading.gif" data-src="/images/GitHub-rejects-connection-request5.png" alt="步骤3、4"><br>5、把检测列表里某个IP（对应TTL值最小和最大的IP我尝试了都可以，其他有兴趣可以试试）输入到hosts里，并对应写上博客地址<br><img src= "/img/loading.gif" data-src="/images/GitHub-rejects-connection-request6.png" alt="步骤5"><br>6、问题的思路<br>通过下面两个链接进行了解解决，具体可进行查看：<br><a href="https://www.jianshu.com/p/5b72495f4548" target="_blank" rel="noopener">https://www.jianshu.com/p/5b72495f4548</a><br><a href="https://segmentfault.com/q/1010000010264567" target="_blank" rel="noopener">https://segmentfault.com/q/1010000010264567</a></p>
+<h2 id="问题：loadrunning怎么请求json参数："><a href="#问题：loadrunning怎么请求json参数：" class="headerlink" title="问题：loadrunning怎么请求json参数："></a>问题：loadrunning怎么请求json参数：</h2><p>request payload<br>{“pageNo”:1,”perPageSize”:10,”type”:”c”,”companyId”:”CF9111CB233F46C290F662E0FAFA3F25”,”year”:2020}<br>应该怎么请求？<br>用web_submit_data()函数，在回放脚本时，发现返回的数据总数返回上一接口的返回数据。<br><img src= "/img/loading.gif" data-src="/images/LoadrunningJson1.png" alt="问题"></p>
+<h2 id="如何解决："><a href="#如何解决：" class="headerlink" title="如何解决："></a>如何解决：</h2><h3 id="1、什么是request-payload"><a href="#1、什么是request-payload" class="headerlink" title="1、什么是request payload"></a>1、什么是request payload</h3><p>Request Payload更准确的说是http request的payload body。一般用在数据通过POST请求或者PUT请求。它是HTTP请求中空行的后面那部分。（PS:这里涉及一个http常被问到的问题，http请求由哪几部分组成，一般是请求行，请求头，空行，请求体。payload body应该是对应请求体。）<br>这种请求 Content-Type 为 application/json，浏览器会认为这是复杂请求，先执行一次 OPTIONS 请求判断是否合法，如果服务器没有给出正确的回应，浏览器会在控制台报错：跨域请求。<br>具体可进入链接了解：<a href="https://segmentfault.com/a/1190000018774494" target="_blank" rel="noopener">https://segmentfault.com/a/1190000018774494</a></p>
+<h3 id="2、web-custom-request函数介绍"><a href="#2、web-custom-request函数介绍" class="headerlink" title="2、web_custom_request函数介绍"></a>2、web_custom_request函数介绍</h3><p>LoadRunner提供的web_custom_request函数可以用于实现参数的动态生成。在LoadRunner中，web_reg_save_param和custom_request都常于处理参数的动态生成。<br>web_reg_save_param函数是大家都已经熟悉的了，它的主要作用是从一个response中获得后续的request需要使用的数据，然后将其作为一个参数保存下来，供后续步骤使用。该方法在LoadRunner中被称为Correlation（关联）。<br>而web_custom_request函数则可以用于完全自定义向服务端发送的request。<br>web_custom_request方法的原型是：<br>int web_custom_request (const char *RequestName, <List of Attributes>,[EXTRARES, <List of Resource Attributes>,] LAST );<br>其中List of Attributes的主要项目是Method，URL和BODY等。</p>
+<h3 id="3、LoadRunner中web-custom-request-和-web-submit-data的差别"><a href="#3、LoadRunner中web-custom-request-和-web-submit-data的差别" class="headerlink" title="3、LoadRunner中web_custom_request 和 web_submit_data的差别"></a>3、LoadRunner中web_custom_request 和 web_submit_data的差别</h3><p>(1)实现的功能不同<br>web_submit_data只能发送POST类型的请求。<br>web_custom_request方法可以发送POST和GET类型的请求。<br>(2)请求数据提交方式不同<br>web_submit_data以”Name=属性名称,”,”Value=属性值” 方式提交数据。<br>web_custom_request以”Body=属性名称=属性值&amp;属性名称=属性值”方式提交数据。<br>(3)上下文依赖不同<br>web_submit_data不依赖上下文，不管是否打开模块的链接页面，就直接向服务器发送post请求。<br>web_custom_request：会依赖上下文，即如果前面的页面打开失败或没有打开，则该操作就会失败，如：登陆一个论坛成功后，点击某个板块，然后发帖(写入帖子题目和内容，提交，相当于向服务器发送了一个post请求)，如果点击某个模块后打开链接页面失败，则web_custom_request就会失败，即依赖于板块的链接页面是否成功打开，如果没有打开，就不能进行后面的发帖了。</p>
+<h3 id="4、为什么选择web-custom-request函数自定义请求"><a href="#4、为什么选择web-custom-request函数自定义请求" class="headerlink" title="4、为什么选择web_custom_request函数自定义请求"></a>4、为什么选择web_custom_request函数自定义请求</h3><p>web_custom_request函数自定义请求，所有web_submit_data方法发送的请求都可以使用web_custom_request来实现，web_custom_request可以实现web_submit_data无法实现的请求。<br>如：<br>“Name=pageNo”, “Value=1”, ENDITEM,<br>“Name=pdVersionId”, “Value=&quot;2001&quot;“, ENDITEM,<br>“Name=perPageSize”, “Value=30”, ENDITEM,<br>“Name=projectType”, “Value=&quot;3&quot;“, ENDITEM,<br>“Name=year”, “Value=&quot;2020&quot;“, ENDITEM,<br>如果我们想提交的某个属性包含包含多个值，它就无法处理了，只能通过多个web_submit_data来处理。</p>
+<h3 id="5、了解web-custom-request的参数"><a href="#5、了解web-custom-request的参数" class="headerlink" title="5、了解web_custom_request的参数"></a>5、了解web_custom_request的参数</h3><p>URL -  统一资源定位器，通常为请求链接地址<br>Method -  请求方法：POST、GET<br>TargetFrame -  包含当前链接或资源的frame的名称<br>EncType -  提交请求使用的编码类型(type of encoding)。EncType指定“Content-Type”请求头的值，比如“text/html”。web_custom_request不处理未编码的请求体。Body参数指定的请求体会使用指定的编码。<br>RecContentType -  指定了Content–Type  响应头的类型，比如text/html,application/x-javascript。当没有设置Resource属性时，用它来确定目标URL是否是可录制的资源。<br>Refer -  指定引用的页面<br>Body -  请求体<br>Mode - 录制级别：HTML、HTTP<br>可通过下方链接了解，这里就不具体描述，只描述我用到的。<br><a href="https://blog.csdn.net/huilan_same/article/details/51603855?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param" target="_blank" rel="noopener">https://blog.csdn.net/huilan_same/article/details/51603855?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param</a></p>
+<h3 id="6、解决代码"><a href="#6、解决代码" class="headerlink" title="6、解决代码"></a>6、解决代码</h3><p>代码如下：<br>web_custom_request(“getProjectList”,<br>“URL=<a href="http://19.111.49.70/cacz/project/businessexpenditure/specialproject/specialprojectlist/getProjectList&quot;" target="_blank" rel="noopener">http://19.111.49.70/cacz/project/businessexpenditure/specialproject/specialprojectlist/getProjectList&quot;</a>,<br>“Method=POST”,<br>“RecContentType=application/json”,<br>“EncType=application/json”,<br>“Mode=HTML”,<br>“Body={&quot;pageNo&quot;:1,&quot;perPageSize&quot;:10,&quot;type&quot;:&quot;c&quot;,&quot;companyId&quot;:&quot;CF9111CB233F46C290F662E0FAFA3F25&quot;,&quot;year&quot;:2020},<br>LAST);</p>
 ]]></content>
       <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JMeter入门基础</title>
-    <url>/2020/08/17/JMeterBasics/</url>
-    <content><![CDATA[<p>此文仅是本人学习笔记。</p>
-<h2 id="一、jmeter介绍"><a href="#一、jmeter介绍" class="headerlink" title="一、jmeter介绍"></a>一、jmeter介绍</h2><p>1、 什么是jmeter<br>Apache JMeter是Apache组织开发的基于Java的压力测试工具。<br>2、 Jmeter可以做什么<br>(1) 接口测试—-基础<br>(2) 性能测试<br>(3) 压力测试<br>(4) 数据库测试<br>(5) Java程序测试<br>3、 Jmeter优缺点<br>优点：<br>(1) 开源免费<br>(2) 支持多协议<br>(3) 轻量级<br>(4) 功能强大<br>缺点：<br>使用jmeter无法验证js程序，也无法验证页面UI，所以要需要和selenium配合来完成web2.0应用测试</p>
-<h2 id="二、jmeter安装"><a href="#二、jmeter安装" class="headerlink" title="二、jmeter安装"></a>二、jmeter安装</h2><p>1、JMeter的下载与配置<br>下载地址：<a href="http://jmeter.apache.org/" target="_blank" rel="noopener">http://jmeter.apache.org/</a><br>按照下图进行下载<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics1.png" alt="img"><br><img src= "/img/loading.gif" data-src="/images/JMeterBasics2.png" alt="img"><br>下载完成后，解压，目录结构如下<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics3.png" alt="img"><br>修改中文：进入bin目录，找到JMeter.bat文件，右键编辑文件，并修改如信息</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> JMETER_LANGUAGE=-Duser.language=<span class="string">"**zh**"</span> -Duser.region=<span class="string">"**CN**"</span></span><br></pre></td></tr></table></figure>
-<p><img src= "/img/loading.gif" data-src="/images/JMeterBasics4.png" alt="img"><br>到这保存退出就可以通过JMeter.bat运行JMeter了，但因为后续的测试可能会使用到一些拓展的插件，所以还需要导入jmeter-plugins-manager。<br>2、plugins-manager下载与安装<br>jmeter-plugins-manager下载地址：<a href="https://jmeter-plugins.org/install/Install/" target="_blank" rel="noopener">https://jmeter-plugins.org/install/Install/</a><br><img src= "/img/loading.gif" data-src="/images/JMeterBasics5.png" alt="img"><br>下载完成后将jar包放入lib/ext<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics6.png" alt="img"><br>完成后即可启动jmeter<br>3、Jmeter启动与插件安装<br>执行jmeter.bat文件，弹出的控制台不可关闭。启动后如下：<br>注意：在linux系统需执行jmeter.sh文件<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics7.png" alt="img"><br>点击选项-&gt;plugins manager<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics8.png" alt="img"><br>Installed Plugins 为已安装的插件，Available Plugins 为可安装的插件 ，Upgrades为可更新的插件<br>勾选插件后，点击右下角的Apply Changes and Restart JMeter，安装后会自动重启JMeter，这里推荐安装3 Basic Graphs 和 jpgc - Standard Set<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics9.png" alt="img"><br>4、Badboy的下载<br>下载地址：<a href="http://www.badboy.com.au/" target="_blank" rel="noopener">http://www.badboy.com.au/</a><br>点击Download<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics10.png" alt="img"><br>选择最新版本下载<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics11.png" alt="img"><br>下载，安装<br>5、BadBoy的启动<br>进入安装文件夹，运行badboy.exe即可启动。</p>
-<h2 id="三、目录了解"><a href="#三、目录了解" class="headerlink" title="三、目录了解"></a>三、目录了解</h2><p>1、bin目录<br>examples（例子）：该目录下存放Jmeter官方给的请求模板<br>report-template（报告模板）：该目录下存放Jmeter的报告模板（Jmeter是有自己的报告的）<br>templates（模板）：该目录下存放Jmeter的各类配置模板，例如：JDBC、Beanshell、ThinkTime等<br>jmeter.bat：Windows 的启动命令。<br>jmeter.log：日志文件。<br>jmeter.sh：Linux 系统下的启动文件。<br>jmeter.properties：系统配置文件，如配置编码格式。<br>jmeter-server.bat：Windows 分布测试要用到的服务器配置。<br>jmeter-server：Linux 分布式测试要用到的服务器配置。<br>2、docs目录<br>api：前面谈到Jmeter是开源的，此处便是它的API文档。<br>css：xxxx。<br>3、mage目录<br>部分图片资源<br>4、Extras目录<br>存放Build等配置，用于第三方集成构建<br>5、Lib目录<br>存放各类jar包，组件类函数类等<br>6、licenses目录<br>许可证书目录<br>7、printable_docs目录<br>用户手册<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics12.png" alt="img"></p>
-<h2 id="四、jmeter入门脚本"><a href="#四、jmeter入门脚本" class="headerlink" title="四、jmeter入门脚本"></a>四、jmeter入门脚本</h2><p>1、添加测试计划—当打开jmeter默认有一个测试计划.<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics13.png" alt="img"><br>2、添加线程组<br>鼠标在测试计划上—右键—添加—线程(用户)—线程组<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics14.png" alt="img"><br>3、添加HTTP请求<br>鼠标在线程组上—右键—添加—取样器—HTTP请求<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics15.png" alt="img"><br>4、配置HTTP请求<br>修改名称:发送百度请求<br>基本信息：<br>（1）填写协议:http<br>（2）填写服务器或IP:<a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a><br><img src= "/img/loading.gif" data-src="/images/JMeterBasics16.png" alt="img"><br>5、添加查看结果树<br>鼠标在线程组上—右键—添加—监听器—查看结果树<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics17.png" alt="img"><br>6、运行<br>注意：要保存后才能运行<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics18.png" alt="img"><br><img src= "/img/loading.gif" data-src="/images/JMeterBasics19.png" alt="img"><br>7、查看结果<br>可点击text下拉选择请求结果的样式<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics20.png" alt="img"><br>知识点： </p>
-<table>
-<thead>
-<tr>
-<th>功能</th>
-<th>用例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>测试计划</td>
-<td>项目名称</td>
-</tr>
-<tr>
-<td>线程组</td>
-<td>业务流程</td>
-</tr>
-<tr>
-<td>HTTP请求</td>
-<td>接口请求</td>
-</tr>
-</tbody></table>
-<h2 id="五、线程用户"><a href="#五、线程用户" class="headerlink" title="五、线程用户"></a>五、线程用户</h2><p>线程数:表示请求的虚拟用户数量<br>ramp-up:启动所有线程数所需要的时间(秒)<br>循环次数:线程数循环<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics21.png" alt="img"><br>注意：如果选择循环次数为永远，需要手动停止，会导致最后一个接口请求报错</p>
-<h2 id="六、取样器"><a href="#六、取样器" class="headerlink" title="六、取样器"></a>六、取样器</h2><p>作用:向服务器发送请求并且记录响应时间和响应内容</p>
-<h2 id="七、jmeter运行原理"><a href="#七、jmeter运行原理" class="headerlink" title="七、jmeter运行原理"></a>七、jmeter运行原理</h2><p>1、jmeter是按照线程的方式来运行的<br>2、jmeterGUl模式运行测试脚本对电脑本身的资源消耗较大，无法实现大的并发和压力测试<br>3、使用命令行模式实现高并发和压力测试<br>4、使用GUl模式主要目的是编写和调面jmeter测试脚本</p>
-<h2 id="八、jmeter测试计划要素"><a href="#八、jmeter测试计划要素" class="headerlink" title="八、jmeter测试计划要素"></a>八、jmeter测试计划要素</h2><p>使用jmeter编写测试脚本–要素<br>1、 测试计划<br>2、 在测试计划中至少有一个线程组<br>3、 在线程组中至少有一个取样器<br>4、 在测试计划中必须有监听器</p>
-<h2 id="九、jmeter录制脚本"><a href="#九、jmeter录制脚本" class="headerlink" title="九、jmeter录制脚本"></a>九、jmeter录制脚本</h2><p>1、使用badboy录制<br>（1）打开babboy在 地址栏中输入被测网址回车<br>（2）打开badboy时默认记录状态，输入网址直接操作即可<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics22.png" alt="img"><br>（3）操作完成–点击停止记录<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics23.png" alt="img"><br>（4）导出脚本：file–export to jmeter保存<br>2、在jmeter中打开已有文件<br>（1）jmeter脚本文件的后缀名.jmx<br>（2）在jmeter点击打开文件.选择文件路径,找到需要的文件进行打开<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics24.png" alt="img"><br>（3）添加查看结果树（不然看不到运行结果）<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics25.png" alt="img"></p>
-<h2 id="十、使用jmeter自身代理录制移动端（了解）"><a href="#十、使用jmeter自身代理录制移动端（了解）" class="headerlink" title="十、使用jmeter自身代理录制移动端（了解）"></a>十、使用jmeter自身代理录制移动端（了解）</h2><p>配置jmeter<br>1.打开jmeter创建新的测试计划<br>2.在测试计划下添加一个线程组<br>3.添加HTTP代理服务器<br>在测试计划下—右键–非测试元—HTTP代理服务<br>4.配置HTTP代理服务器<br>4.1端口号默认<br>4.2 https domains中填写电脑本地IP或localhost<br>查询电脑IP：打开cmd—执行ipconfig<br>4.3目标控制器选择测试计划&gt;线程组<br>4.4点击启动按钮 —点击OK<br>配置手机—打开手机端的 wifi设置<br>设置好了之后启动Jmeter代理服务器的 启动按钮（注意是里面的按钮）<br>然后就可以在手机端去操作业务了，可以正常的录制对应的app应用、微信公众号等业务，在线程组就会抓到对应的的请求<br>录制完成后，停止Jemter上的“HTTP代理服务器”，然后进行脚本调试<br>原理跟web端的脚本录制一样。脚本调试完成之后可以进行后续的压测了</p>
-]]></content>
-      <tags>
-        <tag>JMeter</tag>
+        <tag>Loadrunning</tag>
       </tags>
   </entry>
   <entry>
@@ -138,29 +94,25 @@
       </tags>
   </entry>
   <entry>
-    <title>Loadrunning脚本运行</title>
-    <url>/2020/08/11/LoadrunningScenarioRunning/</url>
+    <title>启用 Valine 留言系统</title>
+    <url>/2020/08/20/MessageBoard/</url>
     <content><![CDATA[<p>此文仅是本人学习笔记。</p>
-<h2 id="一、启动场景控制台"><a href="#一、启动场景控制台" class="headerlink" title="一、启动场景控制台"></a>一、启动场景控制台</h2><p>1、启动控制台<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning1.png" alt="img"><br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning2.png" alt="img"><br>添加脚本，选择脚本名称，点击“Add==》”按钮，再点击“OK”按钮<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning3.png" alt="img"><br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning4.png" alt="img"></p>
-<h2 id="二、配置"><a href="#二、配置" class="headerlink" title="二、配置"></a>二、配置</h2><p>1、设置generators<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning5.png" alt="img"><br>Name填写为localhost，点击“OK”后，关闭Load Generators窗口<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning6.png" alt="img"><br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning7.png" alt="img"><br>2、配置场景<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning8.png" alt="img"><br>1）选择模式，run mode有两种a、Real-world schedule，b、Basic schedule<br>a、Real-world schedule<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning9.png" alt="img"><br>初始化、启动阶段、运行阶段、停止阶段<br>（1）初始化按默认：a、全部初始化，b、设置单位时间逐步初始化，c、运行前初始化，默认c<br>（2）开始阶段：配置最大用户数，选择方式：同时和增压，默认增压：单位时间增压用户数、单位时间长度<br>（3）运行阶段：选择方式：到运行完成为止 和 持续运行，默认持续运行：配置运行时长<br>（4）停止阶段：选择方式：同时和减压，默认减压：配置单位时间减压用户数、单位时间长度<br>b、Basic schedule<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning10.png" alt="img"><br>初始化、启动阶段、运行阶段、【停止阶段】<br>用户总数：填写/修改“total：[  ]Vusers”的[  ]中数量<br>（1）初始化按默认：a、全部初始化，b、设置单位时间逐步初始化，c、运行前初始化，默认c<br>（2）开始阶段：选择方式：同时和增压，默认同时<br>（3）运行阶段：选择方式：“到运行完成为止”、“持续运行”和“一直运行不停”，默认“到运行完成为止”，选择持续运行则出现停止阶段<br>（4）停止阶段：选择方式：同时和减压<br>3、修改超时时间<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning11.png" alt="img"><br>打开“脚本运行时配置”框，选中“Internet protocol-preferences”，点击“options…”按钮进行配置<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning12.png" alt="img"><br>配置超时时间，http下的“请求连接超时”、“请求接收超时”、“请求存活超时”的时长，及general下的“下载超时”的时长<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning13.png" alt="img"><br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning14.png" alt="img"><br>时长配置好后，点击“OK”再点击“OK”保存配置<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning15.png" alt="img"></p>
-<h2 id="三、视图配置及启动"><a href="#三、视图配置及启动" class="headerlink" title="三、视图配置及启动"></a>三、视图配置及启动</h2><p>1、配置运行监控视图<br>切换运行监控界面<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning16.png" alt="img"><br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning17.png" alt="img"><br>配置图表个数，在图表区域点击鼠标右键，选择显示8张图表<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning18.png" alt="img"><br>8张图表<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning19.png" alt="img"><br>修改图表展示所需的图表，选中要修改的图表，双击左侧列表中需要的图表<br>running vusers，tran response time，tran/sec(passed)，total tran/sec(passed)，hits per second，throughput，connections per second，error statistics<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning20.png" alt="img"><br>2、运行场景<br>点击“start scenario”按钮<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning21.png" alt="img"><br>results directory already exists提示框上选择“是”，覆盖目录<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning22.png" alt="img"><br>场景运行中<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning23.png" alt="img"><br>3、运行结果<br>（1）运行时如tran response time，tran/sec(passed)，total tran/sec(passed)， error statistics没有图效果时需检查log看看问题<br>操作，点击右键，选择show vuser log<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning24.png" alt="img"><br>（2）设置run-time setting中log的配置<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning25.png" alt="img"><br>（3）重新运行脚本，可查看show vuser log<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning26.png" alt="img"><br>（4）如果还是没有图，检查一下事务点</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在脚本最开始的加上</span></span><br><span class="line">lr_start_transaction();</span><br><span class="line"><span class="comment"># 在末尾加上</span></span><br><span class="line">lr_end_transaction()</span><br></pre></td></tr></table></figure>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>博客应用blank主题，主题含有Valine 留言系统，功能提示：Code 401: 未经授权的操作，请检查你的AppId和AppKey.<br><img src= "/img/loading.gif" data-src="/images/MessageBoard1.png" alt="img"></p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p><strong>创建 LeanCloud 应用</strong><br>Valine 基于 LeanCloud 提供的数据服务，参考 Valine 的 <a href="https://valine.js.org/quickstart.html" target="_blank" rel="noopener">官方教程</a>，首先前往 <a href="https://leancloud.cn/" target="_blank" rel="noopener">leancloud.cn</a> 注册账号。<br>我选择的是华东节点，提交注册信息后LeanCloud提示国区账号必需实名制，否则无法创建应用。<br>创建了一个应用，命名为 <code>Valine</code>，方案选择开发版，即可以在一定的用量限制下免费运行。<br><img src= "/img/loading.gif" data-src="/images/MessageBoard2.png" alt="img"><br>进入创建好的应用，就能获取到 <code>App ID</code> 和 <code>App Key</code>。<br>步骤：<br>(1)进入刚刚创建的应用，选择左下角的<code>设置</code>&gt;<code>应用``Key</code>，然后就能看到你的<code>APP ID</code>和<code>APP Key</code>了。<br><img src= "/img/loading.gif" data-src="/images/MessageBoard3.png" alt="img"><br>(2)然后，进入 <code>设置</code> &gt; <code>安全中心</code> &gt; <code>Web ``安全域名</code>，填写站点的域名并保存：<br><img src= "/img/loading.gif" data-src="/images/MessageBoard4.png" alt="img"><br><strong>配置博客</strong><br>编辑 <code>source/_data/blank.yml</code>，找到对应的模块，修改配置如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">valine:</span><br><span class="line">    enable: <span class="literal">true</span> </span><br><span class="line">    appid: <span class="xml"><span class="tag">&lt;<span class="name">App</span> <span class="attr">ID</span>&gt;</span></span></span><br><span class="line">    appkey: &lt;App Key&gt;</span><br><span class="line">    notify: false </span><br><span class="line">    verify: false </span><br><span class="line">    placeholder: &lt;留言编辑框里的默认文本&gt;</span><br><span class="line">    avatar: mm </span><br><span class="line">    guest_info: nick,mail,link </span><br><span class="line">    pageSize: 10 </span><br><span class="line">    recordIP: false </span><br><span class="line">    serverURLs:</span><br><span class="line">    emojiCDN: </span><br><span class="line">    enableQQ: true</span><br></pre></td></tr></table></figure>
+<p>再次部署 Hexo 后就能看到留言系统已经启用，可以进行留言了。<br><img src= "/img/loading.gif" data-src="/images/MessageBoard5.png" alt="img"><br><strong>查看数据</strong><br>发表留言后，进入 <code>存储</code> &gt; <code>结构化数据</code> &gt; <code>comment</code>，可对数据进行操作。<br><img src= "/img/loading.gif" data-src="/images/MessageBoard6.png" alt="img"></p>
+<p>参考博客：<a href="https://laytonsun.com/learning/2019-08/enable-comments.html" target="_blank" rel="noopener">https://laytonsun.com/learning/2019-08/enable-comments.html</a></p>
 ]]></content>
       <tags>
-        <tag>Loadrunning</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
-    <title>Loadrunning的web_custom_request函数</title>
-    <url>/2020/08/01/LoadrunningJson/</url>
+    <title>Loadrunning用法</title>
+    <url>/2020/08/11/LoadrunningTerms/</url>
     <content><![CDATA[<p>此文仅是本人学习笔记。</p>
-<h2 id="问题：loadrunning怎么请求json参数："><a href="#问题：loadrunning怎么请求json参数：" class="headerlink" title="问题：loadrunning怎么请求json参数："></a>问题：loadrunning怎么请求json参数：</h2><p>request payload<br>{“pageNo”:1,”perPageSize”:10,”type”:”c”,”companyId”:”CF9111CB233F46C290F662E0FAFA3F25”,”year”:2020}<br>应该怎么请求？<br>用web_submit_data()函数，在回放脚本时，发现返回的数据总数返回上一接口的返回数据。<br><img src= "/img/loading.gif" data-src="/images/LoadrunningJson1.png" alt="问题"></p>
-<h2 id="如何解决："><a href="#如何解决：" class="headerlink" title="如何解决："></a>如何解决：</h2><h3 id="1、什么是request-payload"><a href="#1、什么是request-payload" class="headerlink" title="1、什么是request payload"></a>1、什么是request payload</h3><p>Request Payload更准确的说是http request的payload body。一般用在数据通过POST请求或者PUT请求。它是HTTP请求中空行的后面那部分。（PS:这里涉及一个http常被问到的问题，http请求由哪几部分组成，一般是请求行，请求头，空行，请求体。payload body应该是对应请求体。）<br>这种请求 Content-Type 为 application/json，浏览器会认为这是复杂请求，先执行一次 OPTIONS 请求判断是否合法，如果服务器没有给出正确的回应，浏览器会在控制台报错：跨域请求。<br>具体可进入链接了解：<a href="https://segmentfault.com/a/1190000018774494" target="_blank" rel="noopener">https://segmentfault.com/a/1190000018774494</a></p>
-<h3 id="2、web-custom-request函数介绍"><a href="#2、web-custom-request函数介绍" class="headerlink" title="2、web_custom_request函数介绍"></a>2、web_custom_request函数介绍</h3><p>LoadRunner提供的web_custom_request函数可以用于实现参数的动态生成。在LoadRunner中，web_reg_save_param和custom_request都常于处理参数的动态生成。<br>web_reg_save_param函数是大家都已经熟悉的了，它的主要作用是从一个response中获得后续的request需要使用的数据，然后将其作为一个参数保存下来，供后续步骤使用。该方法在LoadRunner中被称为Correlation（关联）。<br>而web_custom_request函数则可以用于完全自定义向服务端发送的request。<br>web_custom_request方法的原型是：<br>int web_custom_request (const char *RequestName, <List of Attributes>,[EXTRARES, <List of Resource Attributes>,] LAST );<br>其中List of Attributes的主要项目是Method，URL和BODY等。</p>
-<h3 id="3、LoadRunner中web-custom-request-和-web-submit-data的差别"><a href="#3、LoadRunner中web-custom-request-和-web-submit-data的差别" class="headerlink" title="3、LoadRunner中web_custom_request 和 web_submit_data的差别"></a>3、LoadRunner中web_custom_request 和 web_submit_data的差别</h3><p>(1)实现的功能不同<br>web_submit_data只能发送POST类型的请求。<br>web_custom_request方法可以发送POST和GET类型的请求。<br>(2)请求数据提交方式不同<br>web_submit_data以”Name=属性名称,”,”Value=属性值” 方式提交数据。<br>web_custom_request以”Body=属性名称=属性值&amp;属性名称=属性值”方式提交数据。<br>(3)上下文依赖不同<br>web_submit_data不依赖上下文，不管是否打开模块的链接页面，就直接向服务器发送post请求。<br>web_custom_request：会依赖上下文，即如果前面的页面打开失败或没有打开，则该操作就会失败，如：登陆一个论坛成功后，点击某个板块，然后发帖(写入帖子题目和内容，提交，相当于向服务器发送了一个post请求)，如果点击某个模块后打开链接页面失败，则web_custom_request就会失败，即依赖于板块的链接页面是否成功打开，如果没有打开，就不能进行后面的发帖了。</p>
-<h3 id="4、为什么选择web-custom-request函数自定义请求"><a href="#4、为什么选择web-custom-request函数自定义请求" class="headerlink" title="4、为什么选择web_custom_request函数自定义请求"></a>4、为什么选择web_custom_request函数自定义请求</h3><p>web_custom_request函数自定义请求，所有web_submit_data方法发送的请求都可以使用web_custom_request来实现，web_custom_request可以实现web_submit_data无法实现的请求。<br>如：<br>“Name=pageNo”, “Value=1”, ENDITEM,<br>“Name=pdVersionId”, “Value=&quot;2001&quot;“, ENDITEM,<br>“Name=perPageSize”, “Value=30”, ENDITEM,<br>“Name=projectType”, “Value=&quot;3&quot;“, ENDITEM,<br>“Name=year”, “Value=&quot;2020&quot;“, ENDITEM,<br>如果我们想提交的某个属性包含包含多个值，它就无法处理了，只能通过多个web_submit_data来处理。</p>
-<h3 id="5、了解web-custom-request的参数"><a href="#5、了解web-custom-request的参数" class="headerlink" title="5、了解web_custom_request的参数"></a>5、了解web_custom_request的参数</h3><p>URL -  统一资源定位器，通常为请求链接地址<br>Method -  请求方法：POST、GET<br>TargetFrame -  包含当前链接或资源的frame的名称<br>EncType -  提交请求使用的编码类型(type of encoding)。EncType指定“Content-Type”请求头的值，比如“text/html”。web_custom_request不处理未编码的请求体。Body参数指定的请求体会使用指定的编码。<br>RecContentType -  指定了Content–Type  响应头的类型，比如text/html,application/x-javascript。当没有设置Resource属性时，用它来确定目标URL是否是可录制的资源。<br>Refer -  指定引用的页面<br>Body -  请求体<br>Mode - 录制级别：HTML、HTTP<br>可通过下方链接了解，这里就不具体描述，只描述我用到的。<br><a href="https://blog.csdn.net/huilan_same/article/details/51603855?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param" target="_blank" rel="noopener">https://blog.csdn.net/huilan_same/article/details/51603855?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param</a></p>
-<h3 id="6、解决代码"><a href="#6、解决代码" class="headerlink" title="6、解决代码"></a>6、解决代码</h3><p>代码如下：<br>web_custom_request(“getProjectList”,<br>“URL=<a href="http://19.111.49.70/cacz/project/businessexpenditure/specialproject/specialprojectlist/getProjectList&quot;" target="_blank" rel="noopener">http://19.111.49.70/cacz/project/businessexpenditure/specialproject/specialprojectlist/getProjectList&quot;</a>,<br>“Method=POST”,<br>“RecContentType=application/json”,<br>“EncType=application/json”,<br>“Mode=HTML”,<br>“Body={&quot;pageNo&quot;:1,&quot;perPageSize&quot;:10,&quot;type&quot;:&quot;c&quot;,&quot;companyId&quot;:&quot;CF9111CB233F46C290F662E0FAFA3F25&quot;,&quot;year&quot;:2020},<br>LAST);</p>
+<h2 id="一、loadrunner常用术语"><a href="#一、loadrunner常用术语" class="headerlink" title="一、loadrunner常用术语"></a>一、loadrunner常用术语</h2><p>1.场景<br>•    在loadrunner中主要表现为controller中设计与执行测试用例中的用户场景。主要工作有，在controller中选择虚拟用户脚本、设置虚拟用户数量、配置虚拟用户运行时的行为、选择负载发生器、设置执行时间等。<br>2.负载发生器<br>•    用来产生压力的真实机器，受controller控制，可以使用户脚本在不同的主机上执行。在性能测试工作中，通常由一个controller控制多个load generator以对被测试系统进行压力。<br>在练习中是对本机中进行加压<br>3.虚拟用户<br>•    对应于现实中的真实用户，使用loadrunner模拟的用户称为虚拟用户。其本质是通过虚拟用户脚本来模拟真正用户的行为。<br>4.事务<br>•    loadrunner通过事务来衡量服务器的性能。在业务上事务通常是用户的一个或一系列操作，代表一定的功能，而在程序上则表现为一段代码区块。测试人员可以将一个或多个操作步骤定义为一个事务，以便衡量这部分的用户并发响应时间。<br>5.思考时间<br>•    为了在模拟时更加接近用户的真实行为而引进的概念。在实际中，用户进行一系列操作后往往会进行处理，例如浏览网页内容，而处理过程对服务器是没有压力的。因此在虚拟用户脚本中用函数lr_think_time(double time)来模拟用户处理过程，执行该函数时用户线程会按照相应的time值进行等待。<br>6.集合点<br>•    对应于真实用户中的并发点。loadrunner通过集合点实现了真正意义的并发。集合点在虚拟用户脚本中对应函数lr_rendezvous(constchar*rendezvous_name)，当执行到该函数时会按照场景的并发策略来执行。<br>7.事务响应时间<br>•    事务响应时间是一个统计量，是评价系统性能的重要参数。定义好事务后，在场景执行过程和测试结果分析中即可看到对应事务的响应时间。通过对关键或核心事务的执行情况进行分析，可以快速定位性能问题。</p>
+<h2 id="二、性能测试常见用语解析"><a href="#二、性能测试常见用语解析" class="headerlink" title="二、性能测试常见用语解析"></a>二、性能测试常见用语解析</h2><p>1.并发用户数量<br>常见的错误理解：<br>•    使用系统的全部用户数量<br>•    使用系统的全部在线用户数量<br>正确理解：<br>•    与服务器进行交互的在线用户数量<br>并发用户数：可以分两种：<br>1）同一时间点，执行同一（业务）操作的用户数<br>2）同一时间点，执行不同（业务）操作的用户数<br>在线用户：当前时间访问系统的用户数<br>2.请求响应时间<br>•    从client端发生请求到得到响应的整个时间<br>•    一般包括网络响应时间+server的响应时间<br> 响应时间（RT）：响应时间是指系统对请求作出响应的时间，一般取平均响应时间<br>3.事务请求响应时间<br>•    完成这个事务所用的时间<br>这是性能测试中重点关注的指标<br>4.吞吐率<br>•    单位时间在网络上传输的数据量<br>这个是衡量网络性能的主要指标<br>吞吐率指的是从server端返回client端的数据量，不是从client发送到server的数据量<br>5.吞吐量<br>•    网络上传输的数据总量<br> 吞吐量是指系统在单位时间内处理请求的数量。<br>6.TPS<br>•    每秒钟系统能够处理事务的数量<br>7.点击率<br>•    每秒发送的HTTP请求的数量<br>•    点击率越大对server的压力也就越大<br>注：按一个button并不总是发送一个请求，有时会发送两个以上HTTP请求<br>PV（Page View）：页面访问量，即页面浏览量或点击量，用户每次刷新即被计算一次。可以统计服务一天的访问日志得到。<br>8.资源利用率<br>•    对不同资源的使用程度，比如服务器的CPU，内存等<br>  系统吞吐量几个重要参数：QPS（TPS）、并发数、响应时间<br>       QPS（TPS）：每秒钟request/事务数量<br>       并发数： 系统同时处理的request/事务数<br>       响应时间：一般取平均响应时间<br>    理解了上面三个要素的意义之后，就能推算出它们之间的关系：<br>    QPS（TPS）= 并发数/平均响应时间</p>
 ]]></content>
       <tags>
         <tag>Loadrunning</tag>
@@ -180,14 +132,20 @@
       </tags>
   </entry>
   <entry>
-    <title>Loadrunning用法</title>
-    <url>/2020/08/11/LoadrunningTerms/</url>
+    <title>使用Ngrok进行内网穿透</title>
+    <url>/2020/07/19/Ngrok/</url>
     <content><![CDATA[<p>此文仅是本人学习笔记。</p>
-<h2 id="一、loadrunner常用术语"><a href="#一、loadrunner常用术语" class="headerlink" title="一、loadrunner常用术语"></a>一、loadrunner常用术语</h2><p>1.场景<br>•    在loadrunner中主要表现为controller中设计与执行测试用例中的用户场景。主要工作有，在controller中选择虚拟用户脚本、设置虚拟用户数量、配置虚拟用户运行时的行为、选择负载发生器、设置执行时间等。<br>2.负载发生器<br>•    用来产生压力的真实机器，受controller控制，可以使用户脚本在不同的主机上执行。在性能测试工作中，通常由一个controller控制多个load generator以对被测试系统进行压力。<br>在练习中是对本机中进行加压<br>3.虚拟用户<br>•    对应于现实中的真实用户，使用loadrunner模拟的用户称为虚拟用户。其本质是通过虚拟用户脚本来模拟真正用户的行为。<br>4.事务<br>•    loadrunner通过事务来衡量服务器的性能。在业务上事务通常是用户的一个或一系列操作，代表一定的功能，而在程序上则表现为一段代码区块。测试人员可以将一个或多个操作步骤定义为一个事务，以便衡量这部分的用户并发响应时间。<br>5.思考时间<br>•    为了在模拟时更加接近用户的真实行为而引进的概念。在实际中，用户进行一系列操作后往往会进行处理，例如浏览网页内容，而处理过程对服务器是没有压力的。因此在虚拟用户脚本中用函数lr_think_time(double time)来模拟用户处理过程，执行该函数时用户线程会按照相应的time值进行等待。<br>6.集合点<br>•    对应于真实用户中的并发点。loadrunner通过集合点实现了真正意义的并发。集合点在虚拟用户脚本中对应函数lr_rendezvous(constchar*rendezvous_name)，当执行到该函数时会按照场景的并发策略来执行。<br>7.事务响应时间<br>•    事务响应时间是一个统计量，是评价系统性能的重要参数。定义好事务后，在场景执行过程和测试结果分析中即可看到对应事务的响应时间。通过对关键或核心事务的执行情况进行分析，可以快速定位性能问题。</p>
-<h2 id="二、性能测试常见用语解析"><a href="#二、性能测试常见用语解析" class="headerlink" title="二、性能测试常见用语解析"></a>二、性能测试常见用语解析</h2><p>1.并发用户数量<br>常见的错误理解：<br>•    使用系统的全部用户数量<br>•    使用系统的全部在线用户数量<br>正确理解：<br>•    与服务器进行交互的在线用户数量<br>并发用户数：可以分两种：<br>1）同一时间点，执行同一（业务）操作的用户数<br>2）同一时间点，执行不同（业务）操作的用户数<br>在线用户：当前时间访问系统的用户数<br>2.请求响应时间<br>•    从client端发生请求到得到响应的整个时间<br>•    一般包括网络响应时间+server的响应时间<br> 响应时间（RT）：响应时间是指系统对请求作出响应的时间，一般取平均响应时间<br>3.事务请求响应时间<br>•    完成这个事务所用的时间<br>这是性能测试中重点关注的指标<br>4.吞吐率<br>•    单位时间在网络上传输的数据量<br>这个是衡量网络性能的主要指标<br>吞吐率指的是从server端返回client端的数据量，不是从client发送到server的数据量<br>5.吞吐量<br>•    网络上传输的数据总量<br> 吞吐量是指系统在单位时间内处理请求的数量。<br>6.TPS<br>•    每秒钟系统能够处理事务的数量<br>7.点击率<br>•    每秒发送的HTTP请求的数量<br>•    点击率越大对server的压力也就越大<br>注：按一个button并不总是发送一个请求，有时会发送两个以上HTTP请求<br>PV（Page View）：页面访问量，即页面浏览量或点击量，用户每次刷新即被计算一次。可以统计服务一天的访问日志得到。<br>8.资源利用率<br>•    对不同资源的使用程度，比如服务器的CPU，内存等<br>  系统吞吐量几个重要参数：QPS（TPS）、并发数、响应时间<br>       QPS（TPS）：每秒钟request/事务数量<br>       并发数： 系统同时处理的request/事务数<br>       响应时间：一般取平均响应时间<br>    理解了上面三个要素的意义之后，就能推算出它们之间的关系：<br>    QPS（TPS）= 并发数/平均响应时间</p>
+<p><strong>1、什么是Ngrok</strong></p>
+<p>Ngrok 是一个反向代理，通过在公共端点和本地运行的 Web 服务器之间建立一个安全的通道，实现内网主机的服务可以暴露给外网。Ngrok 可捕获和分析所有通道上的流量，便于后期分析和重放，所以 Ngrok可以很方便地协助服务端程序测试。Ngrok希望帮人节省更多的时间去编程。只需一个命令，便可将一个本地服务器暴露在NAT或防火墙后面的互联网。</p>
+<p><strong>2、注册账号</strong></p>
+<p>1、进入网站：<a href="http://www.ngrok.cc/" target="_blank" rel="noopener">http://www.ngrok.cc/</a><br>2、点击注册，填写信息<br><img src= "/img/loading.gif" data-src="/images/ngrok1.png" alt="网站"><br><img src= "/img/loading.gif" data-src="/images/ngrok2.png" alt="注册"></p>
+<p><strong>3、开通隧道</strong></p>
+<p>1、进行登录，选择隧道管理—开通隧道–美国Ngrok免费服务器（立即购买）<br>2、填写信息，点击确定添加，点击确定开通<br><img src= "/img/loading.gif" data-src="/images/ngrok3.png" alt="进入页面"><br><img src= "/img/loading.gif" data-src="/images/ngrok4.png" alt="开通"></p>
+<p><strong>4、下载启动服务器</strong></p>
+<p>1、点击客户端下载，跳转至下载页面，选择自己的对应系统（我的电脑为windows64位）进行下载<br>2、下载好后，进行解压，打开文件夹：windows_amd64，打开Sunny-Ngrok启动工具<br>3、在Sunny-Ngrok启动工具，输入隧道id，点击enter键，启动成功，可进行远程访问<br><img src= "/img/loading.gif" data-src="/images/ngrok5.png" alt="客户端下载"><br><img src= "/img/loading.gif" data-src="/images/ngrok6.png" alt="下载"><br><img src= "/img/loading.gif" data-src="/images/ngrok7.png" alt="输入ID"><br><img src= "/img/loading.gif" data-src="/images/ngrok8.png" alt="启动成功"></p>
 ]]></content>
       <tags>
-        <tag>Loadrunning</tag>
+        <tag>Ngrok</tag>
       </tags>
   </entry>
   <entry>
@@ -210,61 +168,27 @@
       </tags>
   </entry>
   <entry>
-    <title>启用 Valine 留言系统</title>
-    <url>/2020/08/20/MessageBoard/</url>
-    <content><![CDATA[<p>此文仅是本人学习笔记。</p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>博客应用blank主题，主题含有Valine 留言系统，功能提示：Code 401: 未经授权的操作，请检查你的AppId和AppKey.<br><img src= "/img/loading.gif" data-src="/images/MessageBoard1.png" alt="img"></p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p><strong>创建 LeanCloud 应用</strong><br>Valine 基于 LeanCloud 提供的数据服务，参考 Valine 的 <a href="https://valine.js.org/quickstart.html" target="_blank" rel="noopener">官方教程</a>，首先前往 <a href="https://leancloud.cn/" target="_blank" rel="noopener">leancloud.cn</a> 注册账号。<br>我选择的是华东节点，提交注册信息后LeanCloud提示国区账号必需实名制，否则无法创建应用。<br>创建了一个应用，命名为 <code>Valine</code>，方案选择开发版，即可以在一定的用量限制下免费运行。<br><img src= "/img/loading.gif" data-src="/images/MessageBoard2.png" alt="img"><br>进入创建好的应用，就能获取到 <code>App ID</code> 和 <code>App Key</code>。<br>步骤：<br>(1)进入刚刚创建的应用，选择左下角的<code>设置</code>&gt;<code>应用``Key</code>，然后就能看到你的<code>APP ID</code>和<code>APP Key</code>了。<br><img src= "/img/loading.gif" data-src="/images/MessageBoard3.png" alt="img"><br>(2)然后，进入 <code>设置</code> &gt; <code>安全中心</code> &gt; <code>Web ``安全域名</code>，填写站点的域名并保存：<br><img src= "/img/loading.gif" data-src="/images/MessageBoard4.png" alt="img"><br><strong>配置博客</strong><br>编辑 <code>source/_data/blank.yml</code>，找到对应的模块，修改配置如下：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">valine:</span><br><span class="line">    enable: <span class="literal">true</span> </span><br><span class="line">    appid: <span class="xml"><span class="tag">&lt;<span class="name">App</span> <span class="attr">ID</span>&gt;</span></span></span><br><span class="line">    appkey: &lt;App Key&gt;</span><br><span class="line">    notify: false </span><br><span class="line">    verify: false </span><br><span class="line">    placeholder: &lt;留言编辑框里的默认文本&gt;</span><br><span class="line">    avatar: mm </span><br><span class="line">    guest_info: nick,mail,link </span><br><span class="line">    pageSize: 10 </span><br><span class="line">    recordIP: false </span><br><span class="line">    serverURLs:</span><br><span class="line">    emojiCDN: </span><br><span class="line">    enableQQ: true</span><br></pre></td></tr></table></figure>
-<p>再次部署 Hexo 后就能看到留言系统已经启用，可以进行留言了。<br><img src= "/img/loading.gif" data-src="/images/MessageBoard5.png" alt="img"><br><strong>查看数据</strong><br>发表留言后，进入 <code>存储</code> &gt; <code>结构化数据</code> &gt; <code>comment</code>，可对数据进行操作。<br><img src= "/img/loading.gif" data-src="/images/MessageBoard6.png" alt="img"></p>
-<p>参考博客：<a href="https://laytonsun.com/learning/2019-08/enable-comments.html" target="_blank" rel="noopener">https://laytonsun.com/learning/2019-08/enable-comments.html</a></p>
-]]></content>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用Ngrok进行内网穿透</title>
-    <url>/2020/07/19/Ngrok/</url>
-    <content><![CDATA[<p>此文仅是本人学习笔记。</p>
-<p><strong>1、什么是Ngrok</strong></p>
-<p>Ngrok 是一个反向代理，通过在公共端点和本地运行的 Web 服务器之间建立一个安全的通道，实现内网主机的服务可以暴露给外网。Ngrok 可捕获和分析所有通道上的流量，便于后期分析和重放，所以 Ngrok可以很方便地协助服务端程序测试。Ngrok希望帮人节省更多的时间去编程。只需一个命令，便可将一个本地服务器暴露在NAT或防火墙后面的互联网。</p>
-<p><strong>2、注册账号</strong></p>
-<p>1、进入网站：<a href="http://www.ngrok.cc/" target="_blank" rel="noopener">http://www.ngrok.cc/</a><br>2、点击注册，填写信息<br><img src= "/img/loading.gif" data-src="/images/ngrok1.png" alt="网站"><br><img src= "/img/loading.gif" data-src="/images/ngrok2.png" alt="注册"></p>
-<p><strong>3、开通隧道</strong></p>
-<p>1、进行登录，选择隧道管理—开通隧道–美国Ngrok免费服务器（立即购买）<br>2、填写信息，点击确定添加，点击确定开通<br><img src= "/img/loading.gif" data-src="/images/ngrok3.png" alt="进入页面"><br><img src= "/img/loading.gif" data-src="/images/ngrok4.png" alt="开通"></p>
-<p><strong>4、下载启动服务器</strong></p>
-<p>1、点击客户端下载，跳转至下载页面，选择自己的对应系统（我的电脑为windows64位）进行下载<br>2、下载好后，进行解压，打开文件夹：windows_amd64，打开Sunny-Ngrok启动工具<br>3、在Sunny-Ngrok启动工具，输入隧道id，点击enter键，启动成功，可进行远程访问<br><img src= "/img/loading.gif" data-src="/images/ngrok5.png" alt="客户端下载"><br><img src= "/img/loading.gif" data-src="/images/ngrok6.png" alt="下载"><br><img src= "/img/loading.gif" data-src="/images/ngrok7.png" alt="输入ID"><br><img src= "/img/loading.gif" data-src="/images/ngrok8.png" alt="启动成功"></p>
-]]></content>
-      <tags>
-        <tag>Ngrok</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CMD命令模式使用pip提示Did not provide a command</title>
-    <url>/2020/06/21/Python-pip/</url>
-    <content><![CDATA[<p>此文仅是本人学习笔记。</p>
-<p>问题：python安装后pip用不了，但是cmd命令窗口提示：Did not provide a command<br><img src= "/img/loading.gif" data-src="/images/Python-pip1.png" alt="问题"><br>首先，使用where pip找到pip的安装目录，我的目录为第三个，D:\Python\Python38\Scripts\pip.exe<br><img src= "/img/loading.gif" data-src="/images/Python-pip2.png" alt="pip目录"><br>其次，配置环境变量<br>打开环境变量配置窗口：此电脑–》属性–》左上侧的高级系统设置–》高级–》环境变量<br>在之前的环境变量Path最后添加，如果最后已经有英文的“;”分号，则不需要添加分号了，直接添加你的目录。如果没有则在后面添加英文分号“;”和你的pip目录，我的为“D:\Python\Python38\Scripts\”，添加完成之后，最好是在内容的最后面直接添加一个英文的“;”，习惯问题，方便下次配置其他环境变量时忘记添加而造成不能使用。<br><img src= "/img/loading.gif" data-src="/images/Python-pip3.png" alt="修改环境变量"><br>因此每次使用pip命令安装东西的时候都需要先进入到pip所在目录去执行pip install。—-这样的操作比较麻烦。<br>因此我在使用pip命令的时候做了区分，我直接使用pip3(因为我的版本是3.0的)，发现环境变量配置的确实没有问题，原来使用pip3来执行装就可以了<br><img src= "/img/loading.gif" data-src="/images/Python-pip4.png" alt="区分pip"><br>所以在安装的时候使用pip3 install 来进行安装就可以了。<br>注意：如果您的版本是pip2，那么就用pip2 install来安装就可以了。</p>
+    <title>Python2.7和3.7区别</title>
+    <url>/2020/07/14/Differences-in-Python/</url>
+    <content><![CDATA[<p>此文仅是本人学习笔记。<br>文章来源：<a href="https://www.cnblogs.com/sqm724/p/13294061.html?utm_source=tuicool" target="_blank" rel="noopener">https://www.cnblogs.com/sqm724/p/13294061.html?utm_source=tuicool</a></p>
+<p><strong>区别一:print语法使用</strong></p>
+<p>Python2.7  print语法使用  &gt;&gt;&gt; print “Hello Python”<br>Python3.7  print语法使用  &gt;&gt;&gt; print(“Hello Python”)</p>
+<p>例子:在Python 3.7.0使用双引号触发SyntaxError异常机制 提示Did you mean </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">print <span class="string">"Hello Python3.7"</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"Hello Python3.7"</span>)</span><br></pre></td></tr></table></figure>
+<p>print 换行和不换行区别<br>python 2.7 print 不换行使用”,”即可<br>python 3.7 print 不换行使用end=””</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">x = <span class="string">"a"</span></span><br><span class="line">y = <span class="string">"b"</span></span><br><span class="line"></span><br><span class="line">print(x)</span><br><span class="line">print(y,end=<span class="string">""</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>区别二: raw_input()和input()</strong></p>
+<p>Python 2.7  raw_input()  input() 都存在 可使用    raw_input()接收字符串string  input()接收数字int /flot.<br>Python 3.7  raw_input()不存在  仅存在input()   两者合并  接收任意格式 返回string</p>
+<p><strong>区别三: 函数cmp()</strong></p>
+<p>python 2.7   cmp(x,y)函数用于比较2个对象，如果 x &lt; y 返回 -1, 如果 x == y 返回 0, 如果 x &gt; y 返回 1<br>python3.7    cmp()已经不存在了,如果你需要实现比较功能，需要引入 operator 模块，适合任何对象</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> operator</span><br><span class="line">operator.eq(<span class="string">'hello'</span>, <span class="string">'name'</span>);   <span class="comment">//False</span></span><br><span class="line">operator.eq(<span class="string">'hello'</span>, <span class="string">'hello'</span>);   <span class="comment">//True</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>区别四:string 字母 大小写字符串</strong></p>
+<p>string.letters:包含所有字母（大写或小写）的字符串<br>Python 3.0中，string.ascii_letters.</p>
 ]]></content>
       <tags>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo发生error：spawn failed错误的解决方法</title>
-    <url>/2020/07/19/hexo-deploy-problem/</url>
-    <content><![CDATA[<p>此文仅是本人学习笔记。</p>
-<p><strong>问题描述：</strong></p>
-<p>部署博客是出现出现错误：<br>Error: Spawn failed<br>at ChildProcess.<anonymous> (D:\Develop\VSCode-workspace\intendblog\node_modules_<a href="mailto:hexo-util@1.9.1">hexo-util@1.9.1</a>@hexo-util\lib\spawn.js:51:21)<br>at ChildProcess.emit (events.js:310:20)<br>at ChildProcess.cp.emit (D:\Develop\VSCode-workspace\intendblog\node_modules_<a href="mailto:cross-spawn@7.0.3">cross-spawn@7.0.3</a>@cross-spawn\lib\enoent.js:34:29)<br>at Process.ChildProcess._handle.onexit (internal/child_process.js:275:12) </p>
-<p><strong>解决办法：</strong></p>
-<ol>
-<li>删除.deploy_git文件夹;</li>
-<li>然后，依次执行：<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -326,22 +250,37 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo s后,访问页面显示Cannot GET /</title>
-    <url>/2020/08/20/npm-erp/</url>
+    <title>Ubuntu安装卸载dstat</title>
+    <url>/2020/08/30/UbuntuInstall/</url>
     <content><![CDATA[<p>此文仅是本人学习笔记。</p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>hexo s后,访问页面显示Cannot GET /<br><img src= "/img/loading.gif" data-src="/images/npm-erp1.png" alt="img"></p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p><strong>排查</strong><br>(1)判断public目录下xxx文件是否存在。<br>（我的错误是 Cannot GET /，因此在public目录下寻找index.html是否存在。）<br>(2)发现index.html不存在，那么执行执行npm audit fix，查看是否少了什么组件。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">PS D:\Develop\VSCode-workspace\intendblog&gt; npm audit fix</span><br><span class="line">npm ERR! code EAUDITNOLOCK</span><br><span class="line">npm ERR! audit Neither npm-shrinkwrap.json nor package-lock.json found:</span><br><span class="line"> Cannot audit a project without a lockfile</span><br><span class="line">npm ERR! audit Try creating one first <span class="keyword">with</span>: npm i --package-lock-only</span><br><span class="line"></span><br><span class="line">npm ERR! A complete log <span class="keyword">of</span> <span class="keyword">this</span> run can be found <span class="keyword">in</span>:</span><br><span class="line">npm ERR!     C:\Users\Administrator\AppData\Roaming\npm-cache\_logs\</span><br><span class="line"><span class="number">2020</span><span class="number">-08</span><span class="number">-20</span>T14_06_31_854Z-debug.log</span><br></pre></td></tr></table></figure>
-<p><strong>解决</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">npm ERR! audit Neither npm-shrinkwrap.json nor package-lock.json found:</span><br><span class="line"> Cannot audit a project without a lockfile</span><br></pre></td></tr></table></figure>
-<p>（1）上方语句，意思是没有package.json这个文件，所以新建一个文件。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">npm init --yes</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">npm ERR! audit Try creating one first <span class="keyword">with</span>: npm i --package-lock-only</span><br></pre></td></tr></table></figure>
-<p>（2）上方语句，使用 npm i –package-lock-only下载package-lock.json</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">npm i --package-lock-only</span><br></pre></td></tr></table></figure>
-
-<p>参考：<br><a href="https://www.jianshu.com/p/af83fc73e525" target="_blank" rel="noopener">https://www.jianshu.com/p/af83fc73e525</a><br><a href="https://blog.csdn.net/TalonZhang/article/details/88543497" target="_blank" rel="noopener">https://blog.csdn.net/TalonZhang/article/details/88543497</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>1、进行监理</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hairui@hadoop:~$ dstat</span><br><span class="line">The program <span class="string">'dstat'</span> is currently not installed.you can install it by typing: apt install dstat</span><br></pre></td></tr></table></figure>
+<p>2、发现没有安装dstat，进行安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hairui@hadoop:~$ sudo apt install dstat</span><br></pre></td></tr></table></figure>
+<p><img src= "/img/loading.gif" data-src="/images/UbuntuInstall1.png" alt="img"></p>
+<h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><p>1、    查看安装的所有软件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hairui@hadoop:dpkg –list</span><br></pre></td></tr></table></figure>
+<p>2、    在终端中找到你需要卸载的软件的名称，列表是按照首字母排序的。<br><img src= "/img/loading.gif" data-src="/images/UbuntuInstall2.png" alt="img"><br>3、    在终端上输入命令sudo apt-get –purge remove 包名（–purge是可选项，写上这个属性是将软件及其配置文件一并删除，如不需要删除配置文件，可执行sudo apt-get remove 包名） ，此处我要删除的是dstat ，那么在终端执行下方语句</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hairui@hadoop:sudo apt-get --purge remove dstat</span><br></pre></td></tr></table></figure>
+<p>4、    执行过程中，会提示你是否真的要删除（继续执行删除命令），在终端输入y ，然后回车，删除程序继续执行。<br><img src= "/img/loading.gif" data-src="/images/UbuntuInstall3.png" alt="img"></p>
+<p>参考博客：<br><a href="https://blog.csdn.net/luckydog612/article/details/80877179" target="_blank" rel="noopener">https://blog.csdn.net/luckydog612/article/details/80877179</a></p>
+]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo发生error：spawn failed错误的解决方法</title>
+    <url>/2020/07/19/hexo-deploy-problem/</url>
+    <content><![CDATA[<p>此文仅是本人学习笔记。</p>
+<p><strong>问题描述：</strong></p>
+<p>部署博客是出现出现错误：<br>Error: Spawn failed<br>at ChildProcess.<anonymous> (D:\Develop\VSCode-workspace\intendblog\node_modules_<a href="mailto:hexo-util@1.9.1">hexo-util@1.9.1</a>@hexo-util\lib\spawn.js:51:21)<br>at ChildProcess.emit (events.js:310:20)<br>at ChildProcess.cp.emit (D:\Develop\VSCode-workspace\intendblog\node_modules_<a href="mailto:cross-spawn@7.0.3">cross-spawn@7.0.3</a>@cross-spawn\lib\enoent.js:34:29)<br>at Process.ChildProcess._handle.onexit (internal/child_process.js:275:12) </p>
+<p><strong>解决办法：</strong></p>
+<ol>
+<li>删除.deploy_git文件夹;</li>
+<li>然后，依次执行：<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 ]]></content>
       <tags>
         <tag>hexo</tag>
@@ -369,6 +308,103 @@
 ]]></content>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>博客地址拒绝我的访问</title>
+    <url>/2020/08/04/GitHub-rejects-connection-request/</url>
+    <content><![CDATA[<p>此文仅是本人学习笔记。</p>
+<h2 id="问题：我的博客（https-intend-xie-github-io-）被拒绝访问"><a href="#问题：我的博客（https-intend-xie-github-io-）被拒绝访问" class="headerlink" title="问题：我的博客（https://intend-xie.github.io/）被拒绝访问"></a>问题：我的博客（<a href="https://intend-xie.github.io/）被拒绝访问" target="_blank" rel="noopener">https://intend-xie.github.io/）被拒绝访问</a></h2><p>您的连接不是私密连接<br>攻击者可能会试图从 <strong>intend-xie.github.io</strong> 窃取您的信息（例如：密码、通讯内容或信用卡信息）。了解详情<br>NET::ERR_CERT_AUTHORITY_INVALID<br><img src= "/img/loading.gif" data-src="/images/GitHub-rejects-connection-request1.png" alt="问题"></p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>1、在cmd中，ping intend-xie.github.io,得到IP<br><img src= "/img/loading.gif" data-src="/images/GitHub-rejects-connection-request2.png" alt="步骤1"><br>2、将其ip和域名添加到hosts文件（目录：C:\Windows\System32\drivers\etc）中<br><img src= "/img/loading.gif" data-src="/images/GitHub-rejects-connection-request3.png" alt="步骤2-1"><br><img src= "/img/loading.gif" data-src="/images/GitHub-rejects-connection-request4.png" alt="步骤2-2"><br>3、    如果还不行，可通过打开Dns检测|Dns查询 - 站长工具：<a href="http://tool.chinaz.com/dns" target="_blank" rel="noopener">http://tool.chinaz.com/dns</a><br>4、在检测输入栏中输入博客地址（intend-xie.github.io）<br><img src= "/img/loading.gif" data-src="/images/GitHub-rejects-connection-request5.png" alt="步骤3、4"><br>5、把检测列表里某个IP（对应TTL值最小和最大的IP我尝试了都可以，其他有兴趣可以试试）输入到hosts里，并对应写上博客地址<br><img src= "/img/loading.gif" data-src="/images/GitHub-rejects-connection-request6.png" alt="步骤5"><br>6、问题的思路<br>通过下面两个链接进行了解解决，具体可进行查看：<br><a href="https://www.jianshu.com/p/5b72495f4548" target="_blank" rel="noopener">https://www.jianshu.com/p/5b72495f4548</a><br><a href="https://segmentfault.com/q/1010000010264567" target="_blank" rel="noopener">https://segmentfault.com/q/1010000010264567</a></p>
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo s后,访问页面显示Cannot GET /</title>
+    <url>/2020/08/20/npm-erp/</url>
+    <content><![CDATA[<p>此文仅是本人学习笔记。</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>hexo s后,访问页面显示Cannot GET /<br><img src= "/img/loading.gif" data-src="/images/npm-erp1.png" alt="img"></p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p><strong>排查</strong><br>(1)判断public目录下xxx文件是否存在。<br>（我的错误是 Cannot GET /，因此在public目录下寻找index.html是否存在。）<br>(2)发现index.html不存在，那么执行执行npm audit fix，查看是否少了什么组件。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">PS D:\Develop\VSCode-workspace\intendblog&gt; npm audit fix</span><br><span class="line">npm ERR! code EAUDITNOLOCK</span><br><span class="line">npm ERR! audit Neither npm-shrinkwrap.json nor package-lock.json found:</span><br><span class="line"> Cannot audit a project without a lockfile</span><br><span class="line">npm ERR! audit Try creating one first <span class="keyword">with</span>: npm i --package-lock-only</span><br><span class="line"></span><br><span class="line">npm ERR! A complete log <span class="keyword">of</span> <span class="keyword">this</span> run can be found <span class="keyword">in</span>:</span><br><span class="line">npm ERR!     C:\Users\Administrator\AppData\Roaming\npm-cache\_logs\</span><br><span class="line"><span class="number">2020</span><span class="number">-08</span><span class="number">-20</span>T14_06_31_854Z-debug.log</span><br></pre></td></tr></table></figure>
+<p><strong>解决</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">npm ERR! audit Neither npm-shrinkwrap.json nor package-lock.json found:</span><br><span class="line"> Cannot audit a project without a lockfile</span><br></pre></td></tr></table></figure>
+<p>（1）上方语句，意思是没有package.json这个文件，所以新建一个文件。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">npm init --yes</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">npm ERR! audit Try creating one first <span class="keyword">with</span>: npm i --package-lock-only</span><br></pre></td></tr></table></figure>
+<p>（2）上方语句，使用 npm i –package-lock-only下载package-lock.json</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">npm i --package-lock-only</span><br></pre></td></tr></table></figure>
+
+<p>参考：<br><a href="https://www.jianshu.com/p/af83fc73e525" target="_blank" rel="noopener">https://www.jianshu.com/p/af83fc73e525</a><br><a href="https://blog.csdn.net/TalonZhang/article/details/88543497" target="_blank" rel="noopener">https://blog.csdn.net/TalonZhang/article/details/88543497</a></p>
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JMeter入门基础</title>
+    <url>/2020/08/17/JMeterBasics/</url>
+    <content><![CDATA[<p>此文仅是本人学习笔记。</p>
+<h2 id="一、jmeter介绍"><a href="#一、jmeter介绍" class="headerlink" title="一、jmeter介绍"></a>一、jmeter介绍</h2><p>1、 什么是jmeter<br>Apache JMeter是Apache组织开发的基于Java的压力测试工具。<br>2、 Jmeter可以做什么<br>(1) 接口测试—-基础<br>(2) 性能测试<br>(3) 压力测试<br>(4) 数据库测试<br>(5) Java程序测试<br>3、 Jmeter优缺点<br>优点：<br>(1) 开源免费<br>(2) 支持多协议<br>(3) 轻量级<br>(4) 功能强大<br>缺点：<br>使用jmeter无法验证js程序，也无法验证页面UI，所以要需要和selenium配合来完成web2.0应用测试</p>
+<h2 id="二、jmeter安装"><a href="#二、jmeter安装" class="headerlink" title="二、jmeter安装"></a>二、jmeter安装</h2><p>1、JMeter的下载与配置<br>下载地址：<a href="http://jmeter.apache.org/" target="_blank" rel="noopener">http://jmeter.apache.org/</a><br>按照下图进行下载<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics1.png" alt="img"><br><img src= "/img/loading.gif" data-src="/images/JMeterBasics2.png" alt="img"><br>下载完成后，解压，目录结构如下<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics3.png" alt="img"><br>修改中文：进入bin目录，找到JMeter.bat文件，右键编辑文件，并修改如信息</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> JMETER_LANGUAGE=-Duser.language=<span class="string">"**zh**"</span> -Duser.region=<span class="string">"**CN**"</span></span><br></pre></td></tr></table></figure>
+<p><img src= "/img/loading.gif" data-src="/images/JMeterBasics4.png" alt="img"><br>到这保存退出就可以通过JMeter.bat运行JMeter了，但因为后续的测试可能会使用到一些拓展的插件，所以还需要导入jmeter-plugins-manager。<br>2、plugins-manager下载与安装<br>jmeter-plugins-manager下载地址：<a href="https://jmeter-plugins.org/install/Install/" target="_blank" rel="noopener">https://jmeter-plugins.org/install/Install/</a><br><img src= "/img/loading.gif" data-src="/images/JMeterBasics5.png" alt="img"><br>下载完成后将jar包放入lib/ext<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics6.png" alt="img"><br>完成后即可启动jmeter<br>3、Jmeter启动与插件安装<br>执行jmeter.bat文件，弹出的控制台不可关闭。启动后如下：<br>注意：在linux系统需执行jmeter.sh文件<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics7.png" alt="img"><br>点击选项-&gt;plugins manager<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics8.png" alt="img"><br>Installed Plugins 为已安装的插件，Available Plugins 为可安装的插件 ，Upgrades为可更新的插件<br>勾选插件后，点击右下角的Apply Changes and Restart JMeter，安装后会自动重启JMeter，这里推荐安装3 Basic Graphs 和 jpgc - Standard Set<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics9.png" alt="img"><br>4、Badboy的下载<br>下载地址：<a href="http://www.badboy.com.au/" target="_blank" rel="noopener">http://www.badboy.com.au/</a><br>点击Download<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics10.png" alt="img"><br>选择最新版本下载<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics11.png" alt="img"><br>下载，安装<br>5、BadBoy的启动<br>进入安装文件夹，运行badboy.exe即可启动。</p>
+<h2 id="三、目录了解"><a href="#三、目录了解" class="headerlink" title="三、目录了解"></a>三、目录了解</h2><p>1、bin目录<br>examples（例子）：该目录下存放Jmeter官方给的请求模板<br>report-template（报告模板）：该目录下存放Jmeter的报告模板（Jmeter是有自己的报告的）<br>templates（模板）：该目录下存放Jmeter的各类配置模板，例如：JDBC、Beanshell、ThinkTime等<br>jmeter.bat：Windows 的启动命令。<br>jmeter.log：日志文件。<br>jmeter.sh：Linux 系统下的启动文件。<br>jmeter.properties：系统配置文件，如配置编码格式。<br>jmeter-server.bat：Windows 分布测试要用到的服务器配置。<br>jmeter-server：Linux 分布式测试要用到的服务器配置。<br>2、docs目录<br>api：前面谈到Jmeter是开源的，此处便是它的API文档。<br>css：xxxx。<br>3、mage目录<br>部分图片资源<br>4、Extras目录<br>存放Build等配置，用于第三方集成构建<br>5、Lib目录<br>存放各类jar包，组件类函数类等<br>6、licenses目录<br>许可证书目录<br>7、printable_docs目录<br>用户手册<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics12.png" alt="img"></p>
+<h2 id="四、jmeter入门脚本"><a href="#四、jmeter入门脚本" class="headerlink" title="四、jmeter入门脚本"></a>四、jmeter入门脚本</h2><p>1、添加测试计划—当打开jmeter默认有一个测试计划.<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics13.png" alt="img"><br>2、添加线程组<br>鼠标在测试计划上—右键—添加—线程(用户)—线程组<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics14.png" alt="img"><br>3、添加HTTP请求<br>鼠标在线程组上—右键—添加—取样器—HTTP请求<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics15.png" alt="img"><br>4、配置HTTP请求<br>修改名称:发送百度请求<br>基本信息：<br>（1）填写协议:http<br>（2）填写服务器或IP:<a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a><br><img src= "/img/loading.gif" data-src="/images/JMeterBasics16.png" alt="img"><br>5、添加查看结果树<br>鼠标在线程组上—右键—添加—监听器—查看结果树<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics17.png" alt="img"><br>6、运行<br>注意：要保存后才能运行<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics18.png" alt="img"><br><img src= "/img/loading.gif" data-src="/images/JMeterBasics19.png" alt="img"><br>7、查看结果<br>可点击text下拉选择请求结果的样式<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics20.png" alt="img"><br>知识点： </p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>用例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>测试计划</td>
+<td>项目名称</td>
+</tr>
+<tr>
+<td>线程组</td>
+<td>业务流程</td>
+</tr>
+<tr>
+<td>HTTP请求</td>
+<td>接口请求</td>
+</tr>
+</tbody></table>
+<h2 id="五、线程用户"><a href="#五、线程用户" class="headerlink" title="五、线程用户"></a>五、线程用户</h2><p>线程数:表示请求的虚拟用户数量<br>ramp-up:启动所有线程数所需要的时间(秒)<br>循环次数:线程数循环<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics21.png" alt="img"><br>注意：如果选择循环次数为永远，需要手动停止，会导致最后一个接口请求报错</p>
+<h2 id="六、取样器"><a href="#六、取样器" class="headerlink" title="六、取样器"></a>六、取样器</h2><p>作用:向服务器发送请求并且记录响应时间和响应内容</p>
+<h2 id="七、jmeter运行原理"><a href="#七、jmeter运行原理" class="headerlink" title="七、jmeter运行原理"></a>七、jmeter运行原理</h2><p>1、jmeter是按照线程的方式来运行的<br>2、jmeterGUl模式运行测试脚本对电脑本身的资源消耗较大，无法实现大的并发和压力测试<br>3、使用命令行模式实现高并发和压力测试<br>4、使用GUl模式主要目的是编写和调面jmeter测试脚本</p>
+<h2 id="八、jmeter测试计划要素"><a href="#八、jmeter测试计划要素" class="headerlink" title="八、jmeter测试计划要素"></a>八、jmeter测试计划要素</h2><p>使用jmeter编写测试脚本–要素<br>1、 测试计划<br>2、 在测试计划中至少有一个线程组<br>3、 在线程组中至少有一个取样器<br>4、 在测试计划中必须有监听器</p>
+<h2 id="九、jmeter录制脚本"><a href="#九、jmeter录制脚本" class="headerlink" title="九、jmeter录制脚本"></a>九、jmeter录制脚本</h2><p>1、使用badboy录制<br>（1）打开babboy在 地址栏中输入被测网址回车<br>（2）打开badboy时默认记录状态，输入网址直接操作即可<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics22.png" alt="img"><br>（3）操作完成–点击停止记录<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics23.png" alt="img"><br>（4）导出脚本：file–export to jmeter保存<br>2、在jmeter中打开已有文件<br>（1）jmeter脚本文件的后缀名.jmx<br>（2）在jmeter点击打开文件.选择文件路径,找到需要的文件进行打开<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics24.png" alt="img"><br>（3）添加查看结果树（不然看不到运行结果）<br><img src= "/img/loading.gif" data-src="/images/JMeterBasics25.png" alt="img"></p>
+<h2 id="十、使用jmeter自身代理录制移动端（了解）"><a href="#十、使用jmeter自身代理录制移动端（了解）" class="headerlink" title="十、使用jmeter自身代理录制移动端（了解）"></a>十、使用jmeter自身代理录制移动端（了解）</h2><p>配置jmeter<br>1.打开jmeter创建新的测试计划<br>2.在测试计划下添加一个线程组<br>3.添加HTTP代理服务器<br>在测试计划下—右键–非测试元—HTTP代理服务<br>4.配置HTTP代理服务器<br>4.1端口号默认<br>4.2 https domains中填写电脑本地IP或localhost<br>查询电脑IP：打开cmd—执行ipconfig<br>4.3目标控制器选择测试计划&gt;线程组<br>4.4点击启动按钮 —点击OK<br>配置手机—打开手机端的 wifi设置<br>设置好了之后启动Jmeter代理服务器的 启动按钮（注意是里面的按钮）<br>然后就可以在手机端去操作业务了，可以正常的录制对应的app应用、微信公众号等业务，在线程组就会抓到对应的的请求<br>录制完成后，停止Jemter上的“HTTP代理服务器”，然后进行脚本调试<br>原理跟web端的脚本录制一样。脚本调试完成之后可以进行后续的压测了</p>
+]]></content>
+      <tags>
+        <tag>JMeter</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Loadrunning脚本运行</title>
+    <url>/2020/08/11/LoadrunningScenarioRunning/</url>
+    <content><![CDATA[<p>此文仅是本人学习笔记。</p>
+<h2 id="一、启动场景控制台"><a href="#一、启动场景控制台" class="headerlink" title="一、启动场景控制台"></a>一、启动场景控制台</h2><p>1、启动控制台<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning1.png" alt="img"><br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning2.png" alt="img"><br>添加脚本，选择脚本名称，点击“Add==》”按钮，再点击“OK”按钮<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning3.png" alt="img"><br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning4.png" alt="img"></p>
+<h2 id="二、配置"><a href="#二、配置" class="headerlink" title="二、配置"></a>二、配置</h2><p>1、设置generators<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning5.png" alt="img"><br>Name填写为localhost，点击“OK”后，关闭Load Generators窗口<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning6.png" alt="img"><br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning7.png" alt="img"><br>2、配置场景<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning8.png" alt="img"><br>1）选择模式，run mode有两种a、Real-world schedule，b、Basic schedule<br>a、Real-world schedule<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning9.png" alt="img"><br>初始化、启动阶段、运行阶段、停止阶段<br>（1）初始化按默认：a、全部初始化，b、设置单位时间逐步初始化，c、运行前初始化，默认c<br>（2）开始阶段：配置最大用户数，选择方式：同时和增压，默认增压：单位时间增压用户数、单位时间长度<br>（3）运行阶段：选择方式：到运行完成为止 和 持续运行，默认持续运行：配置运行时长<br>（4）停止阶段：选择方式：同时和减压，默认减压：配置单位时间减压用户数、单位时间长度<br>b、Basic schedule<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning10.png" alt="img"><br>初始化、启动阶段、运行阶段、【停止阶段】<br>用户总数：填写/修改“total：[  ]Vusers”的[  ]中数量<br>（1）初始化按默认：a、全部初始化，b、设置单位时间逐步初始化，c、运行前初始化，默认c<br>（2）开始阶段：选择方式：同时和增压，默认同时<br>（3）运行阶段：选择方式：“到运行完成为止”、“持续运行”和“一直运行不停”，默认“到运行完成为止”，选择持续运行则出现停止阶段<br>（4）停止阶段：选择方式：同时和减压<br>3、修改超时时间<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning11.png" alt="img"><br>打开“脚本运行时配置”框，选中“Internet protocol-preferences”，点击“options…”按钮进行配置<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning12.png" alt="img"><br>配置超时时间，http下的“请求连接超时”、“请求接收超时”、“请求存活超时”的时长，及general下的“下载超时”的时长<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning13.png" alt="img"><br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning14.png" alt="img"><br>时长配置好后，点击“OK”再点击“OK”保存配置<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning15.png" alt="img"></p>
+<h2 id="三、视图配置及启动"><a href="#三、视图配置及启动" class="headerlink" title="三、视图配置及启动"></a>三、视图配置及启动</h2><p>1、配置运行监控视图<br>切换运行监控界面<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning16.png" alt="img"><br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning17.png" alt="img"><br>配置图表个数，在图表区域点击鼠标右键，选择显示8张图表<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning18.png" alt="img"><br>8张图表<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning19.png" alt="img"><br>修改图表展示所需的图表，选中要修改的图表，双击左侧列表中需要的图表<br>running vusers，tran response time，tran/sec(passed)，total tran/sec(passed)，hits per second，throughput，connections per second，error statistics<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning20.png" alt="img"><br>2、运行场景<br>点击“start scenario”按钮<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning21.png" alt="img"><br>results directory already exists提示框上选择“是”，覆盖目录<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning22.png" alt="img"><br>场景运行中<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning23.png" alt="img"><br>3、运行结果<br>（1）运行时如tran response time，tran/sec(passed)，total tran/sec(passed)， error statistics没有图效果时需检查log看看问题<br>操作，点击右键，选择show vuser log<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning24.png" alt="img"><br>（2）设置run-time setting中log的配置<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning25.png" alt="img"><br>（3）重新运行脚本，可查看show vuser log<br><img src= "/img/loading.gif" data-src="/images/LoadrunningScenarioRunning26.png" alt="img"><br>（4）如果还是没有图，检查一下事务点</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在脚本最开始的加上</span></span><br><span class="line">lr_start_transaction();</span><br><span class="line"><span class="comment"># 在末尾加上</span></span><br><span class="line">lr_end_transaction()</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>Loadrunning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CMD命令模式使用pip提示Did not provide a command</title>
+    <url>/2020/06/21/Python-pip/</url>
+    <content><![CDATA[<p>此文仅是本人学习笔记。</p>
+<p>问题：python安装后pip用不了，但是cmd命令窗口提示：Did not provide a command<br><img src= "/img/loading.gif" data-src="/images/Python-pip1.png" alt="问题"><br>首先，使用where pip找到pip的安装目录，我的目录为第三个，D:\Python\Python38\Scripts\pip.exe<br><img src= "/img/loading.gif" data-src="/images/Python-pip2.png" alt="pip目录"><br>其次，配置环境变量<br>打开环境变量配置窗口：此电脑–》属性–》左上侧的高级系统设置–》高级–》环境变量<br>在之前的环境变量Path最后添加，如果最后已经有英文的“;”分号，则不需要添加分号了，直接添加你的目录。如果没有则在后面添加英文分号“;”和你的pip目录，我的为“D:\Python\Python38\Scripts\”，添加完成之后，最好是在内容的最后面直接添加一个英文的“;”，习惯问题，方便下次配置其他环境变量时忘记添加而造成不能使用。<br><img src= "/img/loading.gif" data-src="/images/Python-pip3.png" alt="修改环境变量"><br>因此每次使用pip命令安装东西的时候都需要先进入到pip所在目录去执行pip install。—-这样的操作比较麻烦。<br>因此我在使用pip命令的时候做了区分，我直接使用pip3(因为我的版本是3.0的)，发现环境变量配置的确实没有问题，原来使用pip3来执行装就可以了<br><img src= "/img/loading.gif" data-src="/images/Python-pip4.png" alt="区分pip"><br>所以在安装的时候使用pip3 install 来进行安装就可以了。<br>注意：如果您的版本是pip2，那么就用pip2 install来安装就可以了。</p>
+]]></content>
+      <tags>
+        <tag>Python</tag>
       </tags>
   </entry>
 </search>

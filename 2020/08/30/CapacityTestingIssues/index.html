@@ -21,7 +21,7 @@
 
   
 
-  <title>分类 | Intend blog</title>
+  <title>Loadrunning容量测试中遇到的问题 | Intend blog</title>
 
   
 
@@ -162,27 +162,72 @@
     </div>
 </div>
 
-    <div class="pagetitle">
-    <h1>分类</h1>
-</div>
-<div class="indexpage">
-    <article class="post-wrap page">
-        
-        <section class="content">
-            
-                <div class="category">
     
-  </div>
+<article id="post">
+  <div class="post-title">Loadrunning容量测试中遇到的问题</div>
   
-            
-        </section>
-    </article>
+<div class="post-meta">
     
+    
+      <div class="post-meta-item date">
+        <span title="Created 2020.08.30"><i class="far fa-calendar-alt"></i> 2020.08.30</span>
+      </div>
+      <div class="post-meta-item updated">
+        <span title="Updated 2020.08.30"><i class="far fa-calendar-check"></i> 2020.08.30</span>
+      </div>
+     
+     
+    
+     <div class="post-meta-item wordcount">
+        
+          <i class="fas fa-pencil-alt"></i> <span class="post-count">490 words</span>
+           
+        
+          <i class="far fa-clock"></i> <span class="post-count">1 min</span>
+                               
+      </div>
+     
 </div>
 
 
+  
+    <div id="toc" class="toc">
+          <h1>Toc</h1>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#录制完脚本，出错：Failed-to-load-temporary-action-file-C-Users-ADMINI-1-AppData-LocaNTemp-vuac-usr73-restoring-original-file-Check-that-the-TMP-directory-is-not-full-or-write-protected"><span class="toc-number">1.</span> <span class="toc-text">录制完脚本，出错：Failed to load temporary action file(C\Users\ADMINI~1\AppData\LocaNTemp\vuac usr73),restoring original file.Check that the TMP directory is not full or write protected.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#大量并发会导致Error-26697-Missing-CR-LF-after-body-trailer-“Transfer-Encoding-chunked”"><span class="toc-number">2.</span> <span class="toc-text">大量并发会导致Error -26697: Missing CR&#x2F;LF after body&#x2F;trailer (“Transfer-Encoding: chunked”)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#大量并发后报错Error-27796-Failed-to-connect-to-server-“dangjian-gdaee-com-cn-8088”-10060-Connection-timed-out"><span class="toc-number">3.</span> <span class="toc-text">大量并发后报错Error -27796: Failed to connect to server “dangjian.gdaee.com.cn:8088”: [10060] Connection timed out</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行场景最后出现error-82034-Rendezvous-release-failed"><span class="toc-number">4.</span> <span class="toc-text">运行场景最后出现error -82034 Rendezvous release failed</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TPS中有Action-Transaction-和-vuser-init-Transaction"><span class="toc-number">5.</span> <span class="toc-text">TPS中有Action_Transaction 和 vuser_init_Transaction</span></a></li></ol>
+      </div>
+    
+  <div class="content">
+        <div><p>此文仅是本人学习笔记。</p>
+<h2 id="录制完脚本，出错：Failed-to-load-temporary-action-file-C-Users-ADMINI-1-AppData-LocaNTemp-vuac-usr73-restoring-original-file-Check-that-the-TMP-directory-is-not-full-or-write-protected"><a href="#录制完脚本，出错：Failed-to-load-temporary-action-file-C-Users-ADMINI-1-AppData-LocaNTemp-vuac-usr73-restoring-original-file-Check-that-the-TMP-directory-is-not-full-or-write-protected" class="headerlink" title="录制完脚本，出错：Failed to load temporary action file(C\Users\ADMINI~1\AppData\LocaNTemp\vuac usr73),restoring original file.Check that the TMP directory is not full or write protected."></a>录制完脚本，出错：Failed to load temporary action file(C\Users\ADMINI~1\AppData\LocaNTemp\vuac usr73),restoring original file.Check that the TMP directory is not full or write protected.</h2><p>原因：<br>Action.c的文件丢失。<br>解决方法：<br>（1）创建一个新的脚本。<br>（2）在文件夹里找到其他的后缀为.c的文件用工具编辑文本，然后把东西拷出，拷到里新建的脚本里面，补上Action.c的文件的内容，然后重新运行。</p>
+<h2 id="大量并发会导致Error-26697-Missing-CR-LF-after-body-trailer-“Transfer-Encoding-chunked”"><a href="#大量并发会导致Error-26697-Missing-CR-LF-after-body-trailer-“Transfer-Encoding-chunked”" class="headerlink" title="大量并发会导致Error -26697: Missing CR/LF after body/trailer (“Transfer-Encoding: chunked”)"></a>大量并发会导致Error -26697: Missing CR/LF after body/trailer (“Transfer-Encoding: chunked”)</h2><p>原因：<br>不明。<br>解决方法：<br>未解决。</p>
+<h2 id="大量并发后报错Error-27796-Failed-to-connect-to-server-“dangjian-gdaee-com-cn-8088”-10060-Connection-timed-out"><a href="#大量并发后报错Error-27796-Failed-to-connect-to-server-“dangjian-gdaee-com-cn-8088”-10060-Connection-timed-out" class="headerlink" title="大量并发后报错Error -27796: Failed to connect to server “dangjian.gdaee.com.cn:8088”: [10060] Connection timed out"></a>大量并发后报错Error -27796: Failed to connect to server “dangjian.gdaee.com.cn:8088”: [10060] Connection timed out</h2><p>网上查找的解决方法：<br>方法一：<br>在注册表HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters里，有如下两个键值：<br>TcpTimedWaitDelay<br>MaxUserPort<br>1,这里的TcpTimedWaitDelay默认值应该中是30s，所以这里，把这个值调小为5s（按需要调整）。<br>2,也可以把MaxUserPort调大（如果这个值不是最大值的话）。<br>此法不通！</p>
+<p>方法二：<br>修改run time setting中的请求超时时间Preferences 中点击Options 其中有三项的参数可以一次都修改了，HTTP-request connect timeout，HTTP-request receieve timeout，<br>Step download timeout，分别建议修改为1000、1000、10000；run time setting设置完了后记住还需要在control组件的option的run time setting中设置相应的参数；<br>此法不通！</p>
+<p>原因：<br>迭加数值设置为3<br>解决方法：<br>（1）设置run time setting中的run logic中的迭加数值设置为1。<br><img src= "/img/loading.gif" data-src="/images/CapacityTestingIssues1.png" alt="img"></p>
+<h2 id="运行场景最后出现error-82034-Rendezvous-release-failed"><a href="#运行场景最后出现error-82034-Rendezvous-release-failed" class="headerlink" title="运行场景最后出现error -82034 Rendezvous release failed"></a>运行场景最后出现error -82034 Rendezvous release failed</h2><p>原因：<br>集合点释放失败，可能内存太低导致。<br>解决方法：<br>（1）重新设置STOP vuser。<br>（2）修改集合点的超时时间，如由1秒改为30秒。<br><img src= "/img/loading.gif" data-src="/images/CapacityTestingIssues2.png" alt="img"></p>
+<h2 id="TPS中有Action-Transaction-和-vuser-init-Transaction"><a href="#TPS中有Action-Transaction-和-vuser-init-Transaction" class="headerlink" title="TPS中有Action_Transaction 和 vuser_init_Transaction"></a>TPS中有Action_Transaction 和 vuser_init_Transaction</h2><p>原因：<br>不明。<br>解决方法：<br>（1）run time setting–Miscellaneous–Automatic Transactions在脚本和场景设置中同时勾上这两项，保存后，再去掉勾选这两项，再保存。<br><img src= "/img/loading.gif" data-src="/images/CapacityTestingIssues3.png" alt="img"></p>
+</div>
+        
+  </div>
+
+    <div class="post_tags">
+      
+        <i class="fas fa-tag"></i> <a href="/tags/Loadrunning/" class="tag">Loadrunning</a>
+      
+    </div>
+    <div class="post-nav">
+      
+      
+        <div class="post-nav-next post-nav-item">
+            <a href="/2020/08/30/UbuntuInstall/" >Ubuntu安装卸载dstat<i class="fa fa-chevron-right"></i></a>
+        </div>
+      
+    </div>
 
 
+    <div class="comments">
+      
+    </div>
+</article>
 
     
 <a id="gotop" href="javascript:" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
