@@ -2,19 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://yoursite.com/2020/08/30/CapacityTestingIssues/</loc>
-    <lastmod>2020-08-30</lastmod>
+    <lastmod>2020-09-08</lastmod>
   </url>
   <url>
     <loc>http://yoursite.com/2020/08/30/UbuntuInstall/</loc>
     <lastmod>2020-08-30</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/07/30/LoadrunningScript/</loc>
-    <lastmod>2020-08-22</lastmod>
+    <loc>http://yoursite.com/2020/08/21/MouseClickEffect/</loc>
+    <lastmod>2020-08-30</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/08/21/MouseClickEffect/</loc>
-    <lastmod>2020-08-21</lastmod>
+    <loc>http://yoursite.com/2020/07/14/Differences-in-Python/</loc>
+    <lastmod>2020-08-30</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite.com/2020/07/30/LoadrunningScript/</loc>
+    <lastmod>2020-08-22</lastmod>
   </url>
   <url>
     <loc>http://yoursite.com/2020/08/20/MessageBoard/</loc>
@@ -34,10 +38,6 @@
   </url>
   <url>
     <loc>http://yoursite.com/2020/06/07/Postman/</loc>
-    <lastmod>2020-08-19</lastmod>
-  </url>
-  <url>
-    <loc>http://yoursite.com/2020/07/14/Differences-in-Python/</loc>
     <lastmod>2020-08-19</lastmod>
   </url>
   <url>
