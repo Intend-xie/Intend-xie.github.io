@@ -114,14 +114,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/guestbook/index.html</loc>
+    <loc>http://yoursite.com/about/index.html</loc>
     
     <lastmod>2020-08-20</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/about/index.html</loc>
+    <loc>http://yoursite.com/guestbook/index.html</loc>
     
     <lastmod>2020-08-20</lastmod>
     
@@ -228,7 +228,7 @@
 
   
   <url>
-    <loc>http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/</loc>
+    <loc>http://yoursite.com/tags/Python/</loc>
     <lastmod>2020-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -242,7 +242,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/linux/</loc>
+    <loc>http://yoursite.com/tags/hexo/</loc>
     <lastmod>2020-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -256,6 +256,13 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/</loc>
+    <lastmod>2020-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/tags/JMeter/</loc>
     <lastmod>2020-11-18</lastmod>
     <changefreq>daily</changefreq>
@@ -263,14 +270,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/hexo/</loc>
-    <lastmod>2020-11-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/Postman/</loc>
+    <loc>http://yoursite.com/tags/linux/</loc>
     <lastmod>2020-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -284,7 +284,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/Python/</loc>
+    <loc>http://yoursite.com/tags/Postman/</loc>
     <lastmod>2020-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
