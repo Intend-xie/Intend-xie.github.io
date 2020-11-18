@@ -21,7 +21,7 @@
 
   
 
-  <title>Tags: linux | Intend blog</title>
+  <title>易用性测试详解 | Intend blog</title>
 
   
 
@@ -163,42 +163,72 @@
 </div>
 
     
-<div class="post-wrap archive">
+<article id="post">
+  <div class="post-title">易用性测试详解</div>
+  
+<div class="post-meta">
     
     
-        
-        
-        <div class="yearzodiac">
-                <div class="years">
-                  <h1>2020  <i class="symbolic-animals icon-rat"></i></h1>
-                </div>
-        </div>
-        
-        <li class="archive-item">
-            <a class="archive-item-link" href="/2020/11/18/LinuxKnowledgePoints/">Linux知识点</a>
-            <span class="archive-item-date">2020-11-18</span>
-        </li>
+      <div class="post-meta-item date">
+        <span title="Created 2020.11.18"><i class="far fa-calendar-alt"></i> 2020.11.18</span>
+      </div>
+      <div class="post-meta-item updated">
+        <span title="Updated 2020.11.18"><i class="far fa-calendar-check"></i> 2020.11.18</span>
+      </div>
+     
+     
     
+     <div class="post-meta-item wordcount">
         
+          <i class="fas fa-pencil-alt"></i> <span class="post-count">1.1k words</span>
+           
         
-        <li class="archive-item">
-            <a class="archive-item-link" href="/2020/08/30/UbuntuInstall/">Ubuntu安装卸载dstat</a>
-            <span class="archive-item-date">2020-08-30</span>
-        </li>
-    
-    <div class="arc_pag">
-       <nav class="paginator">
-      
-            
-</nav>
-
-     </div>
+          <i class="far fa-clock"></i> <span class="post-count">3 min</span>
+                               
+      </div>
+     
 </div>
 
 
+  
+    <div id="toc" class="toc">
+          <h1>Toc</h1>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#易用性测试定义"><span class="toc-number">1.</span> <span class="toc-text">易用性测试定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#易用性测试的内容"><span class="toc-number">2.</span> <span class="toc-text">易用性测试的内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#易用性测试遵循原则"><span class="toc-number">3.</span> <span class="toc-text">易用性测试遵循原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#易用性测试小练习"><span class="toc-number">4.</span> <span class="toc-text">易用性测试小练习</span></a></li></ol>
+      </div>
+    
+  <div class="content">
+        <div><p>此文仅是本人学习笔记。</p>
+<h2 id="易用性测试定义"><a href="#易用性测试定义" class="headerlink" title="易用性测试定义"></a>易用性测试定义</h2><p>易用性测试是指用户使用软件时是否感觉方便，比如是否最多点击鼠标三次就可以达到用户的目的。易用性和可用性存在一定的区别，可用性是指是否可以使用，而易用性是指是否方便使用。</p>
+<h2 id="易用性测试的内容"><a href="#易用性测试的内容" class="headerlink" title="易用性测试的内容"></a>易用性测试的内容</h2><p>易用性测试包括针对应用程序的测试，同时还包括对用户手册系统文档的测试。通常采用质量外部模型来评价易用性。包括如下方面的测试: (1)易理解性;(2)易学习性;(3)易操作性(4)吸引性;(5)依从性。<br>易用性可有以下方面：导航，图形，内容，整体界面</p>
+<h2 id="易用性测试遵循原则"><a href="#易用性测试遵循原则" class="headerlink" title="易用性测试遵循原则"></a>易用性测试遵循原则</h2><p>对于易用性测试可遵循以下原则：<br>1、完成相同或相近功能的按钮用Frame 框起来，常用按钮要支持快捷方式。<br>2、完成同一功能或任务的元素放在集中位置，减少鼠标移动的距离。<br>3、按功能将界面划分局域块，用Frame 框起来，并要有功能说明或标题。<br>4、界面要支持键盘自动浏览按钮功能，即按Tab 键的自动切换功能。<br>5、界面上首先应输入的信息和重要信息的控件在Tab 顺序中应当靠前，位置也应放在窗口上较醒目的位置。<br>6、同一界面上的控件数最好不要超过10 个，多于10 个时可以考虑使用分页界面显示。<br>7、分页界面要支持在页面间的快捷切换，常用组合快捷键Ctrl+Tab<br>8、默认按钮要支持Enter 操作，即按Enter 后自动执行默认按钮对应操作。<br>9、可输入控件检测到非法输入后应给出说明信息并能自动获得焦点。<br>10、Tab 键的顺序与控件排列顺序要一直，目前流行总体从上到下，同时行间从左到右的方式。<br>11、复选框和选项框按选择几率的高底而先后排列。<br>12、复选框和选项框要有默认选项，并支持Tab 选择。<br>13、选项数相同时多用选项框而不用下拉列表框。<br>14、界面空间较小时使用下拉框而不用选项框。<br>15、选项数较少时使用选项框，相反使用下拉列表框。<br>16、专业性强的软件要使用相关的专业术语，通用性界面则提倡使用通用性词眼。<br>17、对于界面输入重复性高的情况，该界面应全面支持键盘操作，即在不使用鼠标的情况下采用键盘进行操作。</p>
+<h2 id="易用性测试小练习"><a href="#易用性测试小练习" class="headerlink" title="易用性测试小练习"></a>易用性测试小练习</h2><p>下列哪一项不属于软件功能易用性测试关注内容（）<br>A 软件界面的色彩是否协调<br>B 软件是否能主动禁止用户可能进行的非法操作<br>C 软件是否允许用户针对自己的使用习惯进行定制<br>D 软件是否能帮助用户减少输入中的重复劳动<br>答案：A<br>解析：功能易用性是指用户能否方便、快速、准确地使用软件提供的功能来完成需要完成的内容，其主要内容有：1业务符合度；2 功能定制性；3功能的关联度；4数据的共享度；5用户约束的合理性；6 反馈的及时性；其中功能定制性中说明一个软件通常是为不同的用户提供服务，各用户经常使用的业务功能也不尽相同，功能易用性要求软件在一定程度上允许用户针对自己的需求进行定制，这与C选项一致；数据的共享度的一个主要优点就是减少重复输入，从而保证数据一致性，测试时就是检查各个功能的输入，确定是否有重复输入，这与选项D一致；用户约束的合理性中指明软件需要对用户进行约束，选项B属于权限性的约束。<br>转载：<a href="http://www.51testing.com/html/10/n-3722110.html" target="_blank" rel="noopener">http://www.51testing.com/html/10/n-3722110.html</a></p>
+</div>
+        
+  </div>
+
+    <div class="post_tags">
+      
+        <i class="fas fa-tag"></i> <a href="/tags/%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/" class="tag">功能测试</a>
+      
+    </div>
+    <div class="post-nav">
+      
+        <div class="post-nav-prev post-nav-item">
+            <a href="/2020/11/18/FundamentalsOfComputer/" >计算机基础<i class="fa fa-chevron-left"></i></a>
+        </div>
+      
+      
+        <div class="post-nav-next post-nav-item">
+            <a href="/2020/11/18/HowToDoLocalizationTest/" >如何做本地化测试<i class="fa fa-chevron-right"></i></a>
+        </div>
+      
+    </div>
 
 
-
+    <div class="comments">
+      
+    </div>
+</article>
 
     
 <a id="gotop" href="javascript:" title="返回顶部"><i class="fa fa-arrow-up"></i></a>

@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite.com/2020/11/18/LinuxKnowledgePoints/</loc>
+    <lastmod>2020-11-18</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite.com/2020/11/18/FundamentalsOfComputer/</loc>
+    <lastmod>2020-11-18</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite.com/2020/11/18/LocalizationTesting/</loc>
+    <lastmod>2020-11-18</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite.com/2020/11/18/DetailedExplanationOfUsabilityTest/</loc>
+    <lastmod>2020-11-18</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite.com/2020/11/18/HowToDoLocalizationTest/</loc>
+    <lastmod>2020-11-18</lastmod>
+  </url>
+  <url>
     <loc>http://yoursite.com/2020/08/30/CapacityTestingIssues/</loc>
     <lastmod>2020-09-08</lastmod>
   </url>

@@ -21,7 +21,7 @@
 
   
 
-  <title>Tags: linux | Intend blog</title>
+  <title>如何做本地化测试 | Intend blog</title>
 
   
 
@@ -163,42 +163,71 @@
 </div>
 
     
-<div class="post-wrap archive">
+<article id="post">
+  <div class="post-title">如何做本地化测试</div>
+  
+<div class="post-meta">
     
     
-        
-        
-        <div class="yearzodiac">
-                <div class="years">
-                  <h1>2020  <i class="symbolic-animals icon-rat"></i></h1>
-                </div>
-        </div>
-        
-        <li class="archive-item">
-            <a class="archive-item-link" href="/2020/11/18/LinuxKnowledgePoints/">Linux知识点</a>
-            <span class="archive-item-date">2020-11-18</span>
-        </li>
+      <div class="post-meta-item date">
+        <span title="Created 2020.11.18"><i class="far fa-calendar-alt"></i> 2020.11.18</span>
+      </div>
+      <div class="post-meta-item updated">
+        <span title="Updated 2020.11.18"><i class="far fa-calendar-check"></i> 2020.11.18</span>
+      </div>
+     
+     
     
+     <div class="post-meta-item wordcount">
         
+          <i class="fas fa-pencil-alt"></i> <span class="post-count">1.2k words</span>
+           
         
-        <li class="archive-item">
-            <a class="archive-item-link" href="/2020/08/30/UbuntuInstall/">Ubuntu安装卸载dstat</a>
-            <span class="archive-item-date">2020-08-30</span>
-        </li>
-    
-    <div class="arc_pag">
-       <nav class="paginator">
-      
-            
-</nav>
-
-     </div>
+          <i class="far fa-clock"></i> <span class="post-count">3 min</span>
+                               
+      </div>
+     
 </div>
 
 
+  
+    <div id="toc" class="toc">
+          <h1>Toc</h1>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、什么是本地化测试"><span class="toc-number">1.</span> <span class="toc-text">一、什么是本地化测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、本地化测试包括哪些内容"><span class="toc-number">2.</span> <span class="toc-text">二、本地化测试包括哪些内容</span></a></li></ol>
+      </div>
+    
+  <div class="content">
+        <div><p>此文仅是本人学习笔记。</p>
+<h2 id="一、什么是本地化测试"><a href="#一、什么是本地化测试" class="headerlink" title="一、什么是本地化测试"></a>一、什么是本地化测试</h2><p>当今的软件发布到世界不同的国家和地区，使软件适应该国家或地区特定的语言、地区习俗和文化的过程成为本地化，这类的测试就称为本地化测试</p>
+<h2 id="二、本地化测试包括哪些内容"><a href="#二、本地化测试包括哪些内容" class="headerlink" title="二、本地化测试包括哪些内容"></a>二、本地化测试包括哪些内容</h2><p>1） 翻译<br>这是最基本的内容，首先检查软件中显示的文字、帮助文档的内容等等是否翻译成当地的语言，并且能够被读懂。这并不是说要求测试小组中的每一个人都会当地的语言，只需要一人会就行了，不会的人可以检查本地化的其他方面。<br>2）文本扩展<br>当英文翻译为其他语言时，翻译的内容长度可能增加很多，这称为文本扩展。文本扩展会导致一些问题，例如窗口中的按钮文本截断，没有换行，或者按钮长度自动扩展导致窗口布局发生很大变化等等；有时还会导致系统崩溃，如对于文本分配的内存容纳英文文本是足够的，但是对于其他语言文本就不够了。<br>3）字符编码问题<br>有些软件使用代码页和DBCS（双字节字符集）提供对不同语言的支持，有些情况下会出现问题，例如没有代码页之间转换，显示的字符就会乱七八糟。<br>4）热键和快捷键<br>在本地化测试中需要测试所有的热键和快捷键能否正常工作，符合当地习惯。例如英文的Search翻译成法语是Rechercher，英文中热键是Alt+S，在法语中应该变为Alt+R<br>5）扩展字符<br>所谓扩展字符是指在普通英文字符A-Z和a-z之外的字符，例如许多键盘上看不见的象形字符。对这类的测试是，在所有接受输入和输出之处，尝试使用扩展字符，看能否像普通字符一样处理，如能否正常显示、打印，在程序之间复制粘贴会怎样<br>6）排序、大小写<br>不同的语言对排序规则不同，对于有些亚洲地区，排序是按字符笔画排序，欧美地区一般按字母顺序排序。另外，对于大小写问题，ASCII字符通过+/-32进行大小写转换，如果使用同样的方法处理其他语言，就很可能出错。<br>7）从左到右和从右到左读<br>有些语言，如阿拉伯文，是从右向左读，这个需要注意<br>8）图形中的文字<br>有些菜单中采用字符作为图标，例如使用B作为加粗，英文中是BOLD的首字母没有问题，如果在其他语言中，对于不懂英文的人，这个就可能是个问题，需要对图标进行改变。<br>9）字符串连接的问题<br>当前很多软件将要翻译的内容放到源代码之外的独立文件中，称为资源文件，当动态生成提示信息时，可能用一些文本碎片拼成一个大的提示信息，对英文来说没有问题，但是对于其他语言，由于文字顺序不一样，拼在一起就会错误。<br>10）内容<br>对一个国家是正确的内容，换到另一个国家就可能是完全错误的，需要仔细检查翻译的内容中适应符合当地的地区。例如对于有些国家是左侧行驶对的，但同样的内容在其他国家需要修改为右侧行驶才是对的。<br>11）数据格式<br>包括度量单位、日期、时间、电话号码、纸张大小等等，不同的国家使用不同的格式，除了检查格式正确以外，有时还需要相应修改代码，例如有的地区是以周一作为星期的开始，有的是以周日作为星期的开始<br>12）配置和兼容性问题<br>配置包括不同的外设，例如键盘布局、打印机等等，保证使用没有问题，如打印机能打印出软件发送的所有字符，在不同规格的纸张上打印出正确的格式。<br>兼容性包括在不同语言的应用程序中交换数据时，是否会进行度量单位的换算、扩展字符的转换等等。</p>
+<p>转载：<a href="http://www.51testing.com/html/36/n-841936.html" target="_blank" rel="noopener">http://www.51testing.com/html/36/n-841936.html</a></p>
+</div>
+        
+  </div>
+
+    <div class="post_tags">
+      
+        <i class="fas fa-tag"></i> <a href="/tags/%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/" class="tag">功能测试</a>
+      
+    </div>
+    <div class="post-nav">
+      
+        <div class="post-nav-prev post-nav-item">
+            <a href="/2020/11/18/DetailedExplanationOfUsabilityTest/" >易用性测试详解<i class="fa fa-chevron-left"></i></a>
+        </div>
+      
+      
+        <div class="post-nav-next post-nav-item">
+            <a href="/2020/11/18/LocalizationTesting/" >本地化测试<i class="fa fa-chevron-right"></i></a>
+        </div>
+      
+    </div>
 
 
-
+    <div class="comments">
+      
+    </div>
+</article>
 
     
 <a id="gotop" href="javascript:" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
